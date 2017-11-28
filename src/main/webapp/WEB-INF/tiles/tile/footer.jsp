@@ -4,16 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>푸터</title>
+<title>Insert title here</title>
 </head>
 <body>
-		<footer>
-			<div class="zerogrid wrap-footer">
-				<div class="row">
-					서울특별시 강남구 테헤란로14길 6 남도빌딩 3층 I Class | 대표:케이에이치 | 전화번호:070-8888-8888
-				</div>
-			
-			</div>
-		</footer>
+안녕? 나는 footer야 ㅎㅎㅎ
 </body>
 </html>

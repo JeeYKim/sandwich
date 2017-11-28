@@ -10,4 +10,13 @@
         <property name="username" value="KH0702"/>
         <property name="password" value="oracle"/>
     </bean>
+    
+	<bean id="logDataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dataSource" />
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+            </bean>
+        </property>
+    </bean>    
 </beans>
