@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="staff_layout" template="/WEB-INF/tiles/layout/staff_layout.jsp">
+		
+		<put-attribute name="staff_body" value="/WEB-INF/tiles/tile/staff_body.jsp" />
+
+	</definition>
+	
+	 <definition name="staff_main" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/staff_main.jsp" />
+ 	</definition>
+ 	
+</tiles-definitions>
