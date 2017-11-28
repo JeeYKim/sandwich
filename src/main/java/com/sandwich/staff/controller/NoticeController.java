@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import com.sandwich.common.CommandMap;
+import com.sandwich.common.common.CommandMap;
 import com.sandwich.staff.service.NoticeService;
 
 @Controller

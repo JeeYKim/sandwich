@@ -3,7 +3,7 @@ package com.sandwich.staff.dao;
 import java.util.HashMap;
 import java.util.List;
 
-import com.sandwich.common.CommandMap;
+import com.sandwich.common.common.CommandMap;
 import com.sandwich.common.dao.AbstractDAO;
 
 public interface NoticeDao {
