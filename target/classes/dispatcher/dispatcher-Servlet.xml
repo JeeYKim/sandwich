@@ -11,16 +11,15 @@
 						http://www.springframework.org/schema/context 
 						http://www.springframework.org/schema/context/spring-context.xsd">
       
-      <context:component-scan base-package="com.sandwich">   
-    	<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	<context:component-scan base-package="com.sandwich">   
+    		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-        <mvc:annotation-driven />
-   <!--  <mvc:annotation-driven>
+	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
-			<bean class="com.spring.recipe.common.resolver.CustomMapArgumentResolver"></bean>
+			<bean class="com.sandwich.common.CustomMapArgumentResolver"></bean>
 		</mvc:argument-resolvers>
-	</mvc:annotation-driven> -->
-
+	</mvc:annotation-driven>
+	
    <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
@@ -30,7 +29,11 @@
 
    
    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
-   
+
+	<!-- 파일업로드 (추가) Configure the multipart resolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="2000000"/>
+    </bean>   
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />		
