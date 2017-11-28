@@ -15,4 +15,20 @@
         <put-attribute name="staff_body" expression="/WEB-INF/view/staff_main.jsp" />
  	</definition>
  	
+ 	<definition name="noticeWriteForm" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/notice/noticeWriteForm.jsp" />
+ 	</definition>
+ 	
+  	<definition name="noticeList" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/notice/noticeList.jsp" />
+ 	</definition>
+ 	
+ 	<definition name="noticeView" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/notice/noticeView.jsp" />
+ 	</definition>
+ 	
+ 	<definition name="noticeModifyForm" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/notice/noticeModifyForm.jsp" />
+ 	</definition>	
+ 	
 </tiles-definitions>
