@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 
 <form action="<c:url value="/noticeSave.jy"/>" method="post" enctype="multipart/form-data" >
+	
 	<div class="form-group">
 	    <label for="noticeTitle">공지사항 제목</label>
 		<input type="text" class="form-control" id="noticeTitle" name="noticeTitle" 
@@ -21,6 +22,7 @@
 	<input type="submit" value="등록하기"/>
 	<button type="button" onclick="goList()" class="btn btn-default">목록으로</button>
 </form>
+	
 
 <script src="<c:url value="/resources/app/staff/notice.js"/>"></script>
 <script>

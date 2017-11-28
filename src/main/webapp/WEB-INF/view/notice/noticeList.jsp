@@ -83,11 +83,7 @@
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/SG/adminNoticeAdminList"><button type="button" class="btn btn-outline btn-primary">전체글</button></a>
 						</div>
-						<div class="col-sm-6" style="text-align:right;">
-							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 게시글 수 : ${totalCount}</div>
-						</div>						
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
@@ -97,8 +93,8 @@
 								<thead>
 									<tr role="row" style="vertical-align:middle;">
 										<th style="width: 5%; text-align:center;vertical-align:middle;">번호</th>
-										<th style="width: 20%; text-align:center;vertical-align:middle;">작성자</th>
-										<th style="width: 50%; text-align:center;vertical-align:middle;">글제목</th>
+										<th style="width: 60%; text-align:center;vertical-align:middle;">제목</th>
+										<th style="width: 10%; text-align:center;vertical-align:middle;">작성자</th>
 										<th style="width: 15%; text-align:center;vertical-align:middle;">등록날짜</th>
 										<th style="width: 15%; text-align:center;vertical-align:middle;">관리</th>
 									</tr>
@@ -115,14 +111,18 @@
    				 <c:forEach var="notice"  items="${noticeList}" varStatus="stat">
                  	<tr> 
                      	<td style="text-align:center;vertical-align:middle;">${notice.noticeNo}</td>
-   						<td style="text-align:center;vertical-align:middle;">${notice.memberId}</td>
-                        <td style="text-align:center;vertical-align:middle;">
+   						<td style="text-align:center;vertical-align:middle;">
                         		<a href='<c:url value="/noticeView.jy?noticeNo=${notice.noticeNo}"/>'>${notice.noticeTitle}</a>
                         	</td>
+   						<td style="text-align:center;vertical-align:middle;">${notice.memberId}</td>
                         <td style="text-align:center;vertical-align:middle;">${notice.noticeRegdate}</td>
                         <td style="text-align:center;vertical-align:middle;">
-                        <a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size:30px;"></span></a>
-                        <a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"style="font-size:30px;"></span></a>
+                        
+                        
+                        <a href='<c:url value="/noticeModify.jy"/>'>
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size:30px;"></span></a>
+                        <a href="">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"style="font-size:30px;"></span></a>
           				</td>
                     </tr>
                  </c:forEach> 
