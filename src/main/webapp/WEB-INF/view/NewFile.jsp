@@ -27,6 +27,7 @@ cal();
       		     <img src='resources/images/left.png' style="width: 20px; float: left" onclick="change(-1);">
        			 <input type='text' id="amount" name='amount' value='1' size='3' readonly style="float: left">
        			 <img src='resources/images/right.png' style="width: 20px; float: left" onclick="change(1);">
+       			 ¿Ã∞« practice¥Ÿ...
        </div>
 </body>
 </html>
