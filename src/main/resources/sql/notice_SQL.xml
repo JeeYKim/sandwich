@@ -34,4 +34,18 @@
 	</select>
 	
 	
+	<update id="noticeModify" parameterType="java.util.HashMap">
+		update notice2
+		set notice_title = #{noticeTitle},
+		notice_contents = #{noticeContents},
+		notice_file = #{noticeFile}
+		where notice_no = #{noticeNo}	
+	</update> 
+	
+	<delete id="noticeDelete" parameterType="int">
+		delete from notice2
+		where notice_no = #{noticeNo}
+	</delete>
+	
+	
 </mapper>

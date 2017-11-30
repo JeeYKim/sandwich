@@ -24,7 +24,7 @@
 			   <li class='last'><a href='login'><span>드루와</span></a>
 				
 			   <li class='last'><a href='order'><span>배고파?</span></a></li>
-			   <li class='last'><a href='notice'><span>좀 봐줘</span></a></li>
+			   <li class='last'><a href=''><span>좀 봐줘</span></a></li>
 			   
 			</ul>
 		</div>
