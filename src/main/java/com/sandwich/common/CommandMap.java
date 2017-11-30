@@ -17,7 +17,7 @@ public class CommandMap
 //		 return "";
 		
 		return map.get(key);
-	}     
+	}        
 	
 	//map에 key,value 삽입
 	public void put(String key, Object value)
