@@ -119,11 +119,11 @@
                         <td style="text-align:center;vertical-align:middle;">
                         
                         <button type="button" 
-							onclick="goModify(${notice.noticeNo})"
+							onclick="goModify()"
 							class="btn btn-primary" id="resister">수정</button>
 							
 						<button type="button"
- 							onclick="goDelete(${notice.noticeNo})"
+ 							onclick="goDelete()"
  							class="btn btn-primary" id="resister">삭제</button>
                         
                         <!--  
@@ -181,13 +181,13 @@
 </script>
 
 <script>
-	function goModify(noticeNo) {
-		location.href = '<c:url value="/noticeModifyForm.jy"/>'+"?noticeNo="+noticeNo;
+	function goModify() {
+		location.href = '<c:url value="/noticeModifyForm.jy"/>';
 	}
 </script>
 
 <script>
-	function goDelete(noticeNo) {
-		location.href = '<c:url value="/noticeDelete.jy"/>'+"?noticeNo="+noticeNo;
+	function goDelete() {
+		location.href = '<c:url value="/noticeDelete.jy"/>';
 	}
 </script>

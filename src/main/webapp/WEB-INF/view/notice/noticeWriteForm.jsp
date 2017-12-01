@@ -14,8 +14,8 @@
 	</div>
  
 	<div class="form-group">
-		<label for="nodticeFile">이미지 첨부</label>
-		<input type="file" id="nodticeFile" name="nodticeFile">
+		<label for="noticeFile">이미지 첨부</label>
+		<input type="file" id="noticeFile" name="noticeFile">
 		<p class="help-block">첨부할 이미지를 선택해주세요.</p>
 	</div>
  

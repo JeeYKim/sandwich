@@ -5,10 +5,13 @@ import java.util.List;
 
 import com.sandwich.common.CommandMap;
 public interface NoticeService {
+	
 	void saveNotice(CommandMap notice);
 
 	List getNoticeList();
 	
 	HashMap getNotice(int noticeNo);
+
+	void noticeDelete(int noticeNo);
 
 }

@@ -17,6 +17,11 @@ public class NoticeServiceImpl implements NoticeService {
 	public void saveNotice(CommandMap notice) {
 		if(notice.get("noticeNo") == null) {
 			noticeDao.insertNotice(notice);
+		} else {
+			if(notice.get("noticeFile") == null) {
+				notice.put("noticeFile", notice.get("orgNoticeFile"));
+			}
+			noticeDao.updateNotice(notice);
 		}
 	}
 
@@ -30,5 +35,10 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return notice;
 	}
+	
+	public void noticeDelete(int noticeNo){
+		noticeDao.noticeDelete(noticeNo);
+	}
+	
 
 }
