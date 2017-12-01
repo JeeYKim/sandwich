@@ -95,8 +95,8 @@
                      <a><i class="fa fa-archive"></i>재고관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="/ingredientList.jy">재고목록</a></li>
-                        <li><a href="/ingredientInsertForm.jy">재료등록</a></li>
+                        <li><a href="ingredientList.jy">재고목록</a></li>
+                        <li><a href="ingredientInsertForm.jy">재료등록</a></li>
                      </ul>
                   </li>
                   
