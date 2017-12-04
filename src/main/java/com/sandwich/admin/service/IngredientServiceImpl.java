@@ -1,5 +1,6 @@
 package com.sandwich.admin.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -24,6 +25,11 @@ public class IngredientServiceImpl implements IngredientService{
 		
 		if(commandmap.get("SANDWITCH_NO")==null) {
 		ingredientDAO.ingredientInsert(commandmap);
+		}else {
+			if(commandmap.get("SANDWITCH_THUMBNAIL")==null) {
+				commandmap.put("SANDWITCH_THUMBNAIL", commandmap.get("ORIGINAL_SANDWITCH_THUMBNAIL"));
+			}
+			ingredientDAO.updateIngredient(commandmap);
 		}
 	}
 
@@ -33,6 +39,14 @@ public class IngredientServiceImpl implements IngredientService{
 		
 		return list;
 	}
+	
+	public HashMap ingredientModifyForm(int SANDWITCH_NO) {
+		HashMap ingredient = ingredientDAO.ingredientModifyForm(SANDWITCH_NO);
+		
+		return ingredient;
+	}
 
-
+	public void ingredientDelete(int SANDWITCH_NO) {
+		ingredientDAO.ingredientDelete(SANDWITCH_NO);
+	}
 } 

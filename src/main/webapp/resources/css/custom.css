@@ -183,8 +183,9 @@
   display: flex;
 }
 body .container.body .right_col {
-  background: #F7F7F7;
-}
+  background: #ededed;   
+  height:100%;
+  }
 .nav-md .container.body .right_col {
   padding: 10px 20px 0;
   margin-left: 230px;
@@ -3915,7 +3916,7 @@ ul.project_files li a i {
  * bootstrap-vertical-tabs - v1.2.1
  * https://dbtek.github.io/bootstrap-vertical-tabs
  * 2014-11-07
- * Copyright (c) 2014 A¡Æsmail Demirbilek
+ * Copyright (c) 2014 Aï¿½ï¿½smail Demirbilek
  * License: MIT
  */
 

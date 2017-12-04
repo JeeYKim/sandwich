@@ -14,19 +14,43 @@ function delchk(){
 }
 </script>
 <style type="text/css">
-.paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
-.paging a,
-.paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
--webkit-border-radius:3px;
-   -moz-border-radius:3px;
-		border-radius:3px;
--webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+.paging {
+	text-align: center;
+	height: 32px;
+	margin-top: 5px;
+	margin-bottom: 15px;
 }
-.paging a:first-child{margin-left:0;}
-.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
-.paging .page_arw{font-size:11px;line-height:30px;}
+
+.paging a, .paging strong {
+	display: inline-block;
+	width: 36px;
+	height: 32px;
+	line-height: 28px;
+	font-size: 14px;
+	border: 1px solid #e0e0e0;
+	margin-left: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(235, 235, 235, 1);
+	-moz-box-shadow: 1px 1px 1px 0px rgba(235, 235, 235, 1);
+	box-shadow: 1px 1px 1px 0px rgba(235, 235, 235, 1);
+}
+
+.paging a:first-child {
+	margin-left: 0;
+}
+
+.paging strong {
+	color: #fff;
+	background: #337AB7;
+	border: 1px solid #337AB7;
+}
+
+.paging .page_arw {
+	font-size: 11px;
+	line-height: 30px;
+}
 </style>
 </head>
 <body>
@@ -42,16 +66,14 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6" style="text-align:right;">
-							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 상품수 : ${totalCount}</div>
+							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 상품수 : ${totalcount}</div>
 						</div>
 						
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<table
-								class="table  table-bordered table-hover dataTable no-footer"
-								id="dataTables-example" role="grid"
-								aria-describedby="dataTables-example_info">
+							<table class="table table-bordered table-hover dataTable no-footer"
+								id="dataTables-example" role="grid"	aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row" style="vertical-align:middle;">
 										<th style="width: 5%; text-align:center;vertical-align:middle;">재료 번호</th>
@@ -67,30 +89,29 @@ function delchk(){
 								</thead>
 								<tbody>
 								<c:forEach var="ingredientList"  items="${ingredientList}" varStatus="stat">
-							<%-- 	<c:url var="ToppingDetail" value="/adminToppingDetail" >
-									<c:param name="SANDWITCH_NO" value="${listIngredient.SANDWITCH_NO}" />
+							 	<c:url var="SandwitchModify" value="/ingredientView.jy" >
+									<c:param name="SANDWITCH_NO" value="${ingredientList.SANDWITCH_NO}" />
 								</c:url>
-								<c:url var="ToppingDelete" value="/adminToppingDelete" >
-									<c:param name="SANDWITCH_NO" value="${listIngredient.SANDWITCH_NO}" />
-									<c:param name="SANDWITCH_THUMNAIL" value="${listIngredient.SANDWITCH_THUMNAIL}"/>
-								</c:url> --%>
+								<c:url var="SandwitchDelete" value="/ingredientDelete.jy" >
+									<c:param name="SANDWITCH_NO" value="${ingredientList.SANDWITCH_NO}" />
+								</c:url> 
 																	
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_NO}</td>										
 										<td style="text-align:center;vertical-align:middle;"><img src="upload/ingredient/${ingredientList.SANDWITCH_THUMNAIL}" width="60" height="60" /></td>
 										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_BIGTYPE}</td>
-										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_SMALLTYPE}</td>
+										<td style="text-align:center;vertical-align:middle;"><a href="">${ingredientList.SANDWITCH_SMALLTYPE}</a></td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${ingredientList.SANDWITCH_PRICE}" type="number"/>원<div style='display:none;'>${ingredientList.SANDWITCH_NO}</div></td>							
 										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_AMOUNT}개</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${ingredientList.SANDWITCH_ORDERDATE}" pattern="YY.MM.dd HH:mm" /></td>			
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${ingredientList.SANDWITCH_ENDDATE}" pattern="YY.MM.dd HH:mm" /></td>								
 										<td style="text-align:center;vertical-align:middle;">
-										  <a href="${ToppingDetail}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										 <a href="${ToppingDelete}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
+										  <a href="${SandwitchModify}"><input type="image" src="resources/images/modify.png"></a>&nbsp;&nbsp;
+										 <a href="${SandwitchDelete}"><input type="image" src="resources/images/delete.png" onclick="return delchk()"></a></td>									
 									 </tr>
 								</c:forEach>
 								<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(listIngredient) le 0}">
+									<c:if test="${ingredientList}==0">
 										<tr><td colspan="11" style="text-align:center;">등록된 상품이 없습니다</td></tr>
 									</c:if> 
 								</tbody>

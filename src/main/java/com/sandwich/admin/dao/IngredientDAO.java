@@ -1,5 +1,6 @@
 package com.sandwich.admin.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,21 @@ public class IngredientDAO extends AbstractDAO{
 		List ingredientList = selectList("ingredient.listIngredient");
 		
 		return ingredientList;
+	}
+	
+	public HashMap ingredientModifyForm(int SANDWITCH_NO) {
+		
+		HashMap ingredient = (HashMap) selectOne("ingredient.viewIngredient", SANDWITCH_NO);
+		
+		return ingredient;
+	}
+	
+	public void ingredientDelete(int SANDWITCH_NO) {
+		
+		delete("ingredient.deleteIngredient", SANDWITCH_NO);
+	}
+	public void updateIngredient(CommandMap commandmap) {
+		update("ingredient.updateIngredient", commandmap.getMap());
 	}
 }
 

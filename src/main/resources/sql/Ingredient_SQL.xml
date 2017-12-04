@@ -3,7 +3,7 @@
 
 <mapper namespace="ingredient">
 
- 	<resultMap type="java.util.HashMap" id="ingredientMap">
+<!--  	<resultMap type="java.util.HashMap" id="ingredientMap">
 		<result property="SANDWITCH_NO" column="SANDWITCH_NO" />
 		<result property="SANDWITCH_BIGTYPE" column="SANDWITCH_BIGTYPE" />
 		<result property="SANDWITCH_SMALLTYPE" column="SANDWITCH_SMALLTYPE" />
@@ -12,7 +12,7 @@
 		<result property="SANDWITCH_THUMNAIL" column="SANDWITCH_THUMNAIL" />	
 		<result property="SANDWITCH_ORDERDATE" column="SANDWITCH_ORDERDATE" />	
 		<result property="SANDWITCH_ENDDATE" column="SANDWITCH_ENDDATE" />	
-	</resultMap>
+	</resultMap> -->
 
 
   <insert id="insertIngredient" parameterType="hashmap">
@@ -38,9 +38,35 @@
 	]]>
    </insert>
    
-   <select id="listIngredient" resultMap="ingredientMap">
+   <select id="listIngredient" parameterType="hashmap" resultType="hashmap">
    	<![CDATA[ 
    	SELECT * FROM SANDWITCH order by SANDWITCH_NO desc
    	]]>
    </select>
+   
+   <select id="viewIngredient" resultType="hashmap" parameterType="hashmap">
+   	<![CDATA[
+   	SELECT * FROM SANDWITCH
+   	WHERE SANDWITCH_NO=#{SANDWITCH_NO}
+   	]]>	
+   </select>
+   
+   <delete id="deleteIngredient" parameterType="hashmap">
+   <![CDATA[ 
+   DELETE FROM SANDWITCH WHERE SANDWITCH_NO=#{SANDWITCH_NO}
+   ]]>
+   </delete>
+   
+   <update id="updateIngredient" parameterType="hashmap">
+   <![CDATA[
+   UPDATE SANDWITCH
+   SET SANDWITCH_BIGTYPE=#{SANDWITCH_BIGTYPE},
+		 SANDWITCH_SMALLTYPE=#{SANDWITCH_SMALLTYPE}, 
+		 SANDWITCH_AMOUNT=#{SANDWITCH_AMOUNT},
+		 SANDWITCH_PRICE=#{SANDWITCH_PRICE},
+		 SANDWITCH_THUMNAIL=#{SANDWITCH_THUMBNAIL},
+		 SANDWITCH_ENDDATE=#{SANDWITCH_ENDDATE}
+	WHERE SANDWITCH_NO=#{SANDWITCH_NO}
+   ]]>
+   </update>
 </mapper>
