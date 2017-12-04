@@ -1,186 +1,229 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>불타는 샌드위치</title>
+   <?xml version="1.0" encoding="UTF-8" ?>
+
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <!-- Meta, title, CSS, favicons, etc. -->
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="raon">
+   
+   <meta name="robots" content="noindex, nofollow" />
+
+   <title>직원 페이지</title> 
+   
+   <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+   
+   <!-- Bootstrap core CSS -->
+   <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="resources/css/animate.min.css" rel="stylesheet" />
+   
+   <!-- Custom styling plus plugins -->
+   <link href="resources/css/custom.css" rel="stylesheet" />
+   <link href="resources/css/pink.css" rel="stylesheet" />
+   
+   <!-- Font Awesome -->
+   <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+   
+   <!-- NProgress -->
+   <link href="resources/css/nprogress.css" rel="stylesheet" />
+   
+   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>   <!-- jquery cdn -->
+   
+   <!-- soledot -->
+   <script src="resources/js/soledot.js"></script>
+
    
 </head>
-<body>
-<div class="wrap-body">
-<div id="owl-slide" class="owl-carousel">
-            <div class="item">
-               <img src="resources/images/slide_1.jpg" />
+
+<body class="nav-md">
+
+   <div class="container body">
+      <div class="main_container">
+
+         <?xml version="1.0" encoding="UTF-8" ?>
+
+
+   <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+
+         <div class="navbar nav_title" style="border: 0;">
+            <a href="admin" class="site_title">
+               <i class="fa fa-cogs"></i><span>관리자 페이지</span>
+            </a>
+         </div>
+         <div class="clearfix"></div>
+
+         <!-- menu prile quick info -->
+         <div class="profile">
+            <div class="profile_pic">
+               <img src="resources/images/1_.jpg" alt="..." class="img-circle profile_img" />
             </div>
-            <div class="item">
-               <img src="resources/images/slide_2.jpg" />
-            </div>
-            <div class="item">
-               <img src="resources/images/slide_3.jpg" />
-               
+            <div class="profile_info">
+               <span>안녕하세요!</span>
+               <h2></h2>
             </div>
          </div>
-      
-      <button id="order_btn" onclick="order">배고파?</button>
-      <!--////////////////////////////////////Container-->
-      <section id="container">
-         <div class="wrap-container">
-            <div id="main-content">
-               <div class="wrap-content">
-                  <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고갱님들의 추천조합<br><br></h3>
-                  <div class="zerogrid">
-                     <div class="row">
-                        <div class="col-1-2">
-                           <article>
-                              <div class="post-thumbnail-wrap">
-                                 <a href="single.html" class="portfolio-box">
-                                    <img src="resources/images/11_.jpg" alt="">
-                                    <div class="portfolio-box-caption">
-                                       <div class="portfolio-box-caption-content">
-                                          <div class="project-text">
-                                             제가 해먹어 봤는데 정말 맛있어요
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="entry-header ">
-                                 <h3 class="entry-title">추천추천</h3>
-                                 <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a> / <a href="#">Typography</a></div>
-                              </div>
-                           </article>
-                        </div>
-                        <div class="col-1-2">
-                           <article>
-                              <div class="post-thumbnail-wrap">
-                                 <a href="single.html" class="portfolio-box">
-                                    <img src="resources/images/12_.jpg" alt="">
-                                    <div class="portfolio-box-caption">
-                                       <div class="portfolio-box-caption-content">
-                                          <div class="project-text">
-                                             제가 해먹어 봤는데 정말 맛있어요2
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="entry-header ">
-                                 <h3 class="entry-title">추천추천2</h3>
-                                 <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a> / <a href="#">Typography</a></div>
-                              </div>
-                           </article>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-1-2">
-                           <article>
-                              <div class="post-thumbnail-wrap">
-                                 <a href="single.html" class="portfolio-box">
-                                    <img src=resources/images/13_.jpg" alt="">
-                                    <div class="portfolio-box-caption">
-                                       <div class="portfolio-box-caption-content">
-                                          <div class="project-text">
-                                             제가 해먹어 봤는데 정말 맛있어요3
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="entry-header ">
-                                 <h3 class="entry-title">추천추천3</h3>
-                                 <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a> / <a href="#">Typography</a></div>
-                              </div>
-                           </article>
-                        </div>
-                        <div class="col-1-2">
-                           <article>
-                              <div class="post-thumbnail-wrap">
-                                 <a href="single.html" class="portfolio-box">
-                                    <img src="resources/images/14_.jpg" alt="">
-                                    <div class="portfolio-box-caption">
-                                       <div class="portfolio-box-caption-content">
-                                          <div class="project-text">
-                                             제가 해먹어 봤는데 정말 맛있어요4
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="entry-header ">
-                                 <h3 class="entry-title">추천추천4</h3>
-                                 <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a> / <a href="#">Typography</a></div>
-                              </div>
-                           </article>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-1-2">
-                           <article>
-                              <div class="post-thumbnail-wrap">
-                                 <a href="single.html" class="portfolio-box">
-                                    <img src="resources/images/1_.jpg" alt="">
-                                    <div class="portfolio-box-caption">
-                                       <div class="portfolio-box-caption-content">
-                                          <div class="project-text">
-                                             제가 해먹어 봤는데 정말 맛있어요5
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="entry-header ">
-                                 <h3 class="entry-title">추천추천5</h3>
-                                 <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a> / <a href="#">Typography</a></div>
-                              </div>
-                           </article>
-                        </div>
-                        <div class="col-1-2">
-                           <article>
-                              <div class="post-thumbnail-wrap">
-                                 <a href="single.html" class="portfolio-box">
-                                    <img src="resources/images/2_.jpg" alt="">
-                                    <div class="portfolio-box-caption">
-                                       <div class="portfolio-box-caption-content">
-                                          <div class="project-text">
-                                             제가 해먹어 봤는데 정말 맛있어요6
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="entry-header ">
-                                 <h3 class="entry-title">추천추천6</h3>
-                                 <div class="l-tags"><a href="#">Design</a> / <a href="#">Illustrations</a> / <a href="#">Typography</a></div>
-                              </div>
-                           </article>
-                        </div>
-                     </div>
-                  </div>
+         <!-- /menu prile quick info -->
+
+         <br />
+
+         <!-- sidebar menu -->
+         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+            <div class="menu_section">
+               <h3>관리자님!</h3>
+               <ul class="nav side-menu">
+                  <li>
+                     <a href="/jee"><i class="fa fa-cutlery"></i>불타는 샌드위치로 가기</a>
+                  </li>
+                  <li>
+                     <a href="admin.jy"><i class="fa fa-clock-o"></i>알림</a>
+                  </li>
+                  
+                  <li>
+                     <a><i class="fa fa-archive"></i>재고관리<span class="fa fa-chevron-down"></span></a>
+                     <ul class="nav child_menu" style="display: none">
+                     
+                        <li><a href="ingredientList.jy">재고목록</a></li>
+                        <li><a href="ingredientInsertForm.jy">재료등록</a></li>
+                     </ul>
+                  </li>
+                  
+                  <li>
+                     <a><i class="fa fa-file-text-o"></i>발주관리<span class="fa fa-chevron-down"></span></a>   
+                        <ul class="nav child_menu" style="display: none">
+                     
+                        <li><a href="/order_list">발주내역</a></li>
+                     </ul>               
+                  </li>
+                  <li>
+                     <a><i class="fa fa-trash"></i>폐기관리<span class="fa fa-chevron-down"></span></a>   
+                        <ul class="nav child_menu" style="display: none">
+                     
+                        <li><a href="/trash">폐기내역</a></li>
+                     </ul>               
+                  </li>
+                  <li>
+                     <a><i class="fa fa-user"></i>회원관리<span class="fa fa-chevron-down"></span></a>
+                     <ul class="nav child_menu" style="display: none">
+                     
+                        <li><a href="member_list">회원 리스트</a></li>   
+                     </ul>
+                  </li>
+                  <li>
+                     <a><i class="fa fa-book"></i>게시판관리<span class="fa fa-chevron-down"></span></a>
+                     <ul class="nav child_menu" style="display: none">
+                     
+                        <li><a href="notice_list">공지사항 리스트</a></li>
+                        <li><a href="recommendation_list">추천게시판 리스트</a></li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a><i class="fa fa-won"></i>매출관리<span class="fa fa-chevron-down"></span></a>
+                     <ul class="nav child_menu" style="display: none">
+                     
+                        <li><a href="current">매출현황</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+
+         </div>
+         <!-- /sidebar menu -->
+
+         <!-- /menu footer buttons -->
+         <div class="sidebar-footer hidden-small">
+
+         </div>
+         <!-- /menu footer buttons -->
+      </div>
+   </div>
+
+
+         <!-- top navigation -->
+         <?xml version="1.0" encoding="UTF-8" ?>
+
+   <div class="top_nav">
+
+      <div class="nav_menu">
+         <nav class="" role="navigation">
+            <div class="nav toggle">
+               <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+               <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class=" fa fa-angle-down" ></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+
+                     <li>
+                        <a href="/sd_intensely/memberlogin/bo/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                     </li>
+                  </ul>
+               </li>
+   
+
+            </ul>
+         
+         </nav>
+      </div>
+
+   </div>
+         <!-- /top navigation -->
+
+         <!-- page content -->
+         <div class="right_col" role="main">
+
+            <div class="">
+               <div class="page-title">
+                  
+                  <tiles:insertAttribute name="admin_body" />
+                  
                </div>
             </div>
          </div>
-      </section>
+         <!-- /page content -->
+
+         <!-- footer content -->
+<!--          <?xml version="1.0" encoding="UTF-8" ?>
 
 
-      <!-- carousel -->
-      <script src="resources/owl-carousel/owl.carousel.js"></script>
-      <script>
-      $(document).ready(function() {
-        $("#owl-slide").owlCarousel({
-         autoPlay: 3000,
-         items : 1,
-         itemsDesktop : [1199,1],
-         itemsDesktopSmall : [979,1],
-         itemsTablet : [768, 1],
-         itemsMobile : [479, 1],
-         navigation: true,
-         navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
-         pagination: false
-        });
-      });
-      </script>
+      </div>
    </div>
-   </body>
-   </html>
+
+   <div id="custom_notifications" class="custom-notifications dsp_none">
+      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group"></ul>
+      <div class="clearfix"></div>
+      <div id="notif-group" class="tabbed_notifications"></div>
+   </div> -->
+
+   <?xml version="1.0" encoding="UTF-8" ?>
+
+   
+   <script src="resources/js/bootstrap.min.js"></script>
+    <!-- bootstrap progress js -->
+    <script src="resources/js/bootstrap-progressbar.min.js"></script>
+    <!-- icheck -->
+    <script src="resources/js/icheck.min.js"></script>
+    
+   <!-- pace -->
+   <script src="resources/js/pace.min.js"></script>
+   
+   <script src="resources/js/custom.js"></script>
+
+</body>
+
+</html>

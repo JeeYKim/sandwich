@@ -15,4 +15,11 @@
         <put-attribute name="admin_body" expression="/WEB-INF/view/admin_main.jsp" />
  	</definition>
  	
+ 	<definition name="ingredientForm" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/ingredientInsertForm.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="ingredientList" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/ingredientList.jsp"/>
+ 	</definition>
 </tiles-definitions>

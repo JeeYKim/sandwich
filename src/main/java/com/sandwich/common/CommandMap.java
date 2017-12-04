@@ -17,7 +17,7 @@ public class CommandMap
 //		 return "";
 		
 		return map.get(key);
-	}
+	}        
 	
 	//map에 key,value 삽입
 	public void put(String key, Object value)
@@ -46,7 +46,7 @@ public class CommandMap
 	public void clear()
 	{
 		map.clear();
-	}
+	}   
 	
 	//entryset : key와 value를 하나의 entry로 묶어줌
 	public Set<Entry<String,Object>> entrySet()

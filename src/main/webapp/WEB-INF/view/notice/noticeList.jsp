@@ -118,11 +118,21 @@
                         <td style="text-align:center;vertical-align:middle;">${notice.noticeRegdate}</td>
                         <td style="text-align:center;vertical-align:middle;">
                         
+                        <button type="button" 
+							onclick="goModify(${notice.noticeNo})"
+							class="btn btn-primary" id="resister">수정</button>
+							
+						<button type="button"
+ 							onclick="goDelete(${notice.noticeNo})"
+ 							class="btn btn-primary" id="resister">삭제</button>
                         
-                        <a href='<c:url value="/noticeModify.jy"/>'>
+                        <!--  
+                        <a href='<c:url value="/noticeModify.jy?noticeNo=${notice.noticeNo}"/>'>
                         <span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size:30px;"></span></a>
                         <a href="">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"style="font-size:30px;"></span></a>
+                        -->
+                        
           				</td>
                     </tr>
                  </c:forEach> 
@@ -167,5 +177,17 @@
 <script>
 	function goWrite() {
 		location.href = '<c:url value="/noticeWriteForm.jy"/>';
+	}
+</script>
+
+<script>
+	function goModify(noticeNo) {
+		location.href = '<c:url value="/noticeModifyForm.jy"/>'+"?noticeNo="+noticeNo;
+	}
+</script>
+
+<script>
+	function goDelete(noticeNo) {
+		location.href = '<c:url value="/noticeDelete.jy"/>'+"?noticeNo="+noticeNo;
 	}
 </script>

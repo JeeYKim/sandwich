@@ -21,10 +21,22 @@ public class NoticeDaoImpl extends AbstractDAO implements NoticeDao {
 		return noticeList;
 	}
 	
-	@Override
 	public HashMap getNotice(int noticeNo) {
 		HashMap notice = (HashMap) selectOne(NAME_SPACE + "getNotice", noticeNo);
 		return notice;
 	}
-
+	
+	public HashMap noticeModify(int noticeNo) {
+		HashMap notice = (HashMap) update(NAME_SPACE + "noticeModify", noticeNo);
+		return notice;
+	}
+	public void updateNotice(CommandMap notice){
+		update(NAME_SPACE + "noticeModify", notice.getMap());
+		
+	}
+	
+	public void noticeDelete(int noticeNo){
+		delete(NAME_SPACE + "noticeDelete", noticeNo);
+	}
+		
 }
