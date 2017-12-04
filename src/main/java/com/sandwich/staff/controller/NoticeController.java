@@ -23,8 +23,8 @@ import com.sandwich.staff.service.NoticeService;
 
 @Controller
 public class NoticeController {
-	private final static String FILE_PATH = "/Users/yhshin/Documents/workspace/sandwich/src/main/webapp/upload/notice/";
-	
+	private final static String FILE_PATH = "/Users/yhshin/Documents/sandwich/src/main/webapp/upload/notice/";
+											
 	@Autowired
 	private NoticeService noticeService; 
 	
@@ -64,10 +64,11 @@ public class NoticeController {
 		return "redirect:noticeList.jy";
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/noticeList")
-	public String noticeList(Model model) {
+	public String noticeList(CommandMap param, Model model) {
 		
-		List noticeList = noticeService.getNoticeList();
+		List noticeList = noticeService.getNoticeList(param.getMap());
 		model.addAttribute("noticeList", noticeList);
 		return "noticeList";
 	}

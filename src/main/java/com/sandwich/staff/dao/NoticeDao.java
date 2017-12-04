@@ -2,6 +2,7 @@ package com.sandwich.staff.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.sandwich.common.CommandMap;
 import com.sandwich.common.dao.AbstractDAO;
@@ -13,7 +14,7 @@ public interface NoticeDao {
 	
 	void updateNotice(CommandMap notice);
 	
-	List getNoticeList();
+	List getNoticeList(Map param);
 	
 	
 	HashMap getNotice(int noticeNo);
