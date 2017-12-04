@@ -22,4 +22,9 @@
  	<definition name="ingredientList" extends="admin_layout">
  		<put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/ingredientList.jsp"/>
  	</definition>
+ 	
+ 	<definition name="viewIngredient" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/ingredientModifyForm.jsp"/>
+ 	</definition>
+ 	
 </tiles-definitions>

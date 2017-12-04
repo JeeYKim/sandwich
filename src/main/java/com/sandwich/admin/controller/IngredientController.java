@@ -1,6 +1,7 @@
 package com.sandwich.admin.controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ public class IngredientController {
 	@Resource(name = "ingredientService")
 	private IngredientService ingredientService;
 	
+	private int totalcount;
+	
 	@RequestMapping(value=" /ingredientInsertForm")
 	public String ingredientForm(Model model)throws Exception{
 		
@@ -42,8 +45,7 @@ public class IngredientController {
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 		if( multipartHttpServletRequest.getFile("SANDWITCH_THUMBNAIL").getSize() > 0 ) {
 			MultipartFile file = multipartHttpServletRequest.getFile("SANDWITCH_THUMBNAIL");
-			String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-			String fileName = member_id + "-" + System.currentTimeMillis() + ext;
+			String fileName = member_id+"_"+"ingredient"+"_"+file.getOriginalFilename();
 			
 			File uploadFile = new File(FILE_PATH + fileName);
 
@@ -66,9 +68,64 @@ public class IngredientController {
 		@SuppressWarnings("rawtypes")
 		List ingredientList = ingredientService.ingredientList();
 		System.out.println("리스트가 들어오나? : " + ingredientList);
+	
+		totalcount=ingredientList.size();
+		
 		model.addAttribute("ingredientList", ingredientList);
+		model.addAttribute("totalcount", totalcount);
 		
 		return "ingredientList";
 	}
 	
+	@RequestMapping(value="/ingredientView")
+	public String IngredientModifyForm(int SANDWITCH_NO, Model model) {
+		
+		HashMap ingredient = ingredientService.ingredientModifyForm(SANDWITCH_NO);
+		
+		model.addAttribute("ingredient", ingredient);
+		System.out.println("왜 안나올까? : " + ingredient);
+		return "viewIngredient";
+	}
+	@RequestMapping(value="/ingredientDelete")
+	public String IngredientDelete(int SANDWITCH_NO) {
+		
+		ingredientService.ingredientDelete(SANDWITCH_NO);
+		
+		return "redirect:/ingredientList.jy";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

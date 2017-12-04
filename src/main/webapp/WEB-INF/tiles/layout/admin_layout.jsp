@@ -17,7 +17,7 @@
    
    <meta name="robots" content="noindex, nofollow" />
 
-   <title>직원 페이지</title> 
+   <title>관리자 페이지</title> 
    
    <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -29,7 +29,7 @@
    <link href="resources/css/animate.min.css" rel="stylesheet" />
    
    <!-- Custom styling plus plugins -->
-   <link href="resources/css/custom.css" rel="stylesheet" />
+   <link href="resources/css/custom.css?ver=1" rel="stylesheet" />
    <link href="resources/css/pink.css" rel="stylesheet" />
    
    <!-- Font Awesome -->
@@ -58,7 +58,7 @@
       <div class="left_col scroll-view">
 
          <div class="navbar nav_title" style="border: 0;">
-            <a href="admin" class="site_title">
+            <a href="admin.jy" class="site_title">
                <i class="fa fa-cogs"></i><span>관리자 페이지</span>
             </a>
          </div>
@@ -85,7 +85,7 @@
                <h3>관리자님!</h3>
                <ul class="nav side-menu">
                   <li>
-                     <a href="/jee"><i class="fa fa-cutlery"></i>불타는 샌드위치로 가기</a>
+                     <a href="/sandwich"><i class="fa fa-cutlery"></i>불타는 샌드위치로 가기</a>
                   </li>
                   <li>
                      <a href="admin.jy"><i class="fa fa-clock-o"></i>알림</a>
@@ -188,11 +188,11 @@
          <div class="right_col" role="main">
 
             <div class="">
-               <div class="page-title">
+               
                   
                   <tiles:insertAttribute name="admin_body" />
                   
-               </div>
+               
             </div>
          </div>
          <!-- /page content -->
