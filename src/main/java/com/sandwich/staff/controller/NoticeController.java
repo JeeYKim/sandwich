@@ -23,8 +23,8 @@ import com.sandwich.staff.service.NoticeService;
 
 @Controller
 public class NoticeController {
-	private final static String FILE_PATH = "/Users/yhshin/Documents/workspace/sandwich/src/main/webapp/upload/notice/";
-	
+	private final static String FILE_PATH = "/Users/yhshin/Documents/sandwich/src/main/webapp/upload/notice/";
+											
 	@Autowired
 	private NoticeService noticeService; 
 	
@@ -41,8 +41,8 @@ public class NoticeController {
 		
 		// 첨부파일 처리 
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-		if( multipartHttpServletRequest.getFile("nodticeFile").getSize() > 0 ) {
-			MultipartFile file = multipartHttpServletRequest.getFile("nodticeFile");
+		MultipartFile file = multipartHttpServletRequest.getFile("noticeFile");
+		if( file !=null && file.getSize() > 0 ) {
 			String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 			String fileName = memberId + "-" + System.currentTimeMillis() + ext;
 			
@@ -64,10 +64,11 @@ public class NoticeController {
 		return "redirect:noticeList.jy";
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/noticeList")
-	public String noticeList(Model model) {
+	public String noticeList(CommandMap param, Model model) {
 		
-		List noticeList = noticeService.getNoticeList();
+		List noticeList = noticeService.getNoticeList(param.getMap());
 		model.addAttribute("noticeList", noticeList);
 		return "noticeList";
 	}
@@ -88,8 +89,18 @@ public class NoticeController {
 	@RequestMapping(value = "/noticeModifyForm")
 	public String noticeModifyForm(int noticeNo, Model model)  {
 		HashMap notice = noticeService.getNotice(noticeNo);
-		model.addAttribute("notice", notice);
+		model.addAttribute("notice", notice); 
 		
 		return "noticeModifyForm";
 	}
+	
+	@RequestMapping(value = "/noticeDelete")
+	public String noticeDelete(int noticeNo){
+		
+		noticeService.noticeDelete(noticeNo);
+		
+		return "redirect:noticeList.jy";	
+		
+	}
+	
 }

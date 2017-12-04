@@ -119,11 +119,11 @@
                         <td style="text-align:center;vertical-align:middle;">
                         
                         <button type="button" 
-							onclick="goModify(${notice.noticeNo})"
+							onclick="goModify()"
 							class="btn btn-primary" id="resister">수정</button>
 							
 						<button type="button"
- 							onclick="goDelete(${notice.noticeNo})"
+ 							onclick="goDelete()"
  							class="btn btn-primary" id="resister">삭제</button>
                         
                         <!--  
@@ -153,11 +153,11 @@
 							<div style="text-align:center;">
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
-									<select class="form-control" name="searchCol">
-										<option value="title">제목</option>
-										<option value="contents">내용</option>
+									<select class="form-control" name="searchNum" id="searchNum">
+										<option value="0">제목</option>
+										<option value="1">내용</option>
 									</select>
-										<input class="form-control" type="text" name="keyword" id="keyword"/>
+										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
 										<span>
 										<button type="submit" class="btn btn-primary">검색</button>
 										</span>
@@ -181,13 +181,13 @@
 </script>
 
 <script>
-	function goModify(noticeNo) {
-		location.href = '<c:url value="/noticeModifyForm.jy"/>'+"?noticeNo="+noticeNo;
+	function goModify() {
+		location.href = '<c:url value="/noticeModifyForm.jy"/>';
 	}
 </script>
 
 <script>
-	function goDelete(noticeNo) {
-		location.href = '<c:url value="/noticeDelete.jy"/>'+"?noticeNo="+noticeNo;
+	function goDelete() {
+		location.href = '<c:url value="/noticeDelete.jy"/>';
 	}
 </script>
