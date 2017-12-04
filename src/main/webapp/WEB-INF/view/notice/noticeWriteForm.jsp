@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 
-<form action="<c:url value="/noticeSave.jy"/>" method="post" enctype="multipart/form-data" >
+<form action="<c:url value="/noticeSave.jy"/>" method="post" enctype="multipart/form-data" 
+	onsubmit="return validateForm();">
 	
 	<div class="form-group">
 	    <label for="noticeTitle">공지사항 제목</label>
@@ -28,5 +29,21 @@
 <script>
 	function goList() {
 		location.href='<c:url value = "/noticeList.jy"/>';
+	}
+	
+	function validateForm() {
+		var title = $("#noticeTitle").val();
+		var contents = $("#noticeContents").val();
+		
+		if( !(title.length > 0 && title.length <= 100) ) {
+			alert("제목은 100자 이내로 입력해 주세요.");
+			return false;
+		}
+		
+		if( !(contents.length > 0 && contents.length <= 500) ) {
+			alert("내용은 500자 이내로 입력해 주세요.");
+			return false;
+		}
+		return true;
 	}
 </script>

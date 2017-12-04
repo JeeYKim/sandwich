@@ -153,11 +153,11 @@
 							<div style="text-align:center;">
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
-									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">제목</option>
-										<option value="1">내용</option>
+									<select class="form-control" name="searchCol">
+										<option value="title">제목</option>
+										<option value="contents">내용</option>
 									</select>
-										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
+										<input class="form-control" type="text" name="keyword" id="keyword"/>
 										<span>
 										<button type="submit" class="btn btn-primary">검색</button>
 										</span>
