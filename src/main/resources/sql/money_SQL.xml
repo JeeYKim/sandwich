@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="money">
+
+	<select id="Money" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT * FROM(SELECT ROWNUM, BB.aa FROM (SELECT SUM(PURCHASE_PRICE) aa FROM PURCHASE <if test="DATE1 != null"> WHERE PURCHASE_ORDERDATE BETWEEN TO_DATE(#{DATE1}, 'YYYY-MM-DD') AND TO_DATE(#{DATE2}, 'YYYY-MM-DD')+1</if>
+				UNION ALL
+				SELECT SUM(ORDER_PRICE) aa FROM ORDER2 WHERE ORDER_YES=1<if test="DATE1 != null">AND ORDER_ORDERDATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>
+				UNION ALL
+				SELECT SUM(STAFF_COST) aa FROM STAFFMONEY <if test="DATE1 != null">WHERE COST_DATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>
+				UNION ALL
+				SELECT SUM(ECT_COST) aa FROM COST <if test="DATE1 != null">WHERE COST_DATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>
+				UNION ALL
+				SELECT SUM(TOTAL_PRICE) aa FROM GARBAGE <if test="DATE1 != null">WHERE GARBAGE_ENDDATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>) BB)
+		
+	</select>
+
+</mapper>
