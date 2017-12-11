@@ -31,6 +31,7 @@ public class NoticeDaoImpl extends AbstractDAO implements NoticeDao {
 		HashMap notice = (HashMap) update(NAME_SPACE + "noticeModify", noticeNo);
 		return notice;
 	}
+	
 	public void updateNotice(CommandMap notice){
 		update(NAME_SPACE + "noticeModify", notice.getMap());
 		
@@ -39,5 +40,10 @@ public class NoticeDaoImpl extends AbstractDAO implements NoticeDao {
 	public void noticeDelete(int noticeNo){
 		delete(NAME_SPACE + "noticeDelete", noticeNo);
 	}
-		
+
+	@Override
+	public List getMainNoticeList(Map param) {
+		List mainNoticeList = selectList(NAME_SPACE + "getMainNoticeList", param);
+		return mainNoticeList;
+	}
 }

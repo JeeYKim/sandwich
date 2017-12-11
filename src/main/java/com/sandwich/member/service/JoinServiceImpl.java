@@ -6,14 +6,15 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import com.sandwich.member.dao.JoinDao;
 import com.sandwich.common.dao.AbstractDAO;
 
 @Service("joinService")
 public class JoinServiceImpl implements JoinService {
-    Logger log = Logger.getLogger(this.getClass());
+    Logger log = LoggerFactory.getLogger(this.getClass());
     
 	@Resource(name = "joinDAO")
 	private JoinDao JoinDao;

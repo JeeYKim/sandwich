@@ -19,6 +19,7 @@ public class NoticeServiceImpl implements NoticeService {
 		if(notice.get("noticeNo") == null) {
 			noticeDao.insertNotice(notice);
 		} else {
+			
 			if(notice.get("noticeFile") == null) {
 				notice.put("noticeFile", notice.get("orgNoticeFile"));
 			}
@@ -40,6 +41,10 @@ public class NoticeServiceImpl implements NoticeService {
 	public void noticeDelete(int noticeNo){
 		noticeDao.noticeDelete(noticeNo);
 	}
-	
 
+	@Override
+	public List getMainNoticeList(Map param) {
+		List mainNoticeList = noticeDao.getMainNoticeList(param);
+		return mainNoticeList;
+	}
 }
