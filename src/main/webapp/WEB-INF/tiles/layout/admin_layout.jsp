@@ -126,7 +126,7 @@
                      <a><i class="fa fa-book"></i>게시판관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="notice_list">공지사항 리스트</a></li>
+                        <li><a href="noticeList.jy">공지사항 리스트</a></li>
                         <li><a href="recommendation_list">추천게시판 리스트</a></li>
                      </ul>
                   </li>
@@ -134,7 +134,7 @@
                      <a><i class="fa fa-won"></i>매출관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="current">매출현황</a></li>
+                        <li><a href="MoneyList.jy">매출현황</a></li>
                      </ul>
                   </li>
                </ul>

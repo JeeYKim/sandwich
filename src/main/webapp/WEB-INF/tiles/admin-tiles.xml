@@ -26,10 +26,17 @@
  	<definition name="viewIngredient" extends="admin_layout">
  		<put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/ingredientModifyForm.jsp"/>
  	</definition>
- 	
+ 	 	
+ 	<definition name="moneyList" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/money/moneyDate.jsp"/>
+ 	</definition>
  	
  	<definition name="orderAdminList" extends="admin_layout">
  		<put-attribute name="admin_body" expression="/WEB-INF/view/order/orderAdminList.jsp"/>
  	</definition>
- 	
+
+ 	<definition name="moneyChart" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/money/moneyChart.jsp"/>
+ 	</definition>
+
 </tiles-definitions>
