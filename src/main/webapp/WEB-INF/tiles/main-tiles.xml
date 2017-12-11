@@ -10,9 +10,14 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/tile/body.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/tile/footer.jsp" />
 	</definition>
-	
+
 	 <definition name="main" extends="layout">
         <put-attribute name="body" expression="/WEB-INF/view/main.jsp" />
  	</definition>
+
+ 	<definition name="mainNoticeList" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/notice/mainNoticeList.jsp" />
+ 	</definition>
+ 	
  	
 </tiles-definitions>

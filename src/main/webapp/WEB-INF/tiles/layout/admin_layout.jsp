@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -104,7 +105,7 @@
                      <a><i class="fa fa-file-text-o"></i>발주관리<span class="fa fa-chevron-down"></span></a>   
                         <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="/order_list">발주내역</a></li>
+                        <li><a href="<c:url value = "/orderList.jy"/>">발주내역</a></li>
                      </ul>               
                   </li>
                   <li>

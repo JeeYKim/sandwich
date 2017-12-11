@@ -27,4 +27,9 @@
  		<put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/ingredientModifyForm.jsp"/>
  	</definition>
  	
+ 	
+ 	<definition name="orderAdminList" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/order/orderAdminList.jsp"/>
+ 	</definition>
+ 	
 </tiles-definitions>

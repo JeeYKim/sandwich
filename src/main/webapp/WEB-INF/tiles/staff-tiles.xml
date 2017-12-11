@@ -31,4 +31,21 @@
         <put-attribute name="staff_body" expression="/WEB-INF/view/notice/noticeModifyForm.jsp" />
  	</definition>	
  	
+ 	<definition name="orderWriteForm" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/order/orderWriteForm.jsp" />
+ 	</definition>
+ 	
+ 	
+	<definition name="orderModifyForm" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/order/orderModifyForm.jsp" />
+ 	</definition>
+ 	
+ 	
+ 	<definition name="orderList" extends="staff_layout">
+        <put-attribute name="staff_body" expression="/WEB-INF/view/order/orderList.jsp" />
+ 	</definition>
+ 	
+ 	
+ 	
+ 	
 </tiles-definitions>
