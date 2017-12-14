@@ -23,11 +23,11 @@ public class IngredientServiceImpl implements IngredientService{
 
 	public void ingredientInsert(CommandMap commandmap){
 		
-		if(commandmap.get("SANDWITCH_NO")==null) {
+		if(commandmap.get("SANDWICH_NO")==null) {
 		ingredientDAO.ingredientInsert(commandmap);
 		}else {
-			if(commandmap.get("SANDWITCH_THUMBNAIL")==null) {
-				commandmap.put("SANDWITCH_THUMBNAIL", commandmap.get("ORIGINAL_SANDWITCH_THUMBNAIL"));
+			if(commandmap.get("SANDWICH_THUMBNAIL")==null) {
+				commandmap.put("SANDWICH_THUMBNAIL", commandmap.get("ORIGINAL_SANDWICH_THUMBNAIL"));
 			}
 			ingredientDAO.updateIngredient(commandmap);
 		}
@@ -40,13 +40,13 @@ public class IngredientServiceImpl implements IngredientService{
 		return list;
 	}
 	
-	public HashMap ingredientModifyForm(int SANDWITCH_NO) {
-		HashMap ingredient = ingredientDAO.ingredientModifyForm(SANDWITCH_NO);
+	public HashMap ingredientModifyForm(int SANDWICH_NO) {
+		HashMap ingredient = ingredientDAO.ingredientModifyForm(SANDWICH_NO);
 		
 		return ingredient;
 	}
 
-	public void ingredientDelete(int SANDWITCH_NO) {
-		ingredientDAO.ingredientDelete(SANDWITCH_NO);
+	public void ingredientDelete(int SANDWICH_NO) {
+		ingredientDAO.ingredientDelete(SANDWICH_NO);
 	}
 } 

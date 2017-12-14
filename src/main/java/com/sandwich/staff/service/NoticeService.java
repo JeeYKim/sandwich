@@ -15,4 +15,5 @@ public interface NoticeService {
 
 	void noticeDelete(int noticeNo);
 
+	List getMainNoticeList(Map param);
 }
