@@ -89,25 +89,25 @@ function delchk(){
 								</thead>
 								<tbody>
 								<c:forEach var="ingredientList"  items="${ingredientList}" varStatus="stat">
-							 	<c:url var="SandwitchModify" value="/ingredientView.jy" >
-									<c:param name="SANDWITCH_NO" value="${ingredientList.SANDWITCH_NO}" />
+							 	<c:url var="SandwichModify" value="/ingredientView.jy" >
+									<c:param name="SANDWICH_NO" value="${ingredientList.SANDWICH_NO}" />
 								</c:url>
-								<c:url var="SandwitchDelete" value="/ingredientDelete.jy" >
-									<c:param name="SANDWITCH_NO" value="${ingredientList.SANDWITCH_NO}" />
+								<c:url var="SandwichDelete" value="/ingredientDelete.jy" >
+									<c:param name="SANDWICH_NO" value="${ingredientList.SANDWICH_NO}" />
 								</c:url> 
 																	
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_NO}</td>										
-										<td style="text-align:center;vertical-align:middle;"><img src="upload/ingredient/${ingredientList.SANDWITCH_THUMNAIL}" width="60" height="60" /></td>
-										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_BIGTYPE}</td>
-										<td style="text-align:center;vertical-align:middle;"><a href="">${ingredientList.SANDWITCH_SMALLTYPE}</a></td>
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${ingredientList.SANDWITCH_PRICE}" type="number"/>원<div style='display:none;'>${ingredientList.SANDWITCH_NO}</div></td>							
-										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWITCH_AMOUNT}개</td>
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${ingredientList.SANDWITCH_ORDERDATE}" pattern="YY.MM.dd HH:mm" /></td>			
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${ingredientList.SANDWITCH_ENDDATE}" pattern="YY.MM.dd HH:mm" /></td>								
+										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWICH_NO}</td>										
+										<td style="text-align:center;vertical-align:middle;"><img src="upload/ingredient/${ingredientList.SANDWICH_THUMNAIL}" width="60" height="60" /></td>
+										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWICH_BIGTYPE}</td>
+										<td style="text-align:center;vertical-align:middle;"><a href="">${ingredientList.SANDWICH_SMALLTYPE}</a></td>
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${ingredientList.SANDWICH_PRICE}" type="number"/>원<div style='display:none;'>${ingredientList.SANDWICH_NO}</div></td>							
+										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWICH_AMOUNT}개</td>
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${ingredientList.SANDWICH_ORDERDATE}" pattern="YY.MM.dd HH:mm" /></td>			
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${ingredientList.SANDWICH_ENDDATE}" pattern="YY.MM.dd HH:mm" /></td>								
 										<td style="text-align:center;vertical-align:middle;">
-										  <a href="${SandwitchModify}"><input type="image" src="resources/images/modify.png"></a>&nbsp;&nbsp;
-										 <a href="${SandwitchDelete}"><input type="image" src="resources/images/delete.png" onclick="return delchk()"></a></td>									
+										  <a href="${SandwichModify}"><input type="image" src="resources/images/modify.png"></a>&nbsp;&nbsp;
+										 <a href="${SandwichDelete}"><input type="image" src="resources/images/delete.png" onclick="return delchk()"></a></td>									
 									 </tr>
 								</c:forEach>
 								<!--  등록된 상품이 없을때 -->

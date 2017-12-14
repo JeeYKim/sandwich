@@ -47,8 +47,6 @@ public class OrderController {
 
 		int memberId = 1;
 		
-
-		
 		order.put("memberId", memberId);
 		
 		orderService.saveOrder(order);
@@ -64,8 +62,6 @@ public class OrderController {
 		model.addAttribute("orderList", orderList);
 		return "orderList";
 	}
-	
-	
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/orderView")
@@ -94,8 +90,4 @@ public class OrderController {
 		return "redirect:orderList.jy";	
 		
 	}
-	
-	
-	
-		
 }

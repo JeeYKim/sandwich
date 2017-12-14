@@ -1,21 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
 <script type="text/javascript"
-	src="resources/file/js/jquery-2.0.0.min.js"></script>
+	src="resources/file/js/jquery-2.0.0.min.js">
+</script>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<!--아이콘-->
+
 <style type="text/css">
 @import
 	url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css')
@@ -171,25 +169,16 @@ $(document).ready(function () {
 	//페이지 로드시 버튼 클릭
 
 });
-
-
 </script>
-</head>
 
-<body>
 	<div id="faq_member_wrap">
 		<div class="faq_member_title">
-			<div class="title_font1">
-				<a href="/SG/memberNoticeList"
+			<div class="title_font1"> <a href="/sandwich/noticeList"
 					style="text-decoration: none; color: black;">공지사항</a>
 			</div>
 			<div class="title_font2">공지사항</div>
 			<div class="category">
-				<ul>
-					<li><a href="/SG/memberNoticeList?searchNum=2&isSearch=0"><i
-							class="fa fa-paper-plane" aria-hidden="true"></i>공지사항</a></li>
-					
-				</ul>
+				
 			</div>
 
 

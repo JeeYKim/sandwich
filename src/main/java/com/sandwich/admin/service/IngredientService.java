@@ -12,7 +12,7 @@ public interface IngredientService {
 	
 	List ingredientList();
 	
-	HashMap ingredientModifyForm(int SANDWITCH_NO);
+	HashMap ingredientModifyForm(int SANDWICH_NO);
 	
-	void ingredientDelete(int SANDWITCH_NO);
+	void ingredientDelete(int SANDWICH_NO);
 }
