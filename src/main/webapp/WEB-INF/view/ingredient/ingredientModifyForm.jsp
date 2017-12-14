@@ -16,9 +16,9 @@
 </div>
 <div>
 	<form id="frm" name="frm" method="post" enctype="multipart/form-data" >
-			<input type="hidden" name="ORIGINAL_SANDWITCH_THUMBNAIL" value="${ingredient.SANDWITCH_THUMNAIL }">
-			<input type="hidden" name="SANDWITCH_THUMBNAIL" value="${ingredient.SANDWITCH_THUMNAIL}">
-			<input type="hidden" name="SANDWITCH_NO" value="${ingredient.SANDWITCH_NO }">
+			<input type="hidden" name="ORIGINAL_SANDWICH_THUMBNAIL" value="${ingredient.SANDWICH_THUMNAIL }">
+			<input type="hidden" name="SANDWICH_THUMBNAIL" value="${ingredient.SANDWICH_THUMNAIL}">
+			<input type="hidden" name="SANDWICH_NO" value="${ingredient.SANDWICH_NO }">
 		<table class="board_view" >
 			<colgroup>
 				<col width="15%">
@@ -29,7 +29,7 @@
 			    <tr>
 					<th scope="row">카테고리</th>
 					<td>
-						<select id="SANDWITCH_BIGTYPE" name="SANDWITCH_BIGTYPE" size=1>
+						<select id="SANDWICH_BIGTYPE" name="SANDWICH_BIGTYPE" size=1>
 						<OPTION value=''>---재료 종류을 선택하세요---</OPTION>
 						<OPTION value='빵'>빵</OPTION>
 						<OPTION value='야채'>야채</OPTION>
@@ -37,38 +37,38 @@
 						<OPTION value='치즈'>치즈</OPTION>
 						<OPTION value='소스'>소스</OPTION>
 						</select>
-						<span>기존 카테고리 : ${ingredient.SANDWITCH_BIGTYPE }</span>
+						<span>기존 카테고리 : ${ingredient.SANDWICH_BIGTYPE }</span>
 					</td>
 				</tr>
 
 				<tr>
 					<th scope="row">재료명</th>
-					<td><input type="text" id="SANDWITCH_SMALLTYPE" name="SANDWITCH_SMALLTYPE"  value="${ingredient.SANDWITCH_SMALLTYPE}" class="wdp_90"></input></td>
+					<td><input type="text" id="SANDWICH_SMALLTYPE" name="SANDWICH_SMALLTYPE"  value="${ingredient.SANDWICH_SMALLTYPE}" class="wdp_90"></input></td>
 				</tr>
 				<tr>
 					<th scope="row">수량</th>
-					<td><input type="text" id="SANDWITCH_AMOUNT" name="SANDWITCH_AMOUNT" value="${ingredient.SANDWITCH_AMOUNT}" class="wdp_90"></input></td>
+					<td><input type="text" id="SANDWICH_AMOUNT" name="SANDWICH_AMOUNT" value="${ingredient.SANDWICH_AMOUNT}" class="wdp_90"></input></td>
 				</tr>
 				<tr>
 					<th scope="row">가격</th>
-					<td><input type="text" id="SANDWITCH_PRICE" name="SANDWITCH_PRICE" value="${ingredient.SANDWITCH_PRICE}" class="wdp_90"></input></td>
+					<td><input type="text" id="SANDWICH_PRICE" name="SANDWICH_PRICE" value="${ingredient.SANDWICH_PRICE}" class="wdp_90"></input></td>
 				</tr>
 
 				<tr>
 					<th scope="row">썸네일 <Br> 이미지</th>
-					<td><input type="file" id="SANDWITCH_THUMBNAIL" name="SANDWITCH_THUMBNAIL" value="${ingredient.SANDWITCH_THUMNAIL}">
-					<span>기존이미지 : ${ingredient.SANDWITCH_THUMNAIL}</span>	
+					<td><input type="file" id="SANDWICH_THUMBNAIL" name="SANDWICH_THUMBNAIL" value="${ingredient.SANDWICH_THUMNAIL}">
+					<span>기존이미지 : ${ingredient.SANDWICH_THUMNAIL}</span>	
 				 	</td>
 				</tr>
 
 				<tr>
 					<th scope="row">발주날짜</th>
-					<td><input type="text" id="SANDWITCH_ORDERDATE" name="SANDWITCH_ORDERDATE" value="${ingredient.SANDWITCH_ORDERDATE}" readonly/></td>
+					<td><input type="text" id="SANDWICH_ORDERDATE" name="SANDWICH_ORDERDATE" value="${ingredient.SANDWICH_ORDERDATE}" readonly/></td>
 				</tr>
 				<tr>
 					<th scope="row">유통기한</th>
-					<td><input type="date" id="SANDWITCH_ENDDATE" name="SANDWITCH_ENDDATE" />
-					<span>기존 유통기한 : ${ingredient.SANDWITCH_ENDDATE}</span>
+					<td><input type="date" id="SANDWICH_ENDDATE" name="SANDWICH_ENDDATE" />
+					<span>기존 유통기한 : ${ingredient.SANDWICH_ENDDATE}</span>
 					</td>
 				</tr>
 			
@@ -82,25 +82,25 @@
 $(document).ready(function(){
 	$("#modify").on("click", function(e){ //작성하기 버튼
 		e.preventDefault();
-		 if($('#SANDWITCH_SALLTYPE').val()==""){
+		 if($('#SANDWICH_SALLTYPE').val()==""){
 			alert("재료명을 입력해 주세요.");
 			return false;
-		 } else if($('#SANDWITCH_BIGTYPE').val()==""){
+		 } else if($('#SANDWICH_BIGTYPE').val()==""){
 			 alert("재료 종류를 선택해 주세요")
 		 
-		 } else if($('#SANDWITCH_PRICE').val()==""){
+		 } else if($('#SANDWICH_PRICE').val()==""){
 			 alert("재료 가격을 입력해 주세요.");
 				return false;
-		 } else if($('#SANDWITCH_THUMBNAIL').val()==""){
+		 } else if($('#SANDWICH_THUMBNAIL').val()==""){
 			 alert("재료 썸네일이미지를 등록해 주세요.");
 				return false;
-		 } else if($('#SANDWITCH_AMOUNT').val()==""){
+		 } else if($('#SANDWICH_AMOUNT').val()==""){
 			 alert("재료 수량을 입력해 주세요.");
 				return false;
-		 } else if($('#SANDWITCH_ORDERDATE').val()==""){
+		 } else if($('#SANDWICH_ORDERDATE').val()==""){
 			 alert("재료 발주 날짜를 입력해 주세요.");
 				return false;
-		 } else if($('#SANDWITCH_ENDDATE').val()==""){
+		 } else if($('#SANDWICH_ENDDATE').val()==""){
 			 alert("재료 유통기한을 입력해 주세요.");
 				return false;
 		 }

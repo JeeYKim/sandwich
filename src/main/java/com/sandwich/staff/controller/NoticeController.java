@@ -100,7 +100,6 @@ public class NoticeController {
 		noticeService.noticeDelete(noticeNo);
 		
 		return "redirect:noticeList.jy";	
-		
 	}
 	
 	@RequestMapping(value = "/mainNoticeList")
@@ -110,8 +109,4 @@ public class NoticeController {
 		model.addAttribute("mainNoticeList",mainNoticeList);
 		return "mainNoticeList";
 	}
-	
-	
-	
-	
 }

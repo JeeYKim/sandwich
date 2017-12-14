@@ -22,16 +22,16 @@ public class IngredientDAO extends AbstractDAO{
 		return ingredientList;
 	}
 	
-	public HashMap ingredientModifyForm(int SANDWITCH_NO) {
+	public HashMap ingredientModifyForm(int SANDWICH_NO) {
 		
-		HashMap ingredient = (HashMap) selectOne("ingredient.viewIngredient", SANDWITCH_NO);
+		HashMap ingredient = (HashMap) selectOne("ingredient.viewIngredient", SANDWICH_NO);
 		
 		return ingredient;
 	}
 	
-	public void ingredientDelete(int SANDWITCH_NO) {
+	public void ingredientDelete(int SANDWICH_NO) {
 		
-		delete("ingredient.deleteIngredient", SANDWITCH_NO);
+		delete("ingredient.deleteIngredient", SANDWICH_NO);
 	}
 	public void updateIngredient(CommandMap commandmap) {
 		update("ingredient.updateIngredient", commandmap.getMap());

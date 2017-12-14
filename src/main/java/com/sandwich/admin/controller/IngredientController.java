@@ -43,8 +43,8 @@ public class IngredientController {
 		int member_id=1;
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-		if( multipartHttpServletRequest.getFile("SANDWITCH_THUMBNAIL").getSize() > 0 ) {
-			MultipartFile file = multipartHttpServletRequest.getFile("SANDWITCH_THUMBNAIL");
+		if( multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL").getSize() > 0 ) {
+			MultipartFile file = multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL");
 			String fileName = member_id+"_"+"ingredient"+"_"+file.getOriginalFilename();
 			
 			File uploadFile = new File(FILE_PATH + fileName);
@@ -54,7 +54,7 @@ public class IngredientController {
 			} catch (Exception e) {
 
 			}
-			commandmap.put("SANDWITCH_THUMBNAIL", fileName);
+			commandmap.put("SANDWICH_THUMBNAIL", fileName);
 		}
 		
 		ingredientService.ingredientInsert(commandmap);
@@ -78,18 +78,18 @@ public class IngredientController {
 	}
 	
 	@RequestMapping(value="/ingredientView")
-	public String IngredientModifyForm(int SANDWITCH_NO, Model model) {
+	public String IngredientModifyForm(int SANDWICH_NO, Model model) {
 		
-		HashMap ingredient = ingredientService.ingredientModifyForm(SANDWITCH_NO);
+		HashMap ingredient = ingredientService.ingredientModifyForm(SANDWICH_NO);
 		
 		model.addAttribute("ingredient", ingredient);
 		System.out.println("왜 안나올까? : " + ingredient);
 		return "viewIngredient";
 	}
 	@RequestMapping(value="/ingredientDelete")
-	public String IngredientDelete(int SANDWITCH_NO) {
+	public String IngredientDelete(int SANDWICH_NO) {
 		
-		ingredientService.ingredientDelete(SANDWITCH_NO);
+		ingredientService.ingredientDelete(SANDWICH_NO);
 		
 		return "redirect:/ingredientList.jy";
 	}
