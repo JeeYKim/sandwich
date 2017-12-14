@@ -100,7 +100,13 @@ public class NoticeController {
 		noticeService.noticeDelete(noticeNo);
 		
 		return "redirect:noticeList.jy";	
-		
 	}
 	
+	@RequestMapping(value = "/mainNoticeList")
+	public String mainNoticeList(CommandMap param, Model model) {
+		
+		List mainNoticeList = noticeService.getMainNoticeList(param.getMap());
+		model.addAttribute("mainNoticeList",mainNoticeList);
+		return "mainNoticeList";
+	}
 }

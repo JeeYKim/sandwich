@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 발주 SQL -->
+<mapper namespace="sandwich.order">
+
+	<resultMap type="java.util.HashMap" id="orderMap">
+		<result property="orderNo" column="order_no" />
+		<result property="memberId" column="member_id" />
+		<result property="orderBigtype" column="order_bigtype" />
+		<result property="orderSmalltype" column="order_smalltype" />
+		<result property="orderAmount" column="order_amount" />
+		<result property="orderPrice" column="order_price" />
+		<result property="orderOrderdate" column="order_orderdate" />
+		<result property="orderYes" column="order_yes" />
+		<result property="totalPrice" column="total_price" />
+	</resultMap>
+	
+	
+	
+	<insert id="insertOrder" parameterType="java.util.HashMap">
+		insert into order2 (order_no, member_id, order_bigtype, order_smalltype,
+			order_amount, order_price, order_yes,order_orderdate,total_price)
+		values (order2_seq.nextval,1,#{orderBigtype},#{orderSmalltype},
+				#{orderAmount},#{orderPrice},-1,sysdate,#{totalPrice})	
+	</insert>
+	
+	
+	<select id="getOrderList" resultMap="orderMap" parameterType="java.util.HashMap">
+		select order_no,member_id,order_bigtype,order_smalltype,order_amount,order_price,
+		order_orderdate, order_yes, total_price
+		from order2
+		where 1 = 1     
+		order by order_no desc		
+	</select>
+	
+	
+	<select id="getOrder" resultMap="orderMap">
+		 select * 
+		 from order2
+		 where order_no = #{orderNo}
+	</select>
+	
+	
+	<update id="orderModify" parameterType="java.util.HashMap">
+		update order2
+		set order_bigtype = #{orderBigtype},
+		order_smalltype = #{orderSmalltype},
+		order_amount = #{orderAmount},
+		order_price = #{orderPrice},
+	 	order_orderdate = #{orderOrderdate},
+	 	total_price = #{totalPrice}
+ 		where order_no = #{orderNo}
+	</update>  
+	
+	<delete id="orderDelete" parameterType="int">
+		delete from order2
+		where order_no = #{orderNo}
+	</delete>
+	
+	<update id="orderApproval" parameterType="int">
+		update order2 
+		set order_yes =0
+		where order_no = #{orderNo}
+	</update>
+	
+	<update id="orderNoapproval" parameterType="int">
+		update order2 
+		set order_yes = 1
+		where order_no = #{orderNo}
+	</update>
+	
+	<update id="sandwichUpdate" parameterType="int">
+		update sandwich a
+		set sandwich_amount = sandwich_amount + (
+		select order_amount
+		from order2 b
+		where a.sandwich_bigtype = b.order_bigtype
+		  and a.sandwich_smalltype = b.order_smalltype
+		  and order_no = #{orderNo}
+		)
+		where exists (
+		  select 1
+		  from order2 b
+		  where a.sandwich_bigtype = b.order_bigtype
+		  and a.sandwich_smalltype = b.order_smalltype
+		  and order_no = #{orderNo}
+		)
+	</update>
+	
+	<select id="getSandwich" resultType="hashmap">
+		select SANDWICH_NO "sandwichNo", 
+		sandwich_bigtype "bigType", 
+		sandwich_smalltype "smallType", 
+		SANDWICH_PRICE "price"
+		from SANDWICH
+		order by sandwich_bigtype, SANDWICH_NO	
+	</select>
+</mapper>

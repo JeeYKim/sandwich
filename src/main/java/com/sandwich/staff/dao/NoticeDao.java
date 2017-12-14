@@ -20,6 +20,6 @@ public interface NoticeDao {
 	HashMap getNotice(int noticeNo);
 
 	void noticeDelete(int noticeNo);
-	
 
+	List getMainNoticeList(Map param);
 }

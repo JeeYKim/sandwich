@@ -168,10 +168,8 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.table-responsive -->							
 		</div>
 	</div>
-        <!-- /.panel -->   
 </div>
 
 <script>
@@ -190,4 +188,7 @@
 	function goDelete(noticeNo) {
 		location.href = '<c:url value="/noticeDelete.jy"/>'+"?noticeNo="+noticeNo;
 	}
-</script>
+</script> 
+
+
+

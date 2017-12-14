@@ -13,26 +13,29 @@
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %5p %m%n" />
         </layout>  
-    </appender>  
+    </appender>
      
     <!-- Application Loggers -->
-    <logger name="com.sandwich">
+    <logger name="first" additivity="false">
         <level value="debug" />
         <appender-ref ref="console"/>
-    </logger>    
+    </logger>
      
-    <!-- Query Loggers -->  
-    <logger name="jdbc.sqlonly"> 
-        <level value="debug"/>    
+    <!-- Query Loggers -->
+    <logger name="jdbc.sqlonly" additivity="false"> 
+        <level value="INFO"/> 
         <appender-ref ref="console-infolog"/> 
     </logger>
      
-    <logger name="jdbc.resultsettable"> 
-        <level value="debug"/> 
+    <logger name="jdbc.resultsettable" additivity="false"> 
+        <level value="INFO"/> 
         <appender-ref ref="console"/> 
     </logger> 
-	<logger name="jdbc.resultset">
-        <level value="DEBUG" />
-        <appender-ref ref="CONSOLE"/>
-    </logger>     
+ 
+    <!-- Root Logger -->
+    <root>
+        <priority value="off"/>
+        <appender-ref ref="console" />
+    </root>
+     
 </log4j:configuration>
