@@ -52,14 +52,10 @@ public class IngredientController {
 		int member_id=1;
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-<<<<<<< HEAD
-		
-		if( multipartHttpServletRequest.getFile("SANDWITCH_THUMBNAIL").getSize() > 0 ) {
-			MultipartFile file = multipartHttpServletRequest.getFile("SANDWITCH_THUMBNAIL");
-=======
+
 		if( multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL").getSize() > 0 ) {
 			MultipartFile file = multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL");
->>>>>>> baefaa54524cc94a1fb0b8fd19cb58664dfe10ec
+
 			String fileName = member_id+"_"+"ingredient"+"_"+file.getOriginalFilename();
 			
 			File uploadFile = new File(FILE_PATH + fileName);
