@@ -17,10 +17,19 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.sandwich.admin.service.IngredientService;
 import com.sandwich.common.CommandMap;
+import com.sandwich.common.Paging;
 
 
 @Controller
 public class IngredientController {
+	
+	private int currentPage = 1;
+	private int totalCount;
+	private int blockCount = 10;
+	private int blockPage = 10;
+	
+	private String pagingHtml;
+	private Paging page;
 	
 	Logger log = Logger.getLogger(this.getClass());
 	
@@ -43,8 +52,10 @@ public class IngredientController {
 		int member_id=1;
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+
 		if( multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL").getSize() > 0 ) {
 			MultipartFile file = multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL");
+
 			String fileName = member_id+"_"+"ingredient"+"_"+file.getOriginalFilename();
 			
 			File uploadFile = new File(FILE_PATH + fileName);
@@ -65,9 +76,38 @@ public class IngredientController {
 	@RequestMapping(value="/ingredientList")
 	public String IngredientList(Model model, CommandMap commandmap, HttpServletRequest request) throws Exception{
 		
-		@SuppressWarnings("rawtypes")
-		List ingredientList = ingredientService.ingredientList();
-		System.out.println("리스트가 들어오나? : " + ingredientList);
+		String isSearch = request.getParameter("isSerch");
+		
+		Map<String, Object> isSearchMap = new HashMap<String, Object>();
+		
+		
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) { //currentPage가 null일때.
+			currentPage = 1;
+		} else { //currentPage가 null이 아니고 존재할때.
+			currentPage = Integer.parseInt(request.getParameter("currentPage")); 
+		}
+		
+		List<Map<String,Object>> ingredientList = ingredientService.ingredientList();
+	
+		totalCount = ingredientList.size();
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "ingredientList.jy");
+		pagingHtml = page.getPagingHtml().toString();
+
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		ingredientList = ingredientList.subList(page.getStartCount(), lastCount);
+
+		model.addAttribute("isSearch", isSearch);
+		
+		model.addAttribute("totalCount", totalCount);
+		model.addAttribute("pagingHtml", pagingHtml);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("list",ingredientList);
+			
 	
 		totalcount=ingredientList.size();
 		
