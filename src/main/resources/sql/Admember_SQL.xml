@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 관리자페이지 회원 SQL -->
+<mapper namespace="admember">
+<select id="adminMemberList"  resultType="hashMap">
+SELECT 
+MEMBER_ID,
+MEMBER_LEVEL,
+MEMBER_NAME,
+MEMBER_EMAIL
+FROM MEMBER2 
+ORDER BY MEMBER2 DESC
+</select>
+
+
+<!-- 맴버 검색(아이디)0  ON-->
+<select id="adminMembersearch0" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+select * from MEMBER2
+where MEMBER2_ID like #{searchKeyword}
+ORDER BY MEMBER2_ID DESC
+]]>
+</select>
+
+
+<!-- 맴버 검색(이름)1 ON -->
+<select id="adminMembersearch1" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+select * from MEMBER2
+where MEMBER2_NAME like #{searchKeyword}
+ORDER BY MEMBER2_NAME DESC
+]]>
+</select>
+
+
+
+<!-- MEMBER 탈퇴  -->
+
+<update id="adminMemberDelete" parameterType="hashmap" >
+<![CDATA[
+
+ DELETE FROM MEMBER2
+ WHERE MEMBER_ID = #{MEMBER_ID}
+]]>
+</update>
+
+
+
+</mapper>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="purchase">
+
+	<!--  주문 내역 -->
+   <select id="selectPurchaseList" parameterType="hashmap" resultType="hashmap">
+        <![CDATA[
+          	SELECT * FROM PURCHASE where PURCHASE_BASKET = #{PURCHASE_BASKET}  
+            ORDER BY sysdate
+        ]]>
+    </select>
+    
+    <!-- 주문 내역 1개 보기 -->
+    <select id="selectPurchaseOne" parameterType="hashmap" resultType="hashmap">
+    <![CDATA[
+          	SELECT * FROM PURCHASE where PURCHASE_BASKET = #{PURCHASE_BASKET} and PURCHASE_NO = #{PURCHASE_NO}
+            ORDER BY sysdate
+        ]]>
+    
+    </select>
+    
+	<!--  내가 한 주문 내역 -->
+   <select id="myselectPurchaseList" parameterType="hashmap" resultType="hashmap">
+        <![CDATA[
+          	          	SELECT purchase_no, sum(purchase_price) as PURCHASE_ALLPRICE , purchase_orderdate FROM 
+          	(select PURCHASE_INDEX,PURCHASE_NO, PURCHASE_ID, PURCHASE_bigtype, PURCHASE_smalltype, 
+          	PURCHASE_amount,to_char(PURCHASE_orderdate, 'yyyy-mm-dd' ) as PURCHASE_orderdate,PURCHASE_BASKET, purchase_amount*purchase_price as PURCHASE_price 
+          	from purchase where purchase_basket = '1' and PURCHASE_id = #{PURCHASE_ID} ) 
+          	group by purchase_no, purchase_orderdate
+            ORDER BY sysdate
+        ]]>
+    </select>
+    
+    <!-- 내가 한 주문 내역 1개 보기 -->
+    <select id="myselectPurchaseOne" parameterType="hashmap" resultType="hashmap">
+    <![CDATA[
+          	SELECT * FROM PURCHASE where PURCHASE_BASKET = '1' and PURCHASE_NO = #{PURCHASE_NO}
+          	and PURCHASE_ID = #{PURCHASE_ID}
+        ]]>
+    
+    </select>
+    
+    <!--  장바구니 내역 -->
+    <select id="selectBasketList" parameterType="hashmap" resultType="hashmap">
+            <![CDATA[
+          	SELECT purchase_no, sum(purchase_price) as PURCHASE_ALLPRICE , purchase_orderdate FROM 
+          	(select PURCHASE_INDEX,PURCHASE_NO, PURCHASE_ID, PURCHASE_bigtype, PURCHASE_smalltype, 
+          	PURCHASE_amount,to_char(PURCHASE_orderdate, 'yyyy-mm-dd' ) as PURCHASE_orderdate,PURCHASE_BASKET, purchase_amount*purchase_price as PURCHASE_price 
+          	from purchase where purchase_basket = '0' and PURCHASE_id = #{PURCHASE_ID} ) 
+          	group by purchase_no, purchase_orderdate
+            ORDER BY sysdate
+        	]]>
+    
+    </select>
+    
+    <!-- 장바구니 내역 1개 보기 -->
+    <select id="basketListOne" parameterType="hashmap" resultType="hashmap">
+    <![CDATA[
+          	SELECT * FROM PURCHASE where purchase_basket = '0' and PURCHASE_NO = #{PURCHASE_NO}
+          	and PURCHASE_ID = #{PURCHASE_ID}
+        ]]>
+    
+    </select>
+     
+     <!--  주문 하기 -->
+     <insert id="insertPurchase" parameterType="hashmap">
+    <![CDATA[
+INSERT INTO PURCHASE
+		(PURCHASE_INDEX,PURCHASE_NO, PURCHASE_ID, PURCHASE_bigtype, PURCHASE_smalltype, PURCHASE_amount, PURCHASE_price,PURCHASE_orderdate,PURCHASE_BASKET)
+	VALUES
+		(PURCHASE_SEQ_INDEX.NEXTVAL, PURCHASE_seq_no.currval, #{PURCHASE_ID}, #{PURCHASE_BIGTYPE}, #{PURCHASE_SMALLTYPE}, #{PURCHASE_AMOUNT}, #{PURCHASE_PRICE}, SYSDATE, 1)
+	]]>
+     </insert>
+     
+    <!--  장바구니 넣기 -->
+    <insert id="insertBasket" parameterType="hashmap">
+    <![CDATA[
+	INSERT INTO PURCHASE
+		(PURCHASE_NO, PURCHASE_ID, PURCHASE_bigtype, PURCHASE_smalltype, PURCHASE_amount, PURCHASE_price,PURCHASE_orderdate,PURCHASE_BASKET)
+	VALUES 
+		(PURCHASE_seq_no.currval, #{MEMBER_ID}, #{ORDER_BIGTYPE}, #{ORDER_SMALLTYPE}, #{ORDER_AMOUNT}, #{ORDER_PRICE}, SYSDATE, 0)
+	]]>
+     </insert>
+     
+     <!--  주문번호 하나 올리기 -->
+     <update id="PurchaseSeqCount" parameterType="hashmap">
+     <![CDATA[
+     SELECT PURCHASE_SEQ_NO.NEXTVAL FROM DUAL;
+     ]]>
+     </update>
+     
+     <!--  장바구니 있는것 주문하기 -->
+     <update id="basketAsPurchase" parameterType="hashmap">
+     <![CDATA[
+      update PURCHASE set PURCHASE_orderdate = SYSDATE, PURCHASE_BASKET = '1'  where PURCHASE_no = #{PURCHASE_NO} 
+     ]]>
+     </update>
+     
+     <!--  주문시 재고에서 갯수 뺴기 -->
+     <update id="countSubPurchase" parameterType="hashmap">
+     <![CDATA[
+     update sandwich set sandwitch_amount = sandwitch_amount-#{PURCHASE_AMOUNT} where sandwitch_smalltype = #{PURCHASE_SMALLTYPE} 
+     ]]>
+     </update>
+     <!-- 재고에서 갯수 0일 때 삭제하기 -->
+     <delete id="sandwitchPurchase">
+     <![CDATA[
+     delete form sandwitch where
+      ]]> 
+	</delete>
+	
+	<!--  재고 갯수 확인하기 -->
+	<select id="countfind" parameterType="String" resultType="hashmap">
+	  <![CDATA[
+      select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, n from
+     (select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, rownum n from
+     (select * from sandwich where sandwich_smalltype = #{PURCHASE_SMALLTYPE})) where n = '1'
+      ]]>	
+	</select>
+
+	<!--  재고 갯수 확인하기 -->
+	<select id="countfind2" parameterType="hashmap" resultType="hashmap">
+	  <![CDATA[
+      select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, n from
+     (select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, rownum n from
+     (select * from sandwich where sandwich_smalltype = #{PURCHASE_SMALLTYPE})) where n = '2'
+      ]]>	
+	</select>	
+	
+	<!--  유통기한 넘는 것들 확인 -->
+	<select id="endDateOver" parameterType="hashmap" resultType="hashmap">
+	  <![CDATA[
+      select * from sandwich where to_char(SANDWICH_endDATE,'yyyy-mm-dd') < to_char(sysdate,'yyyy-mm-dd')
+      ]]>	
+	</select>	
+	 
+	<!-- 유통기한 지난거 폐기로 옮기기 -->
+	<insert id="sandDataOverAsGarbage">
+	 <![CDATA[
+	INSERT INTO garbage SELECT sandwich_no, sandwich_bigtype, sandwich_smalltype, sandwich_amount, sandwich_price,sandwich_thumnail,sandwich_orderdate, 
+sandwich_enddate,(sandwich_amount * sandwich_price) FROM sandwich where to_char(SANDWICH_endDATE,'yyyy-mm-dd') < to_char(sysdate,'yyyy-mm-dd')
+	]]>	
+	</insert>
+	<!-- 유통기한 지난거 제고 삭제하기 -->
+	<delete id="sandDataOver">
+	<![CDATA[
+	 delete sandwich where to_char(SANDWICH_endDATE,'yyyy-mm-dd') < to_char(sysdate,'yyyy-mm-dd')
+	 ]]> 
+	</delete>
+
+</mapper>
