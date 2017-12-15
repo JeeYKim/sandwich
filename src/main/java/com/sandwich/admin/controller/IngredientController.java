@@ -19,7 +19,7 @@ import com.sandwich.admin.service.IngredientService;
 import com.sandwich.common.CommandMap;
 import com.sandwich.common.Paging;
 
-
+ 
 @Controller
 public class IngredientController {
 	
