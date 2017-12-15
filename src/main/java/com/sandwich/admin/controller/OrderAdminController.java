@@ -29,13 +29,13 @@ public class OrderAdminController {
 	public String orderApproval(int orderNo){
 		
 		orderService.orderApproval(orderNo);
-		return "redirect:orderList.jy";
+		return "redirect:orderAdminList.jy";
 	}
 	
 	@RequestMapping(value = "/orderNoapproval")
 	public String orderNoapproval(int orderNo) {
 		
 		orderService.orderNoapproval(orderNo);
-		return "redirect:orderList.jy";
+		return "redirect:orderAdminList.jy";
 	}
 }

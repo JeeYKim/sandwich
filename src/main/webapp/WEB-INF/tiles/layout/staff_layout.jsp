@@ -62,8 +62,7 @@
 				<div class="left_col scroll-view">
 
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="admin" class="site_title"> <i class="fa fa-cogs"></i><span>직원
-								페이지</span>
+						<a href="staff.jy" class="site_title"> <i class="fa fa-cogs"></i><span>직원 페이지</span>
 						</a>
 					</div>
 					<div class="clearfix"></div>
@@ -99,14 +98,14 @@
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu" style="display: none">
 
-										<li><a href="/sandwich_list">재고목록</a></li>
-										<li><a href="/input_sandwich">재료등록</a></li>
+										<li><a href="ingredientStaffList.jy">재고목록</a></li>
+										<li><a href="ingredientStaffInsertForm.jy">재료등록</a></li>
 									</ul></li>
 
 								<li><a><i class="fa fa-file-text-o"></i>발주관리<span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu" style="display: none">
-
+										<li><a href="<c:url value="orderList.jy"/>">발주목록</a></li>
 										<li><a href="<c:url value="orderWriteForm.jy"/>">발주등록</a></li>
 									</ul></li>
 								<li><a><i class="fa fa-trash"></i>폐기관리<span
