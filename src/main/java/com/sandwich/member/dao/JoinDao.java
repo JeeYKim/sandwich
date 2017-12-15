@@ -23,8 +23,8 @@ public class JoinDao extends AbstractDAO {
 		
 		
 		//아이디 중복 확인
-		public Map<String, Object> checkId(Map<String, Object> map) throws Exception{
-			return (Map<String, Object>) selectOne("join.checkId", map);
+		public int checkId(Map<String, Object> map) throws Exception{
+			return (int) selectOne("join.checkId", map);
 		}
 		
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+
+	<definition name="layout" template="/WEB-INF/tiles/layout/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/tile/header.jsp" />		
+		<put-attribute name="body" value="/WEB-INF/tiles/tile/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/tile/footer.jsp" />
+	</definition>
+	
+	<!-- 주문 하러 가기 -->
+ 	<definition name="diyForm" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/diy.jsp" />
+    </definition>
+     
+    <!-- 주문 투 -->
+    <definition name="diy2" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/diy2.jsp" />
+    </definition>
+	<!--  결제 끝 -->
+ 	<definition name="purchaseend" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/search.jsp" />
+ 	</definition> 
+ 	<!-- 내가 주문한거 -->
+ 	<definition name="mypurchase" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/Mypurchase.jsp" />
+ 	</definition> 	
+ 	<!--  내가 주문한거 상세보기 -->
+ 	<definition name="mypurchaseDetail" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/MypurchaseDetail.jsp" />
+ 	</definition> 	
+ 	<!--  장바구니 -->
+ 	<definition name="basket" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/MyBasketList.jsp" />
+ 	</definition> 	
+	<!--  장바구니 상세보기 -->
+ 	<definition name="basketDetail" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/MyBasketDetail.jsp" />
+ 	</definition>
+ 	<!--  장바구니있는거 결제하기 -->
+ 	<definition name="basketasorder" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/purchase/Mypurchase.jsp" />
+ 	</definition>
+ 	
+
+</tiles-definitions>

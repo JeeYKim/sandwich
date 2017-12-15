@@ -45,7 +45,17 @@
         <put-attribute name="staff_body" expression="/WEB-INF/view/order/orderList.jsp" />
  	</definition>
  	
+ 	<definition name="ingredientStaffForm" extends="staff_layout">
+ 		<put-attribute name="staff_body" expression="/WEB-INF/view/ingredient/ingredientStaffInsertForm.jsp"/>
+ 	</definition>
  	
+ 	<definition name="ingredientStaffList" extends="staff_layout">
+ 		<put-attribute name="staff_body" expression="/WEB-INF/view/ingredient/ingredientStaffList.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="viewStaffIngredient" extends="staff_layout">
+ 		<put-attribute name="staff_body" expression="/WEB-INF/view/ingredient/ingredientModifyForm.jsp"/>
+ 	</definition>
  	
  	
 </tiles-definitions>

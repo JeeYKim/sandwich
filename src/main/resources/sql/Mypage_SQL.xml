@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 마이페이지 SQL -->
+<mapper namespace="mypage">
+
+<!-- 회원내역 -->
+<select id="myinfoDetail" parameterType="hashmap" resultType="hashmap">
+     <![CDATA[
+         SELECT * FROM MEMBER2 WHERE MEMBER_ID = #{MEMBER_ID}
+     ]]>
+</select>
+
+<!-- 회원수정 -->
+<update id="updateMyinfo" parameterType="hashmap">
+     <![CDATA[
+         UPDATE MEMBER2 
+               SET
+               MEMBER_PW = #{MEMBER_PW},
+               MEMBER_EMAIL = #{MEMBER_EMAIL}
+               WHERE 
+               MEMBER_ID = #{MEMBER_ID}
+     ]]>
+</update>
+
+<!-- 회원탈퇴 -->
+<update id="deleteMember" parameterType="hashmap">
+     <![CDATA[
+     DELETE FROM MEMBER2
+		WHERE
+ 		MEMBER_ID = #{MEMBER_ID}
+    
+         ]]>
+</update>
+</mapper>
