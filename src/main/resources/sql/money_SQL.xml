@@ -4,17 +4,49 @@
 <mapper namespace="money">
 
 	<select id="Money" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-		
-		SELECT* FROM(SELECT ROWNUM, BB.aa FROM (SELECT SUM(PURCHASE_PRICE) aa FROM PURCHASE <if test="DATE1 != null"> WHERE PURCHASE_ORDERDATE BETWEEN TO_DATE(#{DATE1}, 'YYYY-MM-DD') AND TO_DATE(#{DATE2}, 'YYYY-MM-DD')+1</if>
-				UNION ALL
-				SELECT SUM(ORDER_PRICE) aa FROM ORDER2 WHERE ORDER_YES=1<if test="DATE1 != null">AND ORDER_ORDERDATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>
-				UNION ALL
-				SELECT SUM(STAFF_COST) aa FROM STAFFMONEY <if test="DATE1 != null">WHERE COST_DATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>
-				UNION ALL
-				SELECT SUM(ECT_COST) aa FROM COST <if test="DATE1 != null">WHERE COST_DATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>
-				UNION ALL
-				SELECT SUM(TOTAL_PRICE) aa FROM GARBAGE <if test="DATE1 != null">WHERE GARBAGE_ENDDATE BETWEEN TO_DATE(#{DATE1},'YYYY-MM-DD') AND TO_DATE(#{DATE2},'YYYY-MM-DD')+1</if>) BB)
-		
+	<![CDATA[
+		with date_t as ( 
+		  select to_date(#{startDate}) + level - 1 as dt
+		  from dual
+		  connect by level <= to_date(#{endDate}) - to_date(#{startDate})
+		)
+		, cur_data as (
+		  select dt, sum(purchase) as machul, sum(order2) + sum(staff) + sum(cost) + sum(garb) as biyong
+		  from (
+		  SELECT trunc(purchase_orderdate, 'dd') dt, SUM(PURCHASE_PRICE) as purchase, 0 as order2, 0 as staff, 0 as cost, 0 as garb 
+		  FROM PURCHASE
+		  where purchase_orderdate between to_date(#{startDate}) and to_date(#{endDate})
+		  group by trunc(purchase_orderdate, 'dd')
+		  union all
+		  SELECT trunc(order_orderdate, 'dd'), 0, sum(total_price), 0, 0, 0
+		  FROM ORDER2
+		  where order_orderdate between to_date(#{startDate}) and to_date(#{endDate})
+		  group by trunc(order_orderdate, 'dd')
+		  union all
+		  SELECT trunc(cost_date, 'dd'), 0, 0, SUM(STAFF_COST), 0, 0 
+		  FROM STAFFMONEY
+		  where cost_date between to_date(#{startDate}) and to_date(#{endDate})
+		  group by trunc(cost_date, 'dd')
+		  union all
+		  SELECT trunc(cost_date, 'dd'), 0, 0, 0, SUM(ECT_COST), 0  
+		  FROM COST
+		  where cost_date between to_date(#{startDate}) and to_date(#{endDate})
+		  group by trunc(cost_date, 'dd')
+		  union all
+		  SELECT trunc(garbage_enddate, 'dd'), 0, 0, 0, 0, SUM(TOTAL_PRICE) 
+		  FROM GARBAGE
+		  where garbage_enddate between to_date(#{startDate}) and to_date(#{endDate})
+		  group by trunc(garbage_enddate, 'dd') ) 
+		  group by dt
+		)  
+		select to_char(a.dt, 'YYYY-MM-DD') "dt", 
+			nvl(b.machul, 0) as "sales", 
+			nvl(b.biyong, 0) as "cost", 
+			nvl(b.machul - b.biyong, 0) as "profit"
+		from date_t a left join cur_data b
+		on a.dt = b.dt
+		order by a.dt
+	]]>			
 	</select>
 
 </mapper>
