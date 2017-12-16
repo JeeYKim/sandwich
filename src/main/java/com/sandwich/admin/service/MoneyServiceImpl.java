@@ -21,4 +21,11 @@ public class MoneyServiceImpl implements MoneyService{
 		return moneyList;
 	}
 	
+	public List getMoney(Map DATE) {
+		
+		List money = moneyDAO.getMoney(DATE);
+				
+		return money;
+				
+	}
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+<tiles-definitions>
+
+   <definition name="layout" template="/WEB-INF/tiles/layout/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/tile/header.jsp" />		
+		<put-attribute name="body" value="/WEB-INF/tiles/tile/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/tile/footer.jsp" />
+	</definition>
+	
+   	
+   <definition name="memberDiyList_tiles" extends="layout">
+	   <put-attribute name="body" value="/WEB-INF/view/DIY_Board/memberDiyList.jsp"/>
+	</definition>
+	
+     
+   <definition name="memberdiyboardList_tiles" extends="layout">
+   	  <put-attribute name="body" value="/WEB-INF/view/DIY_Board/memberDiyList.jsp"/>
+   </definition>
+   
+   <definition name="memberdiyBoardDetail_tiles" extends="layout">
+   		<put-attribute name="body" value="/WEB-INF/view/DIY_Board/memberDiyDetail.jsp"/>
+   </definition>
+   
+   <definition name="memberdiyBoardForm_tiles" extends="layout">
+   	<put-attribute name="body" value="/WEB-INF/view/DIY_Board/memberDiyInsertForm.jsp"/>
+   </definition>
+   
+   
+</tiles-definitions>

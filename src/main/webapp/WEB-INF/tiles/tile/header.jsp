@@ -103,9 +103,9 @@
 	</div>
 	<div id='cssmenu' class="align-center">
 		<ul>
-			<li class="active"><a href='main.jy'><span>뽜이아</span></a></li>
-
+			<li class="active"><a href='main.jy'><span>메인</span></a></li>
 			<li class='last'><a href='order.jy'><span>주문</span></a></li>
+			<li class='last'><a href='memberDiyBoardList.jy'><span>DIY추천</span></a></li>
 			<li class='last'><a href="<c:url value = "/mainNoticeList.jy"/>"><span>공지사항</span></a></li>
 		</ul>
 	</div>
