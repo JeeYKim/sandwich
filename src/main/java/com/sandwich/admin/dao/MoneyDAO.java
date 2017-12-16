@@ -20,6 +20,13 @@ public class MoneyDAO extends AbstractDAO{
 		return moneyList;
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public List getMoney(Map DATE) {
+		
+		List money = selectList("money.MoneyList", DATE);
+		
+		return money;
+	}
 
 
 }
