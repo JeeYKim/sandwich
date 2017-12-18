@@ -191,37 +191,34 @@ $(document).ready(function () {
 		<table class="faq_member_table" width="100%">
 			<colgroup>
 				<col width="7%" />
-				<col width="15%" />
-				<col width="35%" />
-				<col width="12%" />
+				<col width="40%" />
 				<col width="13%" />
-				<col width="7%" />
+				<col width="15%" />
 			</colgroup>
 			<tr>
 				<th>NO</th>
-				<th>카테고리</th>
 				<th>글제목</th>
 				<th>작성자</th>
 				<th>등록일자</th>
 			</tr>
 
 			<c:choose>
-				<c:when test="${fn:length(noticeList) le 0}">
+				<c:when test="${fn:length(memberNoticeList) le 0}">
 					<tr>
 						<td colspan="6" style="text-align: center;">등록된 게시글이 없습니다</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
 
-					<c:forEach var="noticeList" items="${mainNoticeList}" varStatus="stat">
+					<c:forEach var="notice" items="${memberNoticeList}" varStatus="stat">
 						<tr>
 							<td>${stat.count}</td>
 							
 
 							<td>
-							<a href='<c:url value="/noticeView.jy?noticeNo=${noticeList.noticeNo}"/>'>${noticeList.noticeTitle}</a></td>
-							<td>SG운영자</td>
-							<td>${noticeList.noticeRegdate}</td>
+							<a href='<c:url value="/memberNoticeView.jy?noticeNo=${notice.noticeNo}"/>'>${notice.noticeTitle}</a></td>
+							<td>불타는운영자</td>
+							<td>${notice.noticeRegdate}</td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>

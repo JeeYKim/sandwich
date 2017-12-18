@@ -48,7 +48,4 @@ public class OrderDaoImpl extends AbstractDAO implements OrderDao {
 		return result;
 	}
 	
-	
-	
-	
 }

@@ -102,8 +102,20 @@
 										<fmt:formatNumber value="${order.totalPrice}" type="number"/>원</td>
 										
 										<td style="text-align:center;vertical-align:middle;"> 
-										<button type="button" onclick="goModify(${order.orderNo})" class="btn btn-primary" id="resister">수정</button>
-										<button type="button" onclick="goDelete(${order.orderNo})" class="btn btn-primary" id="resister">삭제</button>									
+										<c:choose>
+											<c:when test="${order.orderYes == 0}"> 
+												<button type="button" onclick="goApproval(${order.orderNo})" class="btn btn-primary" id="resister">승인</button>
+												<button type="button" onclick="goNoapproval(${order.orderNo})" class="btn btn-primary" id="resister">비승인</button>
+											</c:when>
+											
+											<c:when test="${order.orderYes == 1}">
+												<span>승인</span> 
+											</c:when>
+											
+											<c:when test="${order.orderYes == 2}">
+												<span>비승인</span>
+											</c:when>
+										</c:choose>
 									</tr>
 								</c:forEach>
 								
@@ -122,17 +134,11 @@
 </div>
 
 <script>
-	function goModify(orderNo) {
-		location.href = '<c:url value="/orderModifyForm.jy"/>'+"?orderNo="+orderNo;
+	function goApproval(orderNo) {
+		location.href = '<c:url value="/orderApproval.jy"/>'+"?orderNo="+orderNo;
+	}
+	
+	function goNoapproval(orderNo) {
+		location.href = '<c:url value="/orderNoapproval.jy"/>'+"?orderNo="+orderNo;
 	}
 </script>
-
-<script>
-	function goDelete(orderNo) {
-		if (confirm("정말 삭제하시겠습니까??") == true){    
-			location.href = '<c:url value="/orderDelete.jy"/>'+"?orderNo="+orderNo;
-		}
-	}
-</script> 
-
- 

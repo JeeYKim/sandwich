@@ -41,9 +41,5 @@ public class NoticeDaoImpl extends AbstractDAO implements NoticeDao {
 		delete(NAME_SPACE + "noticeDelete", noticeNo);
 	}
 
-	@Override
-	public List getMainNoticeList(Map param) {
-		List mainNoticeList = selectList(NAME_SPACE + "getMainNoticeList", param);
-		return mainNoticeList;
-	}
+	
 }

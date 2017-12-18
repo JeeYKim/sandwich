@@ -42,9 +42,5 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeDao.noticeDelete(noticeNo);
 	}
 
-	@Override
-	public List getMainNoticeList(Map param) {
-		List mainNoticeList = noticeDao.getMainNoticeList(param);
-		return mainNoticeList;
-	}
+	
 }

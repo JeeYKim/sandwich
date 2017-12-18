@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sandwich.common.CommandMap;
 import com.sandwich.member.service.JoinService;
+
 @Controller
 public class JoinController {
 	
@@ -28,7 +29,7 @@ public class JoinController {
     
 	//회원가입 폼
 	@RequestMapping(value="/join.jy")
-	public ModelAndView JoinForm()throws Exception{
+	public ModelAndView JoinForm() throws Exception{
 		ModelAndView mav = new ModelAndView("join");
 		
 		

@@ -15,8 +15,12 @@
         <put-attribute name="body" expression="/WEB-INF/view/main.jsp" />
  	</definition>
 
- 	<definition name="mainNoticeList" extends="layout">
-        <put-attribute name="body" expression="/WEB-INF/view/notice/mainNoticeList.jsp" />
+ 	<definition name="memberNoticeList" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/notice/memberNoticeList.jsp" />
+ 	</definition>
+ 	
+ 	<definition name="memberNoticeView" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/notice/memberNoticeView.jsp" />
  	</definition>
  	
  	

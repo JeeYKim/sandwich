@@ -105,7 +105,7 @@
                      <a><i class="fa fa-file-text-o"></i>발주관리<span class="fa fa-chevron-down"></span></a>   
                         <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="<c:url value = "/orderList.jy"/>">발주내역</a></li>
+                        <li><a href="<c:url value = "/orderAdminList.jy"/>">발주내역</a></li>
                      </ul>               
                   </li>
                   <li>

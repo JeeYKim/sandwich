@@ -143,6 +143,7 @@
 						</div>
 					</div>
 					<div class="paging">
+						${pagingHtml}
 					</div>
 					<div style="float:right;">
 						<button type="button" 

@@ -19,12 +19,17 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.sandwich.common.CommandMap;
+import com.sandwich.common.Paging;
 import com.sandwich.staff.service.NoticeService;
 
 @Controller
 public class NoticeController {
 	private final static String FILE_PATH = "/Users/yhshin/Documents/sandwich/src/main/webapp/upload/notice/";
-											
+	
+	
+	private int blockCount = 10;
+	private int blockPage = 10;
+	
 	@Autowired
 	private NoticeService noticeService; 
 	
@@ -68,7 +73,27 @@ public class NoticeController {
 	@RequestMapping(value = "/noticeList")
 	public String noticeList(CommandMap param, Model model) {
 		
+		int currentPage, totalCount;
+
+		if (param.get("currentPage") == null) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.valueOf((String) param.get("currentPage"));
+		}
+		
 		List noticeList = noticeService.getNoticeList(param.getMap());
+		
+		totalCount = noticeList.size();
+		Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList.jy");
+		String pagingHtml = page.getPagingHtml().toString();
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		noticeList = noticeList.subList(page.getStartCount(), lastCount);
+		
+		model.addAttribute("pagingHtml", pagingHtml);
 		model.addAttribute("noticeList", noticeList);
 		return "noticeList";
 	}
@@ -102,11 +127,21 @@ public class NoticeController {
 		return "redirect:noticeList.jy";	
 	}
 	
-	@RequestMapping(value = "/mainNoticeList")
-	public String mainNoticeList(CommandMap param, Model model) {
+	@RequestMapping(value = "/memberNoticeList")
+	public String memberNoticeList(CommandMap param, Model model) {
 		
-		List mainNoticeList = noticeService.getMainNoticeList(param.getMap());
-		model.addAttribute("mainNoticeList",mainNoticeList);
-		return "mainNoticeList";
+		List mainNoticeList = noticeService.getNoticeList(param.getMap());
+		model.addAttribute("memberNoticeList",mainNoticeList);
+		return "memberNoticeList";
+	}
+	
+	@SuppressWarnings("rawtypes")
+	@RequestMapping(value = "/memberNoticeView")
+	public String memberNoticeView(int noticeNo, Model model)  {
+		
+		HashMap notice = noticeService.getNotice(noticeNo);
+		model.addAttribute("notice", notice);
+		
+		return "memberNoticeView";
 	}
 }

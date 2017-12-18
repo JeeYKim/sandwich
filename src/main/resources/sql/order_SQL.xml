@@ -34,7 +34,6 @@
 		order by order_no desc		
 	</select>
 	
-	
 	<select id="getOrder" resultMap="orderMap">
 		 select * 
 		 from order2
@@ -60,13 +59,13 @@
 	
 	<update id="orderApproval" parameterType="int">
 		update order2 
-		set order_yes =0
+		set order_yes =1
 		where order_no = #{orderNo}
 	</update>
 	
 	<update id="orderNoapproval" parameterType="int">
 		update order2 
-		set order_yes = 1
+		set order_yes = 2
 		where order_no = #{orderNo}
 	</update>
 	
