@@ -21,11 +21,14 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.sandwich.common.CommandMap;
+import com.sandwich.common.Paging;
 import com.sandwich.staff.service.OrderService;
 
 @Controller
 public class OrderController {
-											
+	private int blockCount = 10;
+	private int blockPage = 10;
+	
 	@Autowired
 	private OrderService orderService; 
 	
@@ -57,9 +60,30 @@ public class OrderController {
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/orderList")
 	public String orderList(CommandMap param, Model model) {
+		int currentPage, totalCount;
 		
+		if(param.get("currentPage") == null) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.valueOf( (String) param.get("currentPage") );
+		}
+		
+		//totalCount = orderService.getOrderListCount(param.getMap());
 		List orderList = orderService.getOrderList(param.getMap());
+		
+		totalCount = orderList.size();
+		Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "orderList.jy");
+		String pagingHtml = page.getPagingHtml().toString();
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		orderList = orderList.subList(page.getStartCount(), lastCount);
+		
+		model.addAttribute("pagingHtml", pagingHtml);
 		model.addAttribute("orderList", orderList);
+
 		return "orderList";
 	}
 	

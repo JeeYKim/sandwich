@@ -12,6 +12,7 @@ public interface OrderService {
 
 	List getOrderList(Map param);
 	
+	
 	HashMap getOrder(int orderNo);
 
 	void orderDelete(int orderNo);

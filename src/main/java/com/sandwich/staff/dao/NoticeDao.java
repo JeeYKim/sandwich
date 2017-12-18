@@ -21,5 +21,4 @@ public interface NoticeDao {
 
 	void noticeDelete(int noticeNo);
 
-	List getMainNoticeList(Map param);
 }

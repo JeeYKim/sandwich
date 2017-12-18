@@ -34,7 +34,6 @@
 		order by order_no desc		
 	</select>
 	
-	
 	<select id="getOrder" resultMap="orderMap">
 		 select * 
 		 from order2
