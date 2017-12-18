@@ -93,37 +93,39 @@
                   </li>
                   
                   <li>
-                     <a><i class="fa fa-archive"></i>재고관리<span class="fa fa-chevron-down"></span></a>
+                     <a><i class="fa fa-archive"></i>재고 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="ingredientList.jy">재고목록</a></li>
-                        <li><a href="ingredientInsertForm.jy">재료등록</a></li>
+                        <li><a href="ingredientList.jy">재고 목록</a></li>
+                        <li><a href="ingredientInsertForm.jy">재료 등록</a></li>
                      </ul>
                   </li>
                   
                   <li>
-                     <a><i class="fa fa-file-text-o"></i>발주관리<span class="fa fa-chevron-down"></span></a>   
+                     <a><i class="fa fa-file-text-o"></i>발주 관리<span class="fa fa-chevron-down"></span></a>   
                         <ul class="nav child_menu" style="display: none">
                      
+
                         <li><a href="<c:url value = "/orderAdminList.jy"/>">발주내역</a></li>
+
                      </ul>               
                   </li>
                   <li>
-                     <a><i class="fa fa-trash"></i>폐기관리<span class="fa fa-chevron-down"></span></a>   
+                     <a><i class="fa fa-trash"></i>폐기 관리<span class="fa fa-chevron-down"></span></a>   
                         <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="/trash">폐기내역</a></li>
+                        <li><a href="/trash">폐기 내역</a></li>
                      </ul>               
                   </li>
                   <li>
-                     <a><i class="fa fa-user"></i>회원관리<span class="fa fa-chevron-down"></span></a>
+                     <a><i class="fa fa-user"></i>회원 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
                         <li><a href="member_list">회원 리스트</a></li>   
                      </ul>
                   </li>
                   <li>
-                     <a><i class="fa fa-book"></i>게시판관리<span class="fa fa-chevron-down"></span></a>
+                     <a><i class="fa fa-book"></i>게시판 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
                         <li><a href="noticeList.jy">공지사항 리스트</a></li>
@@ -131,10 +133,11 @@
                      </ul>
                   </li>
                   <li>
-                     <a><i class="fa fa-won"></i>매출관리<span class="fa fa-chevron-down"></span></a>
+                     <a><i class="fa fa-won"></i>매출 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="MoneyList.jy">매출현황</a></li>
+                        <li><a href="MoneyList.jy">매출 현황</a></li>
+                        <li><a href="MoneyChart.jy">매출 현황 그래프</a>
                      </ul>
                   </li>
                </ul>

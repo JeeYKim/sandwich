@@ -10,4 +10,6 @@ public interface MoneyService {
 	@SuppressWarnings("rawtypes")
 	List getMoneyList(Map DATE);
 	
+	@SuppressWarnings("rawtypes")
+	List getMoney(Map DATE);
 }

@@ -24,14 +24,14 @@ public class MoneyController {
 	@RequestMapping(value="/MoneyList")
 	public String moneyList(Model model, CommandMap DATE) {
 		
-		List moneyList = moneyService.getMoneyList(DATE.getMap());
+		List money = moneyService.getMoney(DATE.getMap());
 
 		HashMap DATE1=(HashMap) DATE.getMap();
 		
 		System.out.println("DATE : " +DATE1);
-		System.out.println("moneyList  :  "+moneyList);
+		System.out.println("moneyList  :  "+money);
 		
-		model.addAttribute("moneyList", moneyList);
+		model.addAttribute("moneyList", money);
 		model.addAttribute("DATE1", DATE1);
 		
 		return "moneyList";
