@@ -49,14 +49,13 @@ public class IngredientController {
 	@RequestMapping(value="/ingredientInsert")
 	public String ingredientInsert(Model model, CommandMap commandmap, HttpServletRequest request) throws Exception{
 		
-		int member_id=1;
 		
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
 
 		if( multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL").getSize() > 0 ) {
 			MultipartFile file = multipartHttpServletRequest.getFile("SANDWICH_THUMBNAIL");
 
-			String fileName = member_id+"_"+"ingredient"+"_"+file.getOriginalFilename();
+			String fileName = request.getSession().getAttribute("MEMBER_ID")+"_"+"ingredient"+"_"+file.getOriginalFilename();
 			
 			File uploadFile = new File(FILE_PATH + fileName);
 
@@ -76,7 +75,7 @@ public class IngredientController {
 	@RequestMapping(value="/ingredientList")
 	public String IngredientList(Model model, CommandMap commandmap, HttpServletRequest request) throws Exception{
 		
-		String isSearch = request.getParameter("isSerch");
+		String isSearch = request.getParameter("isSearch");
 		
 		Map<String, Object> isSearchMap = new HashMap<String, Object>();
 		
@@ -91,6 +90,7 @@ public class IngredientController {
 		List<Map<String,Object>> ingredientList = ingredientService.ingredientList();
 	
 		totalCount = ingredientList.size();
+		
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "ingredientList.jy");
 		pagingHtml = page.getPagingHtml().toString();
 
@@ -106,11 +106,6 @@ public class IngredientController {
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("pagingHtml", pagingHtml);
 		model.addAttribute("currentPage", currentPage);
-		model.addAttribute("list",ingredientList);
-			
-	
-		totalcount=ingredientList.size();
-		
 		model.addAttribute("ingredientList", ingredientList);
 		model.addAttribute("totalcount", totalcount);
 		

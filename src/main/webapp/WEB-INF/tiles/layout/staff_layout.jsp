@@ -30,7 +30,7 @@
 <link href="resources/css/animate.min.css" rel="stylesheet" />
 
 <!-- Custom styling plus plugins -->
-<link href="resources/css/custom.css" rel="stylesheet" />
+<link href="resources/css/custom.css?ver=1" rel="stylesheet" />
 <link href="resources/css/pink.css" rel="stylesheet" />
 
 <!-- Font Awesome -->
@@ -89,8 +89,8 @@
 						<div class="menu_section">
 							<h3>직원님!</h3>
 							<ul class="nav side-menu">
-								<li><a href="/sandwich"><i class="fa fa-cutlery"></i>불타는
-										샌드위치로 가기</a></li>
+								<li><a href="/sandwich"><i class="fa fa-cutlery"></i>불타는 샌드위치로 가기</a></li>
+								<li><a href="logout.jy"><i class="fa fa-sign-out"></i>로그아웃</a></li>
 								<li><a href="staff.jy"><i class="fa fa-clock-o"></i>알림</a>
 								</li>
 
@@ -133,9 +133,9 @@
 			</div>
 
 
-			<!-- top navigation
+			<!-- top navigation-->
 			<?xml version="1.0" encoding="UTF-8" ?>
- 			-->
+ 			
 			<div class="top_nav">
 
 				<div class="nav_menu">
@@ -143,20 +143,6 @@
 					<div class="nav toggle">
 						<a id="menu_toggle"><i class="fa fa-bars"></i></a>
 					</div>
-
-					<ul class="nav navbar-nav navbar-right">
-						<li class=""><a href="javascript:;"
-							class="user-profile dropdown-toggle" data-toggle="dropdown"
-							aria-expanded="false"> <span class=" fa fa-angle-down"></span>
-						</a>
-							<ul class="dropdown-menu dropdown-usermenu pull-right">
-
-								<li><a href="logout"><i
-										class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-							</ul></li>
-
-
-					</ul>
 
 					</nav>
 				</div>
@@ -169,11 +155,11 @@
 			<div class="right_col" role="main">
 
 				<div class="">
-					<div class="page-title">
+					
 						<!-- before staff-body -->
 						<tiles:insertAttribute name="staff_body" />
 						<!-- after staff-body -->
-					</div>
+					
 				</div>
 			</div>
 			<!-- /page content -->
@@ -183,9 +169,9 @@
 
 
 
-	<!-- 
+	
    <?xml version="1.0" encoding="UTF-8" ?>
- -->
+ 
 
 	<script src="resources/js/bootstrap.min.js"></script>
 	<!-- bootstrap progress js -->

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sandwich.common.dao.AbstractDAO;
-import com.sandwich.model.MemberModel;
+
 
 @Repository("loginDAO")
 public class LoginDao extends AbstractDAO {
@@ -21,13 +21,15 @@ public class LoginDao extends AbstractDAO {
 	{
 		return (Map<String, Object>)selectOne("login.loginSuccess", map);
 	}
-	
-	public MemberModel idFind(MemberModel memberModel) {
-		return (MemberModel) selectOne("login.idFind", memberModel);
-	}
-	
-	public MemberModel pwFind(MemberModel memberModel) {
-		return (MemberModel) selectOne("login.pwFind", memberModel);
-	}
 
+	//아아디칮가
+	public String findId(Map<String, Object> map) throws Exception{
+		return (String) selectOne("login.findId", map);
+	}
+		
+	//비번찾기
+	public String findPw(Map<String, Object> map) throws Exception{
+		return (String) selectOne("login.findPw", map);
+	}
+	
 }

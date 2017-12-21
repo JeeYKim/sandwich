@@ -414,6 +414,19 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- SMTP -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
 	</dependencies>	
 	
     <build>

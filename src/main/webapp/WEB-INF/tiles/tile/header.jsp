@@ -46,6 +46,7 @@
       font-size: 15px;                    /* 폰트 사이즈를 12px로 설정 */
         font-weight: bold;                  /* 폰트를 굵게 설정 */
         font-family: PureunJeonnam;
+        color:#373735;
 }
 
 .loginname{
@@ -75,14 +76,14 @@
 			<c:choose>
 
 				<c:when test="${(sessionScope.MEMBER_LEVEL) == NULL}">
-					<ul>
-						<li><a class="loginLink" href="loginForm.jy">로그인</a></li>
-						<li><a class="joinLink" href="join.jy">회원가입</a></li>
+					<ul style="margin-right:20px; margin-top:13px;">
+						<li><a class="loginLink" style="color:#373735;" href="loginForm.jy">로그인</a></li>
+						<li><a class="joinLink" style="color:#373735; font-weight:bold;" href="joinEmail.jy">회원가입</a></li>
 					</ul>
 				</c:when>
-
+  
 				<c:otherwise>
-					<ul>
+					<ul style="margin-right:20px; margin-top:13px;">
 						<li><a class="loginLink" href="logout.jy">로그아웃</a></li>
 						<c:if test="${(sessionScope.MEMBER_LEVEL) < 1 }">
 							<li><a class="loginLink" href="mypage.jy">마이페이지</a></li>
@@ -98,8 +99,9 @@
 				</c:otherwise>
 
 			</c:choose>
-
+	
 		</div>
+		
 	</div>
 	<div id='cssmenu' class="align-center">
 		<ul>

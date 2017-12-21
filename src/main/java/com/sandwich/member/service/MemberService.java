@@ -1,9 +1,6 @@
 package com.sandwich.member.service;
 
 import java.util.Map;
-import java.util.List;
-
-import com.sandwich.common.CommandMap;
 
 public interface MemberService {
 	

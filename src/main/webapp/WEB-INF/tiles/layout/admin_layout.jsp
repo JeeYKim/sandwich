@@ -39,7 +39,8 @@
    <!-- NProgress -->
    <link href="resources/css/nprogress.css" rel="stylesheet" />
    
-   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>   <!-- jquery cdn -->
+   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>  
+    <!-- jquery cdn -->
    
    <!-- soledot -->
    <script src="resources/js/soledot.js"></script>
@@ -89,6 +90,9 @@
                      <a href="/sandwich"><i class="fa fa-cutlery"></i>불타는 샌드위치로 가기</a>
                   </li>
                   <li>
+                  	 <a href="logout.jy"><i class="fa fa-sign-out"></i>로그아웃</a>
+                  </li>
+                  <li>
                      <a href="admin.jy"><i class="fa fa-clock-o"></i>알림</a>
                   </li>
                   
@@ -135,7 +139,8 @@
                   <li>
                      <a><i class="fa fa-won"></i>매출 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
-                     
+                     	<li><a href="staffMoney.jy">직원 급여</a></li>
+                     	<li><a href="cost.jy">기타 비용</a></li>
                         <li><a href="MoneyList.jy">매출 현황</a></li>
                         <li><a href="MoneyChart.jy">매출 현황 그래프</a>
                      </ul>
@@ -166,22 +171,6 @@
                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
-               <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class=" fa fa-angle-down" ></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-
-                     <li>
-                        <a href="/sd_intensely/memberlogin/bo/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
-                     </li>
-                  </ul>
-               </li>
-   
-
-            </ul>
-         
          </nav>
       </div>
 
@@ -201,18 +190,8 @@
          </div>
          <!-- /page content -->
 
-         <!-- footer content -->
-<!--          <?xml version="1.0" encoding="UTF-8" ?>
-
-
-      </div>
-   </div>
-
-   <div id="custom_notifications" class="custom-notifications dsp_none">
-      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group"></ul>
-      <div class="clearfix"></div>
-      <div id="notif-group" class="tabbed_notifications"></div>
-   </div> -->
+</div>
+</div>
 
    <?xml version="1.0" encoding="UTF-8" ?>
 

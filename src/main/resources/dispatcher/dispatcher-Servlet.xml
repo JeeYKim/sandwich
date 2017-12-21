@@ -25,8 +25,12 @@
             <mvc:mapping path="/**"/>
             <bean id="loggerInterceptor" class="com.sandwich.common.logger.LoggerInterceptor"></bean>
         </mvc:interceptor>
+        
+        <mvc:interceptor>
+        	<mvc:mapping path="/**"/>
+        	<bean id="loginInterceptor" class="com.sandwich.common.login.LoginInterceptor"></bean>
+        </mvc:interceptor>  
     </mvc:interceptors>
-
    
    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 

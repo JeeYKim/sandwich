@@ -10,11 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sandwich.common.CommandMap;
 import com.sandwich.member.service.LoginService;
-import com.sandwich.model.MemberModel;
+
 
 @Controller
 public class LoginController {
@@ -94,80 +95,74 @@ public class LoginController {
 		return "redirect:/main.jy";
 	}
 	
-	
-	@RequestMapping("/findIdForm.jy")
-	public String idFindForm() {
-		return "findIdForm";
+	@RequestMapping(value = "/findIdForm.jy")
+	public String findIdForm(Model model) {
+		
+		System.out.println("연결됌=-==-=-=-=-=-=-=-");
+		return "/member/find_Id";
 	}
- 	
- 	@RequestMapping(value="/findIdForm.jy", method=RequestMethod.POST)
- 	public ModelAndView idFind(HttpServletRequest request) {
- 		ModelAndView mav = new ModelAndView();
- 		String member_name = (String) request.getParameter("member_name");
- 		String member_email = (String) request.getParameter("member_email");
- 		
- 		System.out.println(member_name);
- 		System.out.println(member_email);
- 		
- 		MemberModel member = new MemberModel();
- 		member.setMember_name(member_name);
- 		member.setMember_email(member_email);
- 		
- 		MemberModel idFindMember = loginService.idFind(member);
- 	/*	System.out.println("db값 : "+ idFindMember.getMember_email());
- 		System.out.println("가져온값: "+ member_email);*/
- 		
- 		
- 		if(idFindMember != null) {
- 			System.out.println("null이 아님");
- 			if(member_email.equals(idFindMember.getMember_email())) {
- 				mav.addObject("idFindMember", idFindMember);
- 				mav.setViewName("idFindSuccess");
- 				System.out.println("찾아온 아이디 : " + idFindMember.getMember_id());
- 				return mav;
- 				
- 			} else {
- 				mav.setViewName("idFindFail");
- 				return mav;
- 			}
- 		} else {
- 			mav.setViewName("idFindFail");
- 			return mav;
- 		}
- 		
- 	}
- 	
- 	@RequestMapping("/findPwForm.jy")
- 	public String pwFindForm() {
- 		return "findPwForm";
- 	}
- 	
- 	@RequestMapping(value="/findPwForm.jy", method=RequestMethod.POST)
- 	public ModelAndView pwFind(HttpServletRequest request) {
- 		ModelAndView mav = new ModelAndView();
- 		String member_id = (String) request.getParameter("member_id");
- 		String member_email = (String) request.getParameter("member_email");
- 		MemberModel member = new MemberModel();
- 		member.setMember_id(member_id);
- 		member.setMember_email(member_email);
- 		
- 		MemberModel pwFindMember = loginService.pwFind(member);
- 		
- 		if (pwFindMember != null) {
- 			if(member_email.equals(pwFindMember.getMember_email())) {
- 				mav.addObject("pwFindMember", pwFindMember);
- 				mav.setViewName("pwFindSuccess");
- 				return mav;
- 				
- 			} else {
- 				mav.setViewName("pwFindFail");
- 				return mav;
- 			}
- 		} else {
- 			mav.setViewName("pwFindFail");
- 			return mav;
- 		}
- 	}
+	//아이디 찾기 처리
+		@RequestMapping(value = "/findId.jy")
+		public @ResponseBody String findId(Model model, CommandMap commandMap) throws Exception
+		{
+			
+			
+			System.out.println((String)commandMap.getMap().get("idname"));
+			//ajax jason data
+			String idname = (String)commandMap.getMap().get("idname"); 
+			String idemail = (String)commandMap.getMap().get("idemail"); 
+			
+			
+			
+			System.out.println("아이디찾기");
+			//json data -> commandMap에 쿼리 컬럼명과 매핑하여 넣음
+			commandMap.put("MEMBER_NAME", idname);
+			commandMap.put("MEMBER_EMAIL", idemail);
+			
+			//쿼리 반환 값 String 변수로 받음
+			String findId = loginService.findId(commandMap.getMap());
+	        System.out.println("찾은아이디 : " + findId);
+	        
+			return findId;
+		}	
+		
+		
+		@RequestMapping(value = "/findPwForm.jy")
+		public String findPwForm(Model model)
+		{
+			return "/member/find_Pw";
+		}
+		
+		//비번찾기
+		@RequestMapping(value = "/findPw.jy")
+		public @ResponseBody String findPw(Model model, CommandMap commandMap) throws Exception
+		{
+			//ajax json data
+			String pwname = (String)commandMap.getMap().get("pwname");
+			String pwid = (String)commandMap.getMap().get("pwid");
+			String pwemail = (String)commandMap.getMap().get("pwemail");
+			
+			System.out.println(pwname);
+			System.out.println(pwid);
+			System.out.println(pwemail);
+			
+			System.out.println("��й�ȣ ã��");
+			//json data -> commandMap에 넣기� �־���
+			commandMap.put("MEMBER_NAME", pwname);
+			commandMap.put("MEMBER_ID", pwid);
+			commandMap.put("MEMBER_EMAIL", pwemail);
+			
+			System.out.println(commandMap.getMap());
+			
+			//쿼리 반환 값 String 변수로 받음
+			String findPw = loginService.findPw(commandMap.getMap());
+			
+			
+			System.out.println("찾으신 비밀번호 : " + findPw);
+			
+			return findPw;
+		}
+	
 	
 
 }

@@ -53,7 +53,7 @@ public class Paging {
 
 			// 현재 페이지가 한 화면에서 보여줘야할 페이지수보다 클 때
 			if (currentPage > blockPage) {
-				pagingHtml.append("<a class='page prv' href=" + urlName + "?currentPage=" + (startPage - 1) + ">");
+				pagingHtml.append("<a class='page prv' href=" + urlName + ".jy?currentPage=" + (startPage - 1) + ">");
 				pagingHtml.append("&lt;");
 				pagingHtml.append("</a>");
 			}
@@ -68,7 +68,7 @@ public class Paging {
 					pagingHtml.append(i);
 					pagingHtml.append("</strong>");
 				} else {
-					pagingHtml.append("<a class='page' href=" + urlName + "?currentPage=");
+					pagingHtml.append("<a class='page' href=" + urlName + ".jy?currentPage=");
 					pagingHtml.append(i);
 					pagingHtml.append(">");
 					pagingHtml.append(i);
@@ -78,7 +78,7 @@ public class Paging {
 
 			// 다음 블락 페이지
 			if (totalPage - startPage >= blockPage) {
-				pagingHtml.append("<a class='page next' href=" + urlName + "?currentPage=" + (endPage + 1) + ">");
+				pagingHtml.append("<a class='page next' href=" + urlName + ".jy?currentPage=" + (endPage + 1) + ">");
 				pagingHtml.append("&gt;");
 				pagingHtml.append("</a>");
 			}
@@ -116,10 +116,10 @@ public class Paging {
 			pagingHtml = new StringBuffer();
 			if (currentPage > blockPage) {
 				if (isSearch != "")
-					pagingHtml.append("<a class='page prv' href=" + urlName + "?currentPage=" + (startPage - 1)
+					pagingHtml.append("<a class='page prv' href=" + urlName + ".jy?currentPage=" + (startPage - 1)
 							+ "&searchNum=" + searchNum + "&isSearch=" + isSearch + ">");
 				else
-					pagingHtml.append("<a class='page prv' href=" + urlName + "?currentPage=" + (startPage - 1) + ">");
+					pagingHtml.append("<a class='page prv' href=" + urlName + ".jy?currentPage=" + (startPage - 1) + ">");
 				pagingHtml.append("&lt;");
 				pagingHtml.append("</a>");
 			}
@@ -134,7 +134,7 @@ public class Paging {
 					pagingHtml.append(i);
 					pagingHtml.append("</strong>");
 				} else {
-					pagingHtml.append("<a class='page' href=" + urlName + "?currentPage=" + i);
+					pagingHtml.append("<a class='page' href=" + urlName + ".jy?currentPage=" + i);
 					if (isSearch != "")
 						pagingHtml.append("&isSearch=" + isSearch + "&searchNum=" + searchNum);
 					pagingHtml.append(">");
@@ -144,7 +144,7 @@ public class Paging {
 			}
 			// 다음 block페이지
 			if (totalPage - startPage >= blockPage) {
-				pagingHtml.append("<a class='page next' href=" + urlName + "?currentPage=" + (endPage + 1));
+				pagingHtml.append("<a class='page next' href=" + urlName + ".jy?currentPage=" + (endPage + 1));
 				if (isSearch != "")
 					pagingHtml.append("&isSearch=" + isSearch + "&searchNum=" + searchNum);
 				pagingHtml.append(">");
@@ -186,10 +186,10 @@ public class Paging {
 			pagingHtml = new StringBuffer();
 			if (currentPage > blockPage) {
 				if (Category != "")
-					pagingHtml.append("<a class='page prv' href=" + urlName + "?currentPage=" + (startPage - 1)
+					pagingHtml.append("<a class='page prv' href=" + urlName + ".jy?currentPage=" + (startPage - 1)
 							 + "&category=" + Category + ">");
 				else
-					pagingHtml.append("<a class='page prv' href=" + urlName + "?currentPage=" + (startPage - 1) + ">");
+					pagingHtml.append("<a class='page prv' href=" + urlName + ".jy?currentPage=" + (startPage - 1) + ">");
 				pagingHtml.append("&lt;");
 				pagingHtml.append("</a>");
 			}
@@ -204,7 +204,7 @@ public class Paging {
 					pagingHtml.append(i);
 					pagingHtml.append("</strong>");
 				} else {
-					pagingHtml.append("<a class='page' href=" + urlName + "?currentPage=" + i);
+					pagingHtml.append("<a class='page' href=" + urlName + ".jy?currentPage=" + i);
 					if (Category != "")
 						pagingHtml.append("&category=" + Category );
 					pagingHtml.append(">");
@@ -214,7 +214,7 @@ public class Paging {
 			}
 			// ´다음 block페이지
 			if (totalPage - startPage >= blockPage) {
-				pagingHtml.append("<a class='page next' href=" + urlName + "?currentPage=" + (endPage + 1));
+				pagingHtml.append("<a class='page next' href=" + urlName + ".jy?currentPage=" + (endPage + 1));
 				if (Category != "")
 					pagingHtml.append("&category=" + Category);
 				pagingHtml.append(">");

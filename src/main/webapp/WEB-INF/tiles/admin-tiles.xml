@@ -12,7 +12,7 @@
 	</definition>
 	
 	 <definition name="admin_main" extends="admin_layout">
-        <put-attribute name="admin_body" expression="/WEB-INF/view/admin_main.jsp" />
+        <put-attribute name="admin_body" expression="/WEB-INF/view/dateList.jsp" />
  	</definition>
  	
  	<definition name="ingredientForm" extends="admin_layout">
@@ -39,4 +39,16 @@
  		<put-attribute name="admin_body" expression="/WEB-INF/view/money/moneyChart.jsp"/>
  	</definition>
 
+	<definition name="costList" extends="admin_layout">
+		<put-attribute name="admin_body" expression="/WEB-INF/view/Cost/ect_cost.jsp"/>
+	</definition>
+	
+	<definition name="staffMoneyList" extends="admin_layout">
+		<put-attribute name="admin_body" expression="/WEB-INF/view/Cost/staff_cost.jsp"/>
+	</definition>
+	
+	<!-- <definition name="warningList" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/dateList.jsp"/>
+ 	</definition> -->
+ 	
 </tiles-definitions>

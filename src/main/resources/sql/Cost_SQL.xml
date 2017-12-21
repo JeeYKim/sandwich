@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "cost">
+
+<insert id="insertCost" parameterType = "hashmap">
+	<![CDATA[
+	INSERT INTO COST
+		(MEMBER_ID,
+		 ECT_COST,
+		 COST_DATE,
+		 COST_NO,
+		 COST_TITLE)
+	VALUES
+		(#{MEMBER_ID},
+		 #{ECT_COST},
+		 #{COST_DATE},
+		 COST_NO_SEQ.NEXTVAL,
+		 #{COST_TITLE})
+	]]>
+
+</insert>
+
+<insert id="insertStaffMoney" parameterType="hashmap">
+	<![CDATA[
+	INSERT INTO STAFFMONEY
+		(MEMBER_ID,
+		 STAFF_COST,
+		 COST_DATE,
+		 STAFF_NO,
+		 STAFF_ID)
+	VALUES
+		(#{MEMBER_ID},
+		 #{STAFF_COST},
+		 #{COST_DATE},
+		 STAFFMONEY_NO_SEQ.NEXTVAL,
+		 #{STAFF_ID})
+	]]>
+</insert>
+
+<select id="CostList" resultType="hashmap">
+	<![CDATA[
+	SELECT * FROM COST
+	]]>
+	
+</select>
+
+<select id="staffMoneyList" resultType="hashmap">
+	<![CDATA[
+	SELECT * FROM STAFFMONEY
+	]]>
+	
+</select>
+
+<delete id="deleteCost" parameterType="hashmap">
+	<![CDATA[ 
+	DELETE FROM COST WHERE COST_NO = #{COST_NO}
+	]]>
+</delete>
+
+<delete id="deleteStaffMoney" parameterType="hashmap">
+	<![CDATA[  
+	DELETE FROM STAFFMONEY WHERE STAFF_NO = #{STAFF_NO}
+	]]>
+</delete>
+</mapper>
