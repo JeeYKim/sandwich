@@ -229,7 +229,7 @@ $(document).ready(function () {
 		<div class="paging"
 			style="text-align: center; both: clear; margin-top: 20px;">
 			${pagingHtml}</div>
-		<div class="member_search">
+		<!-- <div class="member_search">
 
 			<div
 				style="text-align: center; width: 500px; margin-left: auto; margin-right: auto; margin-top: 20px; padding-bottom: 70px;">
@@ -247,7 +247,7 @@ $(document).ready(function () {
 					</form>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
 </body>

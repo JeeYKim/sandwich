@@ -13,7 +13,6 @@
 <div class="message">${message}</div>
 <div id="loginform">
       <div id="loginformtop"></div>
-      
 <form name="loginform" method="post" action="/sandwich/loginSuccess.jy">
       <div id="loginformmiddle">
 
@@ -57,6 +56,8 @@
                value="Sign In" onchange="javascript:document.getElementById('frm').value=this.value">
                <%--onchange : 버튼 -> 태그 ID가 frm인 것의 값을 찾아서 바꿔줌 --%>
          </div>
+         
+         
          
          <%--아이디/비밀번호 찾기 --%>
          <div id="links_left">
