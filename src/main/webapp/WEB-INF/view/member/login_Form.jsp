@@ -13,13 +13,13 @@
 <script>
 function find_Id()
 {
-	//¾ÆÀÌµğ Ã£±â ÆË¾÷ Ã¢
+	//ì•„ì´ë”” ì°¾ê¸° íŒì—… ì°½
 	window.open('/sandwich/findIdForm.jy','','toolbar=no,menubar=no,location=no,height=650,width=600'); 
 } 
 
 function find_Pw()
 {
-	//ºñ¹Ğ¹øÈ£ Ã£±â ÆË¾÷ Ã¢
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° íŒì—… ì°½
 	window.open('/sandwich/findPwForm.jy','','toolbar=no,menubar=no,location=no,height=650,width=600'); 
 }
 </script>
@@ -27,6 +27,7 @@ function find_Pw()
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div class="message">${message}</div>
 	<div id="loginform">
 		<div id="loginformtop"></div>
@@ -49,7 +50,7 @@ function find_Pw()
 
 						<div id="username_inputright"></div>
 					</div>
-					<div id="password_label">ºñ¹Ğ¹øÈ£</div>
+					<div id="password_label">ë¹„ë°€ë²ˆí˜¸</div>
 
 					<div id="password_input">
   
@@ -68,29 +69,29 @@ function find_Pw()
 					</div>
    					
 					<div id="submit">
-						<%--·Î±×ÀÎ ¹öÆ°ÀÌ ÀÌ¹ÌÁöÀÌ±â ¶§¹®¿¡ µû·Î submit ¼³Á¤ --%>
+						<%--ë¡œê·¸ì¸ ë²„íŠ¼ì´ ì´ë¯¸ì§€ì´ê¸° ë•Œë¬¸ì— ë”°ë¡œ submit ì„¤ì • --%>
 						 <input type="image" src="resources/images/login/sing_in_2.PNG"
 							id="submit2" value="Sign In"
 							onchange="javascript:document.getElementById('frm').value=this.value"> 
 							
-						<%--onchange : ¹öÆ° -> ÅÂ±× ID°¡ frmÀÎ °ÍÀÇ °ªÀ» Ã£¾Æ¼­ ¹Ù²ãÁÜ --%>
+						<%--onchange : ë²„íŠ¼ -> íƒœê·¸ IDê°€ frmì¸ ê²ƒì˜ ê°’ì„ ì°¾ì•„ì„œ ë°”ê¿”ì¤Œ --%>
 					</div>
 						
-					<%--¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ Ã£±â --%>
+					<%--ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° --%>
 <br><br><br><br><br><br><br><br><br>
 					<div id="links_left">
 						
-							<a href="javascript:find_Id();" style="margin: 0 30px 30px 120px">¾ÆÀÌµğ Ã£±â</a>
+							<a href="javascript:find_Id();" style="margin: 0 30px 30px 120px">ì•„ì´ë”” ì°¾ê¸°</a>
 						
-							<a href="javascript:find_Pw();">ºñ¹Ğ¹øÈ£ Ã£±â</a>
+							<a href="javascript:find_Pw();">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
 					
 
 
 					</div>
 
-					<!-- È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î -->
+					<!-- íšŒì›ê°€ì… í˜ì´ì§€ë¡œ -->
 					<div id="links_right">
-						<a href="join.jy" style="margin: 0 50px 0 0;">È¸¿ø°¡ÀÔ</a>
+						<a href="join.jy" style="margin: 0 50px 0 0;">íšŒì›ê°€ì…</a>
 						
 					</div> 
 					
@@ -100,5 +101,6 @@ function find_Pw()
 		<div id="loginformbottom"></div>
 	</div>
 	<br><br><br><br>
+
 </body>
 </html>

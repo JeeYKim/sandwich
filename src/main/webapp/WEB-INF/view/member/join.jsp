@@ -106,6 +106,7 @@
 <title>회원가입</title>
 </head>
 <body>
+<center>
 	<div class="container">
 		<div class="body_center" style="width: 70%; list-style: none;">
 
@@ -192,6 +193,7 @@
 						<input class="button_" type="button" style=" width:90%;" onclick="checkpw();"
 							value="가입완료" />
 					</div>
+					</center>
 				</ul>
 				</section>
 			</form>

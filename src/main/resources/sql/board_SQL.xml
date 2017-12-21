@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--1:1 게시판 SQL -->
+<mapper namespace="sandwich.board">
+
+	<resultMap type="java.util.HashMap" id="boardMap">
+		<result property="boardNo" column="no" />
+		<result property="parentNo" column="parent_no" />
+		<result property="boardTitle" column="title" />
+		<result property="boardWriter" column="writer" />
+		<result property="boardContent" column="content" />
+		<result property="boardRegdate" column="regdate" />
+	</resultMap>
+	
+	
+
+</mapper>
