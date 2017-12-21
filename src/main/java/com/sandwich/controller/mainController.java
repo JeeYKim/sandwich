@@ -17,15 +17,15 @@ public class mainController {
 
 		return "main";
 	}
-	@RequestMapping(value="/admin.jy", method=RequestMethod.GET)
+/*	@RequestMapping(value="/admin.jy", method=RequestMethod.GET)
 	public String admin() {
 	
 		return "admin_main";
-	}
+	}*/
 	
-	@RequestMapping(value="/staff.jy", method=RequestMethod.GET)
+/*	@RequestMapping(value="/staff.jy", method=RequestMethod.GET)
 	public String staff() {
 	
 		return "staff_main";
-	}
+	}*/
 }

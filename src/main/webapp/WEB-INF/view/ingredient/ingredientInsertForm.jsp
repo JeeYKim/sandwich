@@ -16,6 +16,7 @@
 	<h1 class="page-header">재료등록</h1>
 </div>
 	<form id="frm" name="frm" method="post" enctype="multipart/form-data">
+	<input type="hidden" id="MEMBER_ID" name="MEMBER_ID" value="${MEMBER_ID}">
 		<table class="board_view">
 			<colgroup>
 				<col width="15%">

@@ -1,83 +1,106 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./resources/css/loginForm.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+<link rel="stylesheet" type="text/css"
+	href="/sandwich/resources/css/loginForm.css?ver=1" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
+<script>
+function find_Id()
+{
+	//ì•„ì´ë”” ì°¾ê¸° íŒì—… ì°½
+	window.open('/sandwich/findIdForm.jy','','toolbar=no,menubar=no,location=no,height=650,width=600'); 
+} 
+
+function find_Pw()
+{
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° íŒì—… ì°½
+	window.open('/sandwich/findPwForm.jy','','toolbar=no,menubar=no,location=no,height=650,width=600'); 
+}
+</script>
+
 <title>Insert title here</title>
 </head>
 <body>
-<div class="message">${message}</div>
-<div id="loginform">
-      <div id="loginformtop"></div>
-<form name="loginform" method="post" action="/sandwich/loginSuccess.jy">
-      <div id="loginformmiddle">
 
-         <h2>Login</h2>
+	<div class="message">${message}</div>
+	<div id="loginform">
+		<div id="loginformtop"></div>
+		
+		<form name="loginform" method="post"
+			action="/sandwich/loginSuccess.jy">
+			<div id="loginformmiddle">
+				<h2>Login</h2>
+					<div id="id_label">ID</div>
+					<div id="username_input">
 
-         <div id="id_label">ID</div>
-         <div id="username_input">
+						<div id="username_inputleft"></div>
 
-            <div id="username_inputleft"></div>
-            
-               <div id="username_inputmiddle">
-                  
-                  <input type="text" name="MEMBER_ID" id="ID" required="required"> 
-                  <img id="url_user" src="resources/images/login/mailicon.png" alt="">
+						<div id="username_inputmiddle">
 
-               </div>
+							<input type="text" name="MEMBER_ID" id="ID" required="required">
+							<img id="url_user" src="resources/images/login/mailicon.png" alt="" style="height:15px">
 
-               <div id="username_inputright"></div>
-         </div>
-         <div id="password_label">ºñ¹Ğ¹øÈ£</div>
-     
-         <div id="password_input">
+						</div>
 
-            <div id="password_inputleft"></div>
+						<div id="username_inputright"></div>
+					</div>
+					<div id="password_label">ë¹„ë°€ë²ˆí˜¸</div>
 
-            <div id="password_inputmiddle">
-                    
-               <input type="password" name="MEMBER_PW" id="PW" required="required"> 
-               <img id="url_password" src="resources/images/login/passicon.png" alt="">
+					<div id="password_input">
+  
+						<div id="password_inputleft"></div>     
 
-            </div>
+						<div id="password_inputmiddle">
+
+							<input type="password" name="MEMBER_PW" id="PW"	required="required"> 
+							<img id="url_password" src="resources/images/login/passicon.png" alt="" style="width:15px">
+
+						</div>
 
 
-            <div id="password_inputright"></div>
+						<div id="password_inputright"></div>
+    
+					</div>
+   					
+					<div id="submit">
+						<%--ë¡œê·¸ì¸ ë²„íŠ¼ì´ ì´ë¯¸ì§€ì´ê¸° ë•Œë¬¸ì— ë”°ë¡œ submit ì„¤ì • --%>
+						 <input type="image" src="resources/images/login/sing_in_2.PNG"
+							id="submit2" value="Sign In"
+							onchange="javascript:document.getElementById('frm').value=this.value"> 
+							
+						<%--onchange : ë²„íŠ¼ -> íƒœê·¸ IDê°€ frmì¸ ê²ƒì˜ ê°’ì„ ì°¾ì•„ì„œ ë°”ê¿”ì¤Œ --%>
+					</div>
+						
+					<%--ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° --%>
+<br><br><br><br><br><br><br><br><br>
+					<div id="links_left">
+						
+							<a href="javascript:find_Id();" style="margin: 0 30px 30px 120px">ì•„ì´ë”” ì°¾ê¸°</a>
+						
+							<a href="javascript:find_Pw();">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
+					
 
-         </div>
 
-         <div id="submit">
-            <%--·Î±×ÀÎ ¹öÆ°ÀÌ ÀÌ¹ÌÁöÀÌ±â ¶§¹®¿¡ µû·Î submit ¼³Á¤ --%>
-            <input type="image" src="resources/images/login/login.png" id="submit2"
-               value="Sign In" onchange="javascript:document.getElementById('frm').value=this.value">
-               <%--onchange : ¹öÆ° -> ÅÂ±× ID°¡ frmÀÎ °ÍÀÇ °ªÀ» Ã£¾Æ¼­ ¹Ù²ãÁÜ --%>
-         </div>
-         
-         
-         
-         <%--¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ Ã£±â --%>
-         <div id="links_left">
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/sandwich/findIdForm.jy">¾ÆÀÌµğ Ã£±â</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/sandwich/findPwForm.jy">ºñ¹Ğ¹øÈ£ Ã£±â</a>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             
-            
-             
-         </div>
-         
-         <%--È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î --%>
-         <div id="links_right">
-            <a href="join.jy">È¸¿ø°¡ÀÔ</a>
-         </div>
-      </div>
-      </form>
-      <div id="loginformbottom"></div>
-   </div>
+					</div>
+
+					<!-- íšŒì›ê°€ì… í˜ì´ì§€ë¡œ -->
+					<div id="links_right">
+						<a href="join.jy" style="margin: 0 50px 0 0;">íšŒì›ê°€ì…</a>
+						
+					</div> 
+					
+				</div>
+			
+		</form>
+		<div id="loginformbottom"></div>
+	</div>
+	<br><br><br><br>
+
 </body>
 </html>

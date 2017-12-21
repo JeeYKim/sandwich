@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="stock">
+
+
+<!-- 유통기한 20일 설정 -->
+<select id="dateList" resultType="hashMap" parameterType="hashMap">
+<![CDATA[
+select sandwich_no,sandwich_smalltype,sandwich_date 
+from (select sandwich_no,sandwich_smalltype,(to_date(SANDWICH_ENDDATE,'yy-mm-dd') - 
+to_date(SYSDATE,'yy-mm-dd')) as sandwich_date from sandwich where to_char(SANDWICH_ENDDATE,'yyyy-mm-dd') >= 
+to_char(SYSDATE,'yyyy-mm-dd')) 
+where sandwich_date 
+<20 order by sandwich_date asc
+]]>
+
+</select>
+
+
+<!-- 재고 100개 이하 설정 -->
+<select id="stockList" resultType="hashMap" parameterType="hashMap">
+<![CDATA[
+
+select sandwich_no,sandwich_smalltype,sandwich_amount
+from sandwich
+where sandwich_amount < 100 order by sandwich_amount asc
+
+]]>
+
+
+
+</select>
+
+
+
+</mapper>

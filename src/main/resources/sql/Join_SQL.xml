@@ -34,13 +34,13 @@
 		]]>
 	</insert>
 	
-	<!-- <select id="checkEmail" parameterType="hashmap" resultType="hashmap">
+	 <select id="checkEmail" parameterType="hashmap" resultType="Integer">
 	<![CDATA[
 	SELECT COUNT(MEMBER_EMAIL)  
 	FROM MEMBER2 
 	WHERE MEMBER_EMAIL = #{MEMBER_EMAIL}   
 	]]>
-	</select> -->
+	</select>
 	
 	<select id="checkId" parameterType="hashmap" resultType="int">
 	<![CDATA[

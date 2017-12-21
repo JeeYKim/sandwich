@@ -11,7 +11,7 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/tile/footer.jsp" />
 	</definition>
 	
-	<definition name="join" extends="layout">
+	<definition name="joinForm" extends="layout">
 		<put-attribute name="body" value="/WEB-INF/view/member/join.jsp"/>
 	</definition>
 	
@@ -19,9 +19,6 @@
 		<put-attribute name="body" value="/WEB-INF/view/member/login_Form.jsp"/>
 	</definition>
 	
- 	<definition name="findIdForm" extends="layout">
- 		<put-attribute name="body" value="/WEB-INF/view/member/findIdForm.jsp"/>
- 	</definition>
  	
  	<definition name="idFindSuccess" extends="layout">
  		<put-attribute name="body" value="/WEB-INF/view/member/idFindSuccess.jsp"/>
@@ -31,9 +28,6 @@
  		<put-attribute name="body" value="/WEB-INF/view/member/idFindFail.jsp"/>
  	</definition>
  	
- 	<definition name="findPwForm" extends="layout">
- 		<put-attribute name="body" value="/WEB-INF/view/member/findPwForm.jsp"/>
- 	</definition>
  	
  	<definition name="pwFindSuccess" extends="layout">
  		<put-attribute name="body" value="/WEB-INF/view/member/pwFindSuccess.jsp"/>
@@ -43,6 +37,16 @@
  		<put-attribute name="body" value="/WEB-INF/view/member/pwFindFail.jsp"/>
  	</definition>
  	
+ 	<definition name="join_complete" extends="layout">
+ 		<put-attribute name="body" value="/WEB-INF/view/member/join_complete.jsp"/>
+ 	</definition>
  	
+ 	<definition name="join_Step1" extends="layout">
+ 		<put-attribute name="body" value="/WEB-INF/view/member/join_Step1.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="joinEmail" extends="layout">
+		<put-attribute name="body" value="/WEB-INF/view/member/join_Step1.jsp"/>
+	</definition>
 </tiles-definitions>
 

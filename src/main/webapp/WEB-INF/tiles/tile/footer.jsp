@@ -5,8 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+.sandwich_footer{
+	background:#373735;
+	text-float:center;
+	color:#fff;
+}
+
+</style>
 </head>
 <body>
-안녕? 나는 footer야 ㅎㅎㅎ
+<div class="sandwich_footer">
+<center>
+<br>
+주소 : 서울특별시 강남구 논현로146길 16 3층<br>
+대표 : 구현일<br>
+전화번호 : 02-333-5555<br> 
+<br>
+</center>
+</div>
 </body>
 </html>

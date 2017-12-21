@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 import com.sandwich.member.dao.LoginDao;
-import com.sandwich.model.MemberModel;
+
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
@@ -25,16 +25,19 @@ public class LoginServiceImpl implements LoginService {
 		this.loginDao = loginDao;
 	}
 
+	@Override
+	public String findId(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return loginDao.findId(map);
+	}
 
-	public MemberModel idFind(MemberModel memberModel) {
-		
-		return loginDao.idFind(memberModel);
+	@Override
+	public String findPw(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return loginDao.findPw(map);
 	}
 
 
-	public MemberModel pwFind(MemberModel memberModel) {
-		
-		return loginDao.pwFind(memberModel);
-	}
+
 
 }
