@@ -12,6 +12,7 @@
 		<result property="orderAmount" column="order_amount" />
 		<result property="orderPrice" column="order_price" />
 		<result property="orderOrderdate" column="order_orderdate" />
+		<result property="orderEnddate" column="order_enddate" />
 		<result property="orderYes" column="order_yes" />
 		<result property="totalPrice" column="total_price" />
 	</resultMap>
@@ -20,15 +21,15 @@
 	
 	<insert id="insertOrder" parameterType="java.util.HashMap">
 		insert into order2 (order_no, member_id, order_bigtype, order_smalltype,
-			order_amount, order_price, order_yes,order_orderdate,total_price)
+			order_amount, order_price, order_yes,order_orderdate,order_enddate,total_price)
 		values (order2_seq.nextval,1,#{orderBigtype},#{orderSmalltype},
-				#{orderAmount},#{orderPrice},-1,sysdate,#{totalPrice})	
+				#{orderAmount},#{orderPrice},0,sysdate,#{orderEnddate},#{totalPrice})	
 	</insert>
 	
 	
 	<select id="getOrderList" resultMap="orderMap" parameterType="java.util.HashMap">
 		select order_no,member_id,order_bigtype,order_smalltype,order_amount,order_price,
-		order_orderdate, order_yes, total_price
+		order_orderdate,order_enddate, order_yes, total_price
 		from order2
 		where 1 = 1     
 		order by order_no desc		
@@ -69,23 +70,16 @@
 		where order_no = #{orderNo}
 	</update>
 	
-	<update id="sandwichUpdate" parameterType="int">
-		update sandwich a
-		set sandwich_amount = sandwich_amount + (
-		select order_amount
-		from order2 b
-		where a.sandwich_bigtype = b.order_bigtype
-		  and a.sandwich_smalltype = b.order_smalltype
-		  and order_no = #{orderNo}
-		)
-		where exists (
-		  select 1
-		  from order2 b
-		  where a.sandwich_bigtype = b.order_bigtype
-		  and a.sandwich_smalltype = b.order_smalltype
-		  and order_no = #{orderNo}
-		)
-	</update>
+	<insert id="sandwichUpdate" parameterType="int">
+		INSERT INTO sandwich(sandwich_no, sandwich_bigtype, sandwich_smalltype, 
+		sandwich_amount, sandwich_price, sandwich_orderdate, SANDWICH_THUMNAIL, sandwich_enddate)
+		SELECT distinct a.ORDER_NO as order_no, a.ORDER_BIGTYPE, a.ORDER_SMALLTYPE,a.ORDER_AMOUNT,
+		a.ORDER_PRICE ,a.ORDER_ORDERDATE  , b.sandwich_thumnail as order_thumnail, a.order_enddate
+		FROM order2 a
+		left outer join sandwich b 
+		on a.order_smalltype = b.SANDWICH_SMALLTYPE
+		where b.sandwich_thumnail is not null and order_no = #{orderNo}
+	</insert>
 	
 	<select id="getSandwich" resultType="hashmap">
 		select SANDWICH_NO "sandwichNo", 

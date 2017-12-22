@@ -13,6 +13,14 @@
 		<result property="boardRegdate" column="regdate" />
 	</resultMap>
 	
+	<select id="getBoardList" resultMap="boardMap" parameterType="java.util.HashMap">
+		select no, parent_no, rownum,level,
+		lpad(' ',5* (level-1)) || title as "title"
+		from board2
+		start with parent_no is null
+		connect by prior NO = parent_no
+		order siblings by REGDATE
+	</select>	
 	
 
 </mapper>
