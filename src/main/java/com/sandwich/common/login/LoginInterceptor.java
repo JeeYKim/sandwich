@@ -28,7 +28,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				request.getRequestURI().equals("/sandwich/MoneyList.jy")||request.getRequestURI().equals("/sandwich/MoneyChart.jy")||request.getRequestURI().equals("/sandwich/orderAdminList.jy")||
 				request.getRequestURI().equals("/sandwich/orderApproval.jy")||request.getRequestURI().equals("/sandwich/orderNoapproval.jy")||request.getRequestURI().equals("/sandwich/staffMoney.jy")||
 				request.getRequestURI().equals("/sandwich/staffMoneyInsert.jy")||request.getRequestURI().equals("/sandwich/staffMoneyDelete.jy")||request.getRequestURI().equals("/sandwich/cost.jy")||
-				request.getRequestURI().equals("/sandwich/costInsert.jy")||request.getRequestURI().equals("/sandwich/costDelete.jy")) {
+				request.getRequestURI().equals("/sandwich/costInsert.jy")||request.getRequestURI().equals("/sandwich/costDelete.jy")||request.getRequestURI().equals("/sandwich/adminMember.jy")||
+				request.getRequestURI().equals("/sandwich/adminMemberDelete.jy")||request.getRequestURI().equals("/sandwich/adminMemberModifyForm.jy")||request.getRequestURI().equals("/sandwich/adminUpdateMember.jy")) {
 			
 			if(member_id == null ) {		
 				

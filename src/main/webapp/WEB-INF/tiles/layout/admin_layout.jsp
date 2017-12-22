@@ -125,7 +125,7 @@
                      <a><i class="fa fa-user"></i>회원 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="member_list">회원 리스트</a></li>   
+                        <li><a href="adminMember.jy">회원 리스트</a></li>   
                      </ul>
                   </li>
                   <li>

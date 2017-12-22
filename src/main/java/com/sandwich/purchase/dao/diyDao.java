@@ -19,6 +19,10 @@ public class diyDao extends AbstractDAO {
       return (Map<String, Object>) selectOne("diy.selectOne", no);
    }
    
+   public Map<String,Object> selectIngre(int SANDWICH_NO){
+	   return (Map<String, Object>) selectOne("diy.selectIngre", SANDWICH_NO);
+   }
+   
    
 
 }

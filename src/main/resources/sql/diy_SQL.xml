@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="diy">
+
+<select id="selectAll" resultType="hashmap">
+select * from sandwich
+</select>
+
+
+<!-- no로 먼저 등록된 재료 꺼내기 -->
+<select id="selectOne" parameterType="int" resultType="hashmap">
+select * from 
+      (select rownum, SANDWICH_NO, SANDWICH_BIGTYPE, SANDWICH_SMALLTYPE, SANDWICH_AMOUNT, SANDWICH_PRICE, SANDWICH_THUMNAIL,SANDWICH_ORDERDATE, SANDWICH_ENDDATE, NO 
+      from sandwich where NO = #{no}  order by SANDWICH_ORDERDATE) where rownum = 1
+</select>
+
+<!-- sandwich_no으로 꺼내기 -->
+<select id="selectIngre" parameterType="int" resultType="hashmap">
+select * from sandwich where SANDWICH_NO = #{SANDWICH_NO}
+</select>
+</mapper>
+

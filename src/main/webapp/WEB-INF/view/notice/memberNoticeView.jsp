@@ -53,7 +53,7 @@
 .paging a{text-decoration: none; color:black;}
 
 </style>
-
+<body>
 <div id="notice_admin_wrap">
 <div class="notice_admin_title">
 	<div class="title_font1"><a href="/SG/memberNoticeList" style="text-decoration: none;color:black; font-size:30px;">공지사항</a></div>
@@ -63,7 +63,6 @@
 <div class="notice_line">
 	<hr color="#777" width="100%" size="1">
 </div>
-
 <table class="notice_admin_table" width="100%">
 	<colgroup>
 		<col width="15%" />
@@ -93,9 +92,10 @@
 <tr>
 	<td colspan=4 style="background:white;">${notice.noticeContents}</td>
 </tr> 
+
+
 </table>
 <input type="button" class="btn btn-primary" onclick="goList()" id="list" value="목록으로" style="float:right;">
-
 </div>
 
 <script>
@@ -104,4 +104,4 @@
 		location.href = '<c:url value="/memberNoticeList.jy"/>';
 	}
 </script>
-
+</body>

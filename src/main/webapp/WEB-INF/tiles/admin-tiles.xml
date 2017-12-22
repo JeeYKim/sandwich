@@ -47,8 +47,16 @@
 		<put-attribute name="admin_body" expression="/WEB-INF/view/Cost/staff_cost.jsp"/>
 	</definition>
 	
-	<!-- <definition name="warningList" extends="admin_layout">
- 		<put-attribute name="admin_body" expression="/WEB-INF/view/dateList.jsp"/>
- 	</definition> -->
+	<!-- 관리자 회원 -->
+    <!-- 관리자 회원 목록 -->
+	<definition name="adminMemberList" extends="admin_layout">
+		<put-attribute name="admin_body" expression="/WEB-INF/view/admin/memberList.jsp" />
+	</definition>
+	
+	<!-- 관리자 회원 상세보기 -->
+	<definition name="adminMemberModifyForm" extends="admin_layout">
+		<put-attribute name="admin_body" expression="/WEB-INF/view/admin/memberModifyForm.jsp" />
+	</definition>
+	
  	
 </tiles-definitions>

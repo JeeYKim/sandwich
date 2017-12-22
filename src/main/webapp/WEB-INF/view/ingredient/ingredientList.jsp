@@ -98,7 +98,7 @@ function delchk(){
 																	
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWICH_NO}</td>										
-										<td style="text-align:center;vertical-align:middle;"><img src="upload/ingredient/${ingredientList.SANDWICH_THUMNAIL}" width="60" height="60" /></td>
+										<td style="text-align:center;vertical-align:middle;"><img src="images/sandwich/${ingredientList.SANDWICH_THUMNAIL}" width="60" height="60" /></td>
 										<td style="text-align:center;vertical-align:middle;">${ingredientList.SANDWICH_BIGTYPE}</td>
 										<td style="text-align:center;vertical-align:middle;"><a href="">${ingredientList.SANDWICH_SMALLTYPE}</a></td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${ingredientList.SANDWICH_PRICE}" type="number"/>원<div style='display:none;'>${ingredientList.SANDWICH_NO}</div></td>							
