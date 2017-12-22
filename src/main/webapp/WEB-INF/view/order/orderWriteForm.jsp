@@ -52,8 +52,12 @@
 					<td><input type="text" id="orderPrice" name="orderPrice" class="wdp_90"></input></td>
 				</tr>
 				<tr>
-					<th scope="row">발주날짜</th>
+					<th scope="row">등록날짜</th>
 					<td><input type="date" id="orderOrderdate" name="orderOrderdate" /></td>
+				</tr>
+				<tr>
+					<th scope="row">유통기한</th>
+					<td><input type="date" id="orderEnddate" name="orderEnddate" /></td>
 				</tr>	
 			</tbody>
 		</table>   
