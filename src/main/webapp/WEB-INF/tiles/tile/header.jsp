@@ -106,7 +106,7 @@
 	<div id='cssmenu' class="align-center">
 		<ul>
 			<li class="active"><a href='main.jy'><span>메인</span></a></li>
-			<li class='last'><a href='order.jy'><span>주문</span></a></li>
+			<li class='last'><a href='diy.jy'><span>주문</span></a></li>
 			<li class='last'><a href="<c:url value = "/memberNoticeList.jy"/>"><span>공지사항</span></a></li>
 			<li class='last'><a href='memberDiyBoardList.jy'><span>DIY추천</span></a></li>
 
@@ -115,7 +115,7 @@
 
 	<div class="logo">
 		<hr class="line-1">
-		<a href="main.jy">불타는 샌드위치</a> <span>고갱님 맘대로 해드세요</span>
+		<a href="main.jy">불타는 샌드위치</a>
 		<hr class="line-1">
 	</div>
 	</header>

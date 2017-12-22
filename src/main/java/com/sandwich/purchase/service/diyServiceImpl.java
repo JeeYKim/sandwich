@@ -16,14 +16,19 @@ public class diyServiceImpl implements diyService{
    private diyDao dao;
 
    public List<Map<String, Object>> selectAll() {
-      dao.selectAll();
-      return null;
+      
+      return dao.selectAll();
    }
 
    public Map<String, Object> selectOne(int no) {
-      dao.selectOne(no);
-      return null;
+      
+      return dao.selectOne(no);
    }
+
+public Map<String, Object> selectIngre(int SANDWICH_NO) {
+	
+	return dao.selectIngre(SANDWICH_NO);
+}
    
    
    

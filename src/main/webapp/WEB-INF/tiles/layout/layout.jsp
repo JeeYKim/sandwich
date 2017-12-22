@@ -30,10 +30,12 @@
     <link href="resources/owl-carousel/owl.carousel.css?ver=1" rel="stylesheet"/>
 <style>
 html,body{
-	height:100%;
+	height:100%; 
 	margin:0;
 	padding:0;
 	}
+	
+
 </style>
 <title>불타는 샌드위치</title>
 </head>
@@ -46,12 +48,12 @@ html,body{
 </div>
 
 
-<div style="height:auto;">
+<div style="height:90%;">
 <tiles:insertAttribute name="body" />
 </div>
 
-<div>
+<%-- <div style="height:50px;">
 <tiles:insertAttribute name="footer" />
-</div>
+</div> --%>
 </body>
 </html>

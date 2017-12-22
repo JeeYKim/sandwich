@@ -33,7 +33,7 @@ public class IngredientController {
 	
 	Logger log = Logger.getLogger(this.getClass());
 	
-	private final static String FILE_PATH = "C:\\Java\\Project\\sandwich\\src\\main\\webapp\\upload\\ingredient\\";
+	private final static String FILE_PATH = "C:\\Java\\Project\\sandwich\\src\\main\\webapp\\resources\\sandwich\\";
 	
 	@Resource(name = "ingredientService")
 	private IngredientService ingredientService;
