@@ -1,5 +1,6 @@
 package com.sandwich.purchase.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +30,41 @@ public Map<String, Object> selectIngre(int SANDWICH_NO) {
 	
 	return dao.selectIngre(SANDWICH_NO);
 }
+
+@Override
+public Map<String, Object> countfind3(String SANDWICH_SMALLTYPE) {
+   
+   return dao.countfind3(SANDWICH_SMALLTYPE);
+}
+
+
+@Override
+public Map<String, Object> countfind4(String SANDWICH_SMALLTYPE) {
+   // TODO Auto-generated method stub
+   return dao.countfind4(SANDWICH_SMALLTYPE);
+}
+
+@Override
+public void updateAmount(String sandwich_no, int leftAmount) {
+	HashMap<String, Object> map = new HashMap<String, Object>();
+	map.put("SANDWICH_NO", sandwich_no);
+	map.put("SANDWICH_AMOUNT", leftAmount);
+	dao.updateAmount(map);
+	
+}
+
+@Override
+public void goPurchase(Map<String, Object> map) {
+	dao.goPurchase(map);
+	
+}
+
+@Override
+public void plusPurchasNo(Map map) {
+	dao.plusPurchasNo(map);
+}
+
+
    
    
    

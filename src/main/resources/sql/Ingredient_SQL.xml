@@ -69,4 +69,9 @@
 	WHERE SANDWICH_NO=#{SANDWICH_NO}
    ]]>
    </update>
+      <select id="garbageList" parameterType="hashmap" resultType="hashmap">
+      <![CDATA[ 
+      SELECT * FROM garbage order by garbage_enddate desc
+      ]]>
+   </select>
 </mapper>

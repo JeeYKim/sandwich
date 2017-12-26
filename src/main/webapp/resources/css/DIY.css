@@ -253,7 +253,7 @@
 	font-family: Microsoft YaHei, 'NS';
 	padding: 1px 20px 0 0;
 	height: 15px\0
-}
+} 
 
 .green .lst_recipe li .rank {
 	background-color: rgba(98, 151, 5, 0.7)
@@ -387,7 +387,7 @@
 	display: none
 }
 
-.sec_recommend form {
+#fieldset {
 	width: 840px;
 	overflow: hidden;
 	margin: 25px auto
@@ -395,7 +395,8 @@
 
 .field1 {
 	width: 595px;
-	float: left
+	float: left;
+	display: inline-block;
 }
 
 .field1>ul {
@@ -427,7 +428,8 @@
 	padding-top: 8px\0
 }
 
-.big_sort li a.selected, .big_sort li a:hover {
+
+.big_sort li a.current, .big_sort li a:hover {
 	font-family: Microsoft YaHei, 'NSB'
 }
 
@@ -443,8 +445,11 @@
 
 .small_sort li {
 	float: left;
-	margin: 0 0 16px
+	margin: 0 0 16px;
+	
+	
 }
+
 
 .small_sort li a {
 	display: block;
@@ -454,7 +459,9 @@
 	text-align: center;
 	color: #2d2d2b;
 	font-family: Microsoft YaHei, 'NSL';
-	font-size: 13px
+	font-size: 13px;
+	float: left;
+	
 }
 
 .small_sort li a img {
@@ -476,7 +483,7 @@
 	display: none
 }
 
-.small_sort li a.selected em, .small_sort li a:hover em {
+.small_sort li a.current em, .small_sort li a:hover em {
 	position: absolute;
 	display: block;
 	width: 19px;
@@ -489,14 +496,28 @@
 	right: 0
 }
 
-.small_sort li a.selected img {
+.small_sort li a.current img {
 	opacity: 0.5
 }
+ .tabcontent {
+         display: none;
+         background-color:#ffffff;
+         padding: 6px 12px;
+         color:#fff;
+ }
+.tabcontent.current {
+         display: block;
+ }
+ ul.big_sort li.current{
+         background-color: #000000;
+         color: #222;
+      }
+
 
 .field2 {
 	width: 235px;
-	float: right;
-	
+	float: left;
+	display: inline-block;
 }
 
 .field2 dl {

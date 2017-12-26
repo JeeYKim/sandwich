@@ -127,5 +127,49 @@ public class IngredientController {
 		
 		return "redirect:/ingredientList.jy";
 	}
-	
+	//폐기물
+	   @RequestMapping(value="/garbage")
+	   public String garbage(Model model,CommandMap commandmap, HttpServletRequest request) {
+	      
+	      
+	      
+	      if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+	            || request.getParameter("currentPage").equals("0")) { //currentPage가 null일때.
+	         currentPage = 1;
+	      } else { //currentPage가 null이 아니고 존재할때.
+	         currentPage = Integer.parseInt(request.getParameter("currentPage")); 
+	      }
+	      
+	      
+	      List<Map<String,Object>> garbageList = ingredientService.garbageList();
+	      
+	      
+	      System.out.println(garbageList.size());
+	   
+	      totalCount = garbageList.size();
+	      page = new Paging(currentPage, totalCount, blockCount, blockPage, "garbage.jy");
+	      pagingHtml = page.getPagingHtml().toString();
+
+	      int lastCount = totalCount;
+
+	      if (page.getEndCount() < totalCount)
+	         lastCount = page.getEndCount() + 1;
+
+	      garbageList = garbageList.subList(page.getStartCount(), lastCount);
+
+
+	      
+	      model.addAttribute("totalCount", totalCount);
+	      model.addAttribute("pagingHtml", pagingHtml);
+	      model.addAttribute("currentPage", currentPage);
+	      model.addAttribute("list",garbageList);
+	         
+	   
+	      totalcount=garbageList.size();
+	      
+	      model.addAttribute("garbageList", garbageList);
+	      model.addAttribute("totalcount", totalcount);
+	      
+	      return "garbage";
+	   }   
 }

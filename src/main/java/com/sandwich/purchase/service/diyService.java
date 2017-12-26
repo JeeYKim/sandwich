@@ -10,5 +10,15 @@ public interface diyService {
    Map<String, Object> selectOne(int no);
    
    Map<String, Object> selectIngre(int SANDWICH_NO);
+   
+   Map<String, Object> countfind3(String SANDWICH_SMALLTYPE);
+   
+   Map<String, Object> countfind4(String SANDWICH_SMALLTYPE);
+   
+   void updateAmount(String SANWICH_NO, int leftAmount);
+
+   void goPurchase(Map<String, Object> map);
+
+   void plusPurchasNo(Map map);
 
 }

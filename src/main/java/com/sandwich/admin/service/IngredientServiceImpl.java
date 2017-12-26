@@ -2,6 +2,7 @@ package com.sandwich.admin.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -49,4 +50,12 @@ public class IngredientServiceImpl implements IngredientService{
 	public void ingredientDelete(int SANDWICH_NO) {
 		ingredientDAO.ingredientDelete(SANDWICH_NO);
 	}
+	
+	@Override
+	public List<Map<String, Object>> garbageList() {
+	   // TODO Auto-generated method stub
+	      
+		List<Map<String, Object>> list = ingredientDAO.garbageList();
+	  return list;
+	   }
 } 
