@@ -28,13 +28,15 @@
 		 STAFF_COST,
 		 COST_DATE,
 		 STAFF_NO,
-		 STAFF_ID)
+		 STAFF_ID,
+		 STAFF_NAME)
 	VALUES
 		(#{MEMBER_ID},
 		 #{STAFF_COST},
 		 #{COST_DATE},
 		 STAFFMONEY_NO_SEQ.NEXTVAL,
-		 #{STAFF_ID})
+		 #{STAFF_ID},
+		 (SELECT MEMBER_NAME FROM MEMBER2 WHERE MEMBER_ID=#{STAFF_ID}))
 	]]>
 </insert>
 
@@ -43,6 +45,10 @@
 	SELECT * FROM COST
 	]]>
 	
+</select>
+
+<select id="staffId" resultType="hashmap">
+	SELECT MEMBER_ID, MEMBER_NAME FROM MEMBER2 COST WHERE MEMBER_LEVEL ='1'
 </select>
 
 <select id="staffMoneyList" resultType="hashmap">

@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,9 +35,15 @@ public class StaffMoneyController {
 	 private StaffMoneyService staffMoneyService;
 	
 	@RequestMapping(value=" /staffMoney")
-	public String staffMoneyList(Model model, HttpServletRequest request) throws Exception{
+	public String staffMoneyList(Model model, HttpServletRequest request)throws Exception{
 		
 		List staffMoney = staffMoneyService.getStaffMoney();
+		
+		List staffId = staffMoneyService.getStaffId();
+		
+		System.out.println("staffID : " + staffId);
+		
+	
 		
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
 				|| request.getParameter("currentPage").equals("0")) { //currentPage가 null일때.
@@ -59,6 +68,7 @@ public class StaffMoneyController {
 		model.addAttribute("pagingHtml", pagingHtml);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("staffMoney", staffMoney);
+		model.addAttribute("staffId", staffId);
 		
 		return "staffMoneyList";
 	}

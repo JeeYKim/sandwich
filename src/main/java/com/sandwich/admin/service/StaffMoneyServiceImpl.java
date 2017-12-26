@@ -32,6 +32,14 @@ public class StaffMoneyServiceImpl implements StaffMoneyService{
 		return staffMoneyList;
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public List getStaffId(){
+		
+		List staffId = staffMoneyDAO.getStaffId();
+		
+		return staffId;
+	}
+	
 	public void staffMoneyDelete(int STAFF_NO) {
 		
 		staffMoneyDAO.staffMoneyDelete(STAFF_NO);

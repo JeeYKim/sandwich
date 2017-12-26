@@ -147,7 +147,7 @@
    
 </ul>
  <div class="btnArea">
-  <input class="effect effect-5" type="submit" onclick="checkpw();" value="회원정보 수정하기"/>
+  <input class="effect effect-5" style="background:#2d2d2b;" type="submit" onclick="checkpw();" value="회원정보 수정하기"/>
  </div>
 </section>
 </form>

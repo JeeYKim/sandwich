@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="./resources/css/main.min.css">
-<link rel="stylesheet" href="./resources/css/mypage.css">
+<link rel="stylesheet" href="/resources/css/main.min.css">
+<link rel="stylesheet" href="/resources/css/mypage.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>     
 <!-- <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> -->
@@ -165,7 +165,7 @@ function member_info()
 <body>
 <div class="mypage_member_wrap" style="width:1170px;">
          <div class="board_title">
-            <div class="title_font1"><a href="#" style="text-decoration: none;color:black;">My Page</a></div>
+            <div class="title_font1"><a href="#" style="text-decoration: none;color:black;">&nbsp;&nbsp;My Page</a></div>
          </div>
          <div class="line">
             <hr color="#777" width="100%" size="1">
@@ -189,7 +189,7 @@ function member_info()
          <div class="category" style="padding-left:220px;">
          <ul>
             <li><a href="#myorder" onclick="javascript:tab(1)" style="font-family: PureunJeonnam;font-weight:bold;">주문내역</a></li>
-            <li><a href="#mywish" onclick="javascript:tab(2)" style="font-family: PureunJeonnam;font-weight:bold;">위시리스트</a></li>
+            
             <li><a href="#mybasket" onclick="javascript:tab(3)"style="font-family: PureunJeonnam;font-weight:bold;">장바구니</a></li>
             <li><a href="#myqna" onclick="javascript:tab(4)" style="font-family: PureunJeonnam;font-weight:bold;">추천레시피</a></li>
          </ul>
