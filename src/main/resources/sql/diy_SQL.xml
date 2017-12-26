@@ -20,5 +20,67 @@ select * from
 <select id="selectIngre" parameterType="int" resultType="hashmap">
 select * from sandwich where SANDWICH_NO = #{SANDWICH_NO}
 </select>
+
+<!--  재고 갯수 확인하기 -->
+   <select id="countfind3" parameterType="String" resultType="hashmap">
+     <![CDATA[
+      select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, n from
+     (select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, rownum n from
+     (select * from sandwich where sandwich_smalltype = #{SANDWICH_SMALLTYPE})) where n = '1'
+      ]]>   
+   </select>
+   
+   
+<!--  재고 갯수 확인하기 -->
+   <select id="countfind4" parameterType="String" resultType="hashmap">
+     <![CDATA[
+      select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, n from
+     (select sandwich_NO,sandwich_bigtype, sandwich_smalltype, sandwich_amount, 
+     sandwich_price,sandwich_orderdate, sandwich_enddate,sandwich_thumnail, rownum n from
+     (select * from sandwich where sandwich_smalltype = #{SANDWICH_SMALLTYPE})) where n = '1'
+      ]]>   
+   </select>
+   
+  <!-- 재고 업데이트 -->
+  	<update id="updateAmount" parameterType="hashmap">
+  	update sandwich set sandwich_amount = #{SANDWICH_AMOUNT}
+  	where sandwich_no = #{SANDWICH_NO}
+  	</update> 
+  	
+  	<!-- purchase테이블로 옮기기 -->
+  	<insert id="goPurchase" parameterType="hashmap">
+  	insert into purchase(
+  	PURCHASE_INDEX,
+  	 PURCHASE_NO,
+  	  PURCHASE_ID,
+  	   PURCHASE_BIGTYPE,
+  	    PURCHASE_SMALLTYPE,
+  	     PURCHASE_AMOUNT,
+  	      PURCHASE_PRICE,
+  	       PURCHASE_ORDERDATE,
+  	        PURCHASE_BASKET
+  	    ) values (
+  	  PURCHASE_SEQ_INDEX.NEXTVAL,
+  	  PURCHASE_SEQ_NO.CURRVAL,
+  	  #{PURCHASE_ID},
+  	  #{PURCHASE_BIGTYPE},
+  	  #{PURCHASE_SMALLTYPE},
+  	  #{PURCHASE_AMOUNT},
+  	  #{PURCHASE_PRICE},
+  	  sysdate,
+  	  #{PURCHASE_BASKET}
+  	  )
+  	</insert>
+   
+    <update id="plusPurchasNo" parameterType="hashmap">
+     <![CDATA[
+     SELECT PURCHASE_SEQ_NO.NEXTVAL FROM DUAL
+     ]]>
+     </update>
+   
+   
 </mapper>
 
