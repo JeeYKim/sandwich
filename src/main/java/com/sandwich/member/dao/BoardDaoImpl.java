@@ -1,5 +1,6 @@
 package com.sandwich.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,23 @@ public class BoardDaoImpl extends AbstractDAO implements BoardDao  {
 		List boardList = selectList(NAME_SPACE + "getBoardList", param);
 		
 		return boardList;
+	}
+
+	@Override
+	public void insertBoard(CommandMap board) {
+		insert(NAME_SPACE + "insertBoard", board.getMap());
+	}
+
+	@Override
+	public void updateBoard(CommandMap board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public HashMap getBoard(int boardNo) {
+		HashMap board = (HashMap) selectOne(NAME_SPACE + "getBoard", boardNo);
+		return board;
 	}
 
 }

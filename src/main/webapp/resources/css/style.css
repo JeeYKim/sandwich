@@ -50,7 +50,7 @@ html { -webkit-text-size-adjust: none;}
 .video embed,.video object,.video iframe { width: 100%;  height: auto;}
 img{max-width:100%;	height: auto;width: auto\9; /* ie8 */}
 
-a{color: #7fcaad;text-decoration: none;}
+a{color: #3f3f3f;text-decoration: none;}
 a:hover {color: #628d7c; text-decoration: none;}
 
 h1, h2 	{font-size: 25px;line-height: 30px;}
@@ -60,7 +60,7 @@ h5, h6	{font-size: 16px;line-height: 16px;}
 p{margin: 10px 0;}
 
 label {cursor:pointer;margin:5px 0;display:block;font-weight:bold;}
-input {display:block;width:100%;color:#222;border:1px solid #d1d1d1;padding:23px;margin: 5px 0 20px 0;font-size: 16px;}
+input {display:block;width:9%;color:#222;border:1px solid #d1d1d1;padding:8px;margin: 5px 0 20px 0;font-size: 19px;}
 input[type="submit"]{padding: 15px;}
 textarea {display:block;width:100%;height:250px;background-color:#fff; color:#222;border:1px solid #d1d1d1;padding:10px;margin: 5px 0 20px 0;}
 

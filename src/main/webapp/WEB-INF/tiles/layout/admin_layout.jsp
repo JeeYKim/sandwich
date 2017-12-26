@@ -134,6 +134,7 @@
                      
                         <li><a href="noticeList.jy">공지사항 리스트</a></li>
                         <li><a href="recommendation_list">추천게시판 리스트</a></li>
+                        <li><a href="boardList.jy">1:1게시판 리스트</a></li>
                      </ul>
                   </li>
                   <li>

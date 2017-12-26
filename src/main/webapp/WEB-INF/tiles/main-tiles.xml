@@ -31,5 +31,9 @@
         <put-attribute name="body" expression="/WEB-INF/view/board/boardList.jsp" />
  	</definition>
  	
+ 	<definition name="boardView" extends="layout">
+        <put-attribute name="body" expression="/WEB-INF/view/board/boardView.jsp" />
+ 	</definition>
+ 	
  	
 </tiles-definitions>

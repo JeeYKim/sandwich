@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +42,30 @@ public class BoardController {
 		
 		model.addAttribute("boardList", boardList);
 		return "boardList";
+	}
+	
+	@RequestMapping(value = "/boardSave")
+	public String boardSave(Model model, CommandMap board, HttpSession session) {
+		// session 정보에서 갖고 올것 
+		String memberId = session.getAttribute("MEMBER_ID").toString();
+		
+		
+		board.put("boardWriter", memberId);
+		
+		// service call
+		boardService.saveBoard(board);
+		
+		return "redirect:boardList.jy";
+	}
+	
+	@SuppressWarnings("rawtypes")
+	@RequestMapping(value = "/boardView")
+	public String boardView(int boardNo, Model model)  {
+		
+		HashMap board = boardService.getBoard(boardNo);
+		model.addAttribute("board", board);
+		
+		return "boardView";
 	}
 	
 	

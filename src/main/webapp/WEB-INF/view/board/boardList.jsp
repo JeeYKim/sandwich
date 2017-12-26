@@ -1,164 +1,195 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!-- 별모양 폰트 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript"
+	src="resources/file/js/jquery-2.0.0.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>불타는 샌드위치</title>
+</head>
+<style>
+@import
+	url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css')
+	;
 
-<script src="<c:url value="/resources/app/staff/notice.js"/>"></script>
-
-
-<style type="text/css">
-@import url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css');
-#notice_admin_wrap {
-	font-family: PureunJeonnam;
-}
-.notice_admin_title {text-align: left; color: #212121; padding-top: 50px;}
-.notice_admin_title div {padding-bottom: 10px;}
-.title_font1 {font-family: PureunJeonnam; font-size: 40px; font-weight: bold;}
-.title_font2 {font-family: PureunJeonnam; font-size: 15px; font-weight: bold; color: #999;}
-.notice_admin_table{
-	text-align: center;
-	font-family: PureunJeonnam;
-	font-size:15px;
-	font-weight:bold;	
-}
-.notice_line {margin: 0 50px 0 50px;}
-
-.notice_admin_table td {
-	text-align: center; 
-	border-top: 1px solid #e5e5e5; 
-	border-bottom: 1px solid #e5e5e5; 
-	padding: 8px 0; 
-	background: #f5f5f5;
-}
-.notice_admin_search{
-	width:"50%";
-	margin-right: auto;
+#diy_wrap {
+	width: 1170px;
 	margin-left: auto;
+	margin-right: auto;
+	font-family: PureunJeonnam;
 }
-.notice_admin_search input[type=text]{
 
-}
-.notice_admin_searchT {
-	text-align: center; 
-	border-top: 1px solid #e5e5e5; 
-	border-bottom: 1px solid #e5e5e5; 
-	padding: 8px 0; 
+#diy_wrap th {
+	font-size: 15px;
+	font-family: PureunJeonnam;
+	text-align: center;
 	background: #f5f5f5;
 }
-.notice_select{
-	height: 25px;
-}
-.paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
-.paging a,
-.paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
--webkit-border-radius:3px;
-   -moz-border-radius:3px;
-		border-radius:3px;
--webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-}
-.paging a:first-child{margin-left:0;}
-.paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
-.paging .page_arw{font-size:11px;line-height:30px;}
 
+#diy_wrap table {
+	font-size: 15px;
+	font-family: PureunJeonnam;
+	text-align: center;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.paging {
+	text-align: center;
+	height: 32px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.paging a, .paging strong {
+	display: inline-block;
+	width: 36px;
+	height: 32px;
+	line-height: 28px;
+	font-size: 14px;
+	border: 1px solid #e0e0e0;
+	margin-left: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(235, 235, 235, 1);
+	-moz-box-shadow: 1px 1px 1px 0px rgba(235, 235, 235, 1);
+	box-shadow: 1px 1px 1px 0px rgba(235, 235, 235, 1);
+}
+
+.paging a:first-child {
+	margin-left: 0;
+}
+
+.paging strong {
+	color: #fff;
+	background: #337AB7;
+	border: 1px solid #337AB7;
+}
+
+.paging .page_arw {
+	font-size: 11px;
+	line-height: 30px;
+}
 </style>
 
-<div class="notice_admin_title">
-<div class="title_font1"><a href="#" style="text-decoration: none;color:black;">공지사항 관리자페이지</a></div>
-<div class="title_font2">공지사항</div>
-</div>
 
-<div class="notice_line">
-<hr color="#777" width="100%" size="1">
-</div>
-<div class="row" style="font-family: PureunJeonnam;">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-                         [공지사항 페이지] 공지사항 게시글을 검색, 수정, 삭제 기능하는 페이지입니다.
-        </div>
-        <div class="panel-body">
-			<div class="dataTable_wrapper">
-				<div id="dataTables-example_wrapper"
-					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-					<div class="row" style="margin-bottom:5px;">
-						<div class="col-sm-6">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<table
-								class="table  table-bordered table-hover dataTable no-footer"
-								id="dataTables-example" role="grid"aria-describedby="dataTables-example_info">
-								<thead>
-									<tr role="row" style="vertical-align:middle;">
-										<th style="width: 5%; text-align:center;vertical-align:middle;">번호</th>
-										<th style="width: 60%; text-align:center;vertical-align:middle;">제목</th>
-										<th style="width: 10%; text-align:center;vertical-align:middle;">작성자</th>
-										<th style="width: 15%; text-align:center;vertical-align:middle;">등록날짜</th>
-									</tr>
-								</thead>
-								<tbody>
-				<c:choose>
-                 <c:when test="${boardList.size() le 0}">									
+<body>
+	<div id="diy_wrap">
+		<table class="table">
+			<colgroup>
+
+				<col width="10%" />
+				<col width="60%" />
+				<col width="10%" />
+				<col width="10%" />
+			</colgroup>
+			<div>
+				<h3 style="padding-left: 20px; text-align: left;">
+					<span style="color: black; font-size: 30px; font-weight: bold;"><a
+						href="memberDiyBoardList.jy">Q & A 게시판</a></span> 
+						<span style="font-size: 15px; color: #777; font-weight: bold;">
+						궁금한 사항 남겨주세요!</span>
+				</h3>
+			</div>
+
+			<div>
+				<hr color="#777" width="100%" size="1">
+			</div>
+
+			<tr>
+				<th>번호</th>
+				<th style="text-align: left;">제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			<c:choose>
+				<c:when test="${fn:length(boardList) le 0}">
+					<tr>
+						<td colspan="7" style="text-align: center;">등록된 게시글이 없습니다</td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="board" items="${boardList}" varStatus="stat">
 						<tr>
-							<td colspan="6" style="text-align:center;">등록된 게시글이 없습니다</td>
-						</tr>							
-                 </c:when>
-                 <c:otherwise>
-
-   				 <c:forEach var="board"  items="${boardList}" varStatus="stat">
-                 	<tr> 
-                     	<td style="text-align:center;vertical-align:middle;">${board.boardNo}</td>
-   						<td style="text-align:center;vertical-align:middle;">${board.boardTitle}</td>
-   						<td style="text-align:center;vertical-align:middle;">${board.parentNo}</td>
-                        <td style="text-align:center;vertical-align:middle;">${board.boardRegdate}</td>
-                        
-                       
-                        
-                        <!--  
-                        <a href='<c:url value="/noticeModify.jy?noticeNo=${notice.noticeNo}"/>'>
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true" style="font-size:30px;"></span></a>
-                        <a href="">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"style="font-size:30px;"></span></a>
-                        -->
-                        
-          				</td>
-                    </tr>
-                 </c:forEach> 
-                 </c:otherwise> 
-                </c:choose>  
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="paging">
-						${pagingHtml}
-					</div>
-					<div style="float:right;">
-						<button type="button" 
-							onclick="goWrite()"
-							class="btn btn-primary" id="resister">등록하기</button>
-					</div>
-					<div class="row">
-							<div style="text-align:center;">
-								<div id="dataTables-example_filter" class="dataTables_filter">
-									<form action="">
-									<select class="form-control" name="searchCol">
-										<option value="title">제목</option>
-										<option value="contents">내용</option>
-									</select>
-										<input class="form-control" type="text" name="keyword" id="keyword"/>
-										<span>
-										<button type="submit" class="btn btn-primary">검색</button>
-										</span>
-									</form>
-								</div>							
-							</div>
+							<td style="vertical-align: middle;">${board.boardNo}</td>
 							
-					</div>
+							<td style="vertical-align: middle; text-align: left;">
+								<a href='<c:url value="/boardView.jy?boardNo=${board.boardNo}"/>'>
+							 ${board.boardTitle}</a><span
+								style="color: red;">&nbsp;</span></td>
+							
+							<td style="vertical-align: middle;">${board.boardWriter}</td>
+							
+							<td style="vertical-align: middle;"><fmt:formatDate
+									value="${board.boardRegdate}" pattern="YYYY.MM.dd" /></td>
+								<p style="color: #fdd66e; font-size: 17px;">
+									
+								</p>
+
+
+							</td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+
+		</table>
+		<c:choose>
+			<c:when test="${sessionScope.boardWriter != 0}">
+				<div style="float:right; color:#ffffff; background-color: #000; font-family:맑은고딕;">
+						<button type="button" onclick="goWrite()" class="btn btn-primary" id="resister" 
+						style="float:right; color:#ffffff; background-color: #000; font-family:맑은고딕;">등록하기</button>
+				</div>
+			</c:when>
+		</c:choose>
+		
+
+
+		<div class="paging" style="clear: both;">
+			<!-- 페이징 관련 -->
+			${pagingHtml}
+		</div>
+
+
+		<div class="admin_search">
+
+			<div
+				style="text-align: center; width: 500px; margin-left: auto; margin-right: auto; margin-top: 20px; padding-bottom: 70px;">
+				<div id="dataTables-example_filter" class="dataTables_filter">
+					<form action="/sandwich/boardList.jy">
+						<select class="form-control" name="searchNum" id="searchNum"
+							style="width: 100px; float: left; margin-right: 8px;">
+							<option value="0">작성자</option>
+							<option value="1">제목</option>
+						</select> <input class="form-control" type="text" name="isSearch"
+							id="isSearch" style="width: 300px; float: left;"
+							placeholder="키워드를 입력해 주세요 " /> <span>
+							<button type="submit" class="btn btn-primary"
+								style="float: left; color:#ffffff; background-color: #000; font-family:맑은고딕;">검색</button>
+						</span>
+					</form>
 				</div>
 			</div>
+
 		</div>
 	</div>
-</div>
+<script>
+function goWrite() {
+	location.href = '<c:url value="/boardWriteForm.jy"/>';
+}
+</script>

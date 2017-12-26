@@ -14,13 +14,26 @@
 	</resultMap>
 	
 	<select id="getBoardList" resultMap="boardMap" parameterType="java.util.HashMap">
-		select no, parent_no, rownum,level,
-		lpad(' ',5* (level-1)) || title as "title"
+		<![CDATA[
+		select no, parent_no, rownum,level, writer, regdate,
+		lpad(' ', 2* (level-1), '>>>') || title as "title"
 		from board2
 		start with parent_no is null
 		connect by prior NO = parent_no
 		order siblings by REGDATE
+		]]>
 	</select>	
 	
-
+	<insert id="insertBoard" parameterType="java.util.HashMap">
+		insert into board2(no, parent_no, title, writer,content,regdate)
+		values (board2_seq.nextval,#{parentNo},#{boardTitle},#{boardWriter},#{boardContent},sysdate)
+	</insert>
+	
+	
+	<select id="getBoard" resultMap="boardMap">
+		 select * 
+		 from board2 
+		 where no = #{boardNo}
+	</select>
+	
 </mapper>
