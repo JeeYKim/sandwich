@@ -116,7 +116,12 @@ $(document).ready(function () {
 
 	<tr>
 		<td style="vertical-align:middle;">${stat.count}</td>
+		<c:if test="${empty diylist.DIY_IMAGE}">
+		<td style="vertical-align:middle;"><img src="resources/images/11_.jpg" class="img-rounded" style="width:70px; height:70px;"></td>
+		</c:if>
+		<c:if test="${!empty diylist.DIY_IMAGE}">
 		<td style="vertical-align:middle;"><img src="resources/file/${diylist.DIY_IMAGE }" class="img-rounded" style="width:70px; height:70px;"></td>
+		</c:if>
 		<td style="vertical-align:middle; text-align:left;"><a href="${ViewURL}" style="text-decoration:none;">${diylist.DIY_TITLE}</a><span style="color:red;">&nbsp;( ${diylist.DIY_COUNT} )</span></td>
 		<td style="vertical-align:middle;">${diylist.DIY_MEMBER_ID }</td>
 		<td style="vertical-align:middle;"><fmt:formatDate value="${diylist.DIY_REGDATE}" pattern="YYYY.MM.dd" /></td>

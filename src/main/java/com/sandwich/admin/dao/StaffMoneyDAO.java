@@ -21,6 +21,14 @@ public class StaffMoneyDAO extends AbstractDAO{
 		
 		return staffMoneyList;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public List getStaffId() {
+		
+		List staffId = selectList("cost.staffId");
+		
+		return staffId;
+	}
 	public void staffMoneyDelete(int STAFF_NO) {
 		
 		delete("cost.deleteStaffMoney", STAFF_NO);

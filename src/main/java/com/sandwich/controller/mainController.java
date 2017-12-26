@@ -1,31 +1,38 @@
 package com.sandwich.controller;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import com.sandwich.service.mainService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
 @Controller
-
 public class mainController {
 
+	@Resource(name = "mainService")
+	private mainService mainService;
+	
 	@RequestMapping(value="/main.jy", method = RequestMethod.GET)
-	public String main(){
+	public String main(Model model){
+				
+		@SuppressWarnings("rawtypes")
+		List DIYboard = mainService.getBoardList();
 		
-		System.out.println("왜안돼?");
-
+		@SuppressWarnings("rawtypes")
+		List notice = mainService.getNotice();
+		
+		System.out.println("DIYboard" + DIYboard);
+		
+		model.addAttribute("DIYboard", DIYboard);
+		model.addAttribute("notice", notice);
+		
 		return "main";
 	}
-/*	@RequestMapping(value="/admin.jy", method=RequestMethod.GET)
-	public String admin() {
-	
-		return "admin_main";
-	}*/
-	
-/*	@RequestMapping(value="/staff.jy", method=RequestMethod.GET)
-	public String staff() {
-	
-		return "staff_main";
-	}*/
+
 }

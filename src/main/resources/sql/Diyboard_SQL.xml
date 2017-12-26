@@ -21,6 +21,12 @@ ON s.DIY_NO =c.DIY_NO
 ORDER BY s.DIY_REGDATE DESC
  ]]>
  </select>
+ 
+ <!-- 메인 화면에서 불러올 리스트 -->
+ <select id="diyBoard" resultType="hashMap">
+ select * from SD_DIY_BOARD
+ </select>
+ 
  <!-- 아이디 -->
  <select id="diyboardSearch0" parameterType="hashmap" resultType="hashmap">
  <![CDATA[
@@ -103,6 +109,11 @@ WHERE B.DIY_NO=#{B.DIY_NO}
         DIY_HITCOUNT,
         DIY_TITLE,
         DIY_REGDATE,
+        DIY_BREAD,
+        DIY_VEGETABLE,
+        DIY_SAUSAGE,
+        DIY_CHEESE,
+        DIY_SAUCE,
         DIY_MEMBER_ID)
  VALUES
  (
@@ -111,6 +122,11 @@ WHERE B.DIY_NO=#{B.DIY_NO}
         default,
         #{DIY_TITLE},
         SYSDATE,
+        #{DIY_BREAD},
+        #{DIY_VEGETABLE},
+        #{DIY_SAUSAGE},
+        #{DIY_CHEESE},
+        #{DIY_SAUCE},
         #{DIY_MEMBER_ID})
 
  ]]>
@@ -151,7 +167,12 @@ WHERE B.DIY_NO=#{B.DIY_NO}
    UPDATE SD_DIY_BOARD SET
   	 DIY_TITLE = #{DIY_TITLE},
   	 DIY_CONTENT = #{DIY_CONTENT},
-  	 DIY_REGDATE = SYSDATE
+  	 DIY_REGDATE = SYSDATE,
+  	 DIY_BREAD = #{DIY_BREAD},
+     DIY_VEGETABLE = #{DIY_VEGETABLE},
+     DIY_SAUSAGE = #{DIY_SAUSAGE},
+     DIY_CHEESE = #{DIY_CHEESE},
+     DIY_SAUCE = #{DIY_SAUCE}
    WHERE DIY_NO = #{DIY_NO}
    ]]>
  </update>
