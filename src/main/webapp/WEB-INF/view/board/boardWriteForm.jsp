@@ -18,59 +18,7 @@
 
 .qna_line {margin: 0 50px 0 50px;}
 </style>
-<script>
-$(document).ready(function(){
-   $("#resister").click(function(){
-      fn_insertQna();
-     
-   });
-   
-   $("#list").click(function(){
-     
-       window.opener.location.reload(); 
-       self.close();
 
-
-   });
-   
-});
-
-
-function fn_insertQna(){
-
-var f = document.qnawrite;
-var qna_category = f.QNA_CATEGORY.value;
-var qna_title = f.QNA_TITLE.value;
-var qna_content = f.QNA_CONTENT.value;
-
-var update =
-   ({
-      "QNA_CATEGORY":qna_category,
-      "QNA_TITLE":qna_title,
-      "QNA_CONTENT":qna_content
-   });
-
-$.ajax
-({
-   type : "POST",
-   url : "/SG/myQnaWrite/writeAction",
-   data : update,
-   success : function(data)
-   {
-      confirm("문의가 정상적으로 접수되었습니다.");
-      window.opener.location.reload(); 
-      self.close();
-   },
-   error : function(e)
-   {
-      alert("문의가 등록되지 않았습니다." + e);
-   }
-});
-
-return true;
-}
-
-</script>
 
 <div id="qna_wrap"style="border:2px Solid #CCCCCC ;">
 <div>
@@ -83,36 +31,49 @@ return true;
    <hr color="#777" width="100%" size="1">
 </div>
 
-<form id="qnawrite" name="qnawrite" method="post" enctype="multipart/form-data">
-
-   <div style="width:100%; float:left;margin-left:35px;">
-      <div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;"> 문의 카테고리</div>
-        <select id="select" name="QNA_CATEGORY"  id="QNA_CATEGORY" style="width:250px;margin-bottom:30px;">
-          				 <option selected="selected">---</option>
-            			 <option value="상품문의">상품문의</option>
-            			 <option value="홈페이지이용문의">홈페이지이용문의</option>
-            			 <option value="결제 문의">결제문의</option>
-            			 </select>
-   </div>
+<form action="<c:url value="/boardSave.jy"/>" method="post" onsubmit="return validateForm();">
+   
 
 <div style="margin-left:35px;">
 <div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;">문의 제목</div>
-<input type="text" class="form-control" id="QNA_TITLE" name="QNA_TITLE" value= "${qna.QNA_TITLE}" style="width:480px; margin-right:20px;">
+<input type="text" class="form-control" id="boardTitle" name="boardTitle" value= "" style="width:480px; margin-right:20px;">
 </div>
 
 <div style="margin-left:35px;">
 <div style="font-family:PureunJeonnam; width:500px; font-weight:bold; margin-bottom:10px; margin-top:10px;">문의 내용</div>
-<textarea class="form-control" name="QNA_CONTENT" id="QNA_CONTENT" rows="10" cols="50" style="width:85%; float:left;" >${qna.QNA_CONTENT}</textarea>
+<textarea class="form-control" name="boardContent" id="boardContent" rows="10" cols="50" style="width:85%; float:left;" ></textarea>
+</div>
+<div style="float:left; margin-top:20px;width:100%;margin-left:35px;" >
+
+<button type="button" id="list" class="btn btn-info" style="margin-left:62%; color: #fff; background-color: #000;">목록으로</button>
+<button type="submit" id="resister" class="btn btn-info" style="color: #fff; background-color: #000;">등록하기</button>
 </div>
 
 </form>
 <div>
 
-<div style="float:left; margin-top:20px;width:100%;margin-left:35px;" >
-
-<button type="button" id="list" class="btn btn-info">목록으로</button>
-
-<button type="button" id="resister" class="btn btn-info" style="margin-left:530px;">문의하기</button>
-</div>   
+   
 </div>
 </div>
+
+<script>
+function validateForm() {
+	var content = $("#boardContent").val();
+	var title = $("#boardTitle").val();
+	
+	if (title.length == 0){
+		alert ("제목을 입력하세요"); 
+		return false;
+	} 
+	
+	if (content.length == 0) {
+		alert ("내용을 입력하세요");
+		return false;
+	}
+	
+	return true;
+		
+}
+</script>
+
+
