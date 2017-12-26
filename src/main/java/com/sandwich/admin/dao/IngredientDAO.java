@@ -2,6 +2,7 @@ package com.sandwich.admin.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -36,5 +37,10 @@ public class IngredientDAO extends AbstractDAO{
 	public void updateIngredient(CommandMap commandmap) {
 		update("ingredient.updateIngredient", commandmap.getMap());
 	}
+	public List<Map<String, Object>> garbageList(){
+	      List<Map<String, Object>> list = selectList("ingredient.garbageList");
+	      
+	      return list;
+	   }
 }
 
