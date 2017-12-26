@@ -11,5 +11,8 @@ public interface StaffMoneyService {
 	@SuppressWarnings("rawtypes")
 	List getStaffMoney();
 
+	@SuppressWarnings("rawtypes")
+	List getStaffId();
+	
 	void staffMoneyDelete(int STAFF_NO);
 }

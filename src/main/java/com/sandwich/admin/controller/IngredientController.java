@@ -102,7 +102,6 @@ public class IngredientController {
 		ingredientList = ingredientList.subList(page.getStartCount(), lastCount);
 
 		model.addAttribute("isSearch", isSearch);
-		
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("pagingHtml", pagingHtml);
 		model.addAttribute("currentPage", currentPage);

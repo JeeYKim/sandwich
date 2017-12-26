@@ -103,7 +103,12 @@ function delchk(){
 								<tbody>
 									<tr>
 										<th scope="row">직원 이름</th>
-										<td><input type="text" name="STAFF_ID" id="STAFF_ID" class="wdp_90"></td>
+										<td><select id="STAFF_ID" name="STAFF_ID" size="1">	
+														<OPTION value=''>직원 이름을 선택하세요</OPTION>
+													<c:forEach var="staffId"  items="${staffId}" varStatus="stat">
+														<OPTION value='${staffId.MEMBER_ID}'>${staffId.MEMBER_NAME}</OPTION>
+											   		</c:forEach>
+											</select>
 										
 										<th scope="row">금액</th>
 										<td><input type="text" name="STAFF_COST" id="STAFF_COST" class="wdp_90"></td>
@@ -123,22 +128,24 @@ function delchk(){
 								<thead>
 									<tr role="row" style="vertical-align:middle;">
 										<th style="width: 5%; text-align:center;vertical-align:middle;">번호</th>
-										<th style="width: 25%; text-align:center;vertical-align:middle;">직원 이름</th>
+										<th style="width: 15%; text-align:center;vertical-align:middel;">직원 ID</th>
+										<th style="width: 15%; text-align:center;vertical-align:middle;">직원 이름</th>
 										<th style="width: 15%; text-align:center;vertical-align:middle;">작성자</th>
 										<th style="width: 20%; text-align:center;vertical-align:middle;">금액</th>
 										<th style="width: 20%; text-align:center;vertical-align:middle;">지출 날짜</th>									
-										<th style="width: 15%; text-align:center;vertical-align:middle;">관리</th>
+										<th style="width: 10%; text-align:center;vertical-align:middle;">관리</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody>   
 								<c:forEach var="staffMoney"  items="${staffMoney}" varStatus="stat">
 							 		<c:url var="StaffMoneyDelete" value="/staffMoneyDelete.jy" >
 									<c:param name="STAFF_NO" value="${staffMoney.STAFF_NO}" />
 								</c:url> 
-																	
+									
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${staffMoney.STAFF_NO}</td>
 										<td style="text-align:center;vertical-align:middle;">${staffMoney.STAFF_ID}</td>
+										<td style="text-align:center;vertical-align:middle;">${staffMoney.STAFF_NAME}</td>
 										<td style="text-align:center;vertical-align:middle;">${staffMoney.MEMBER_ID}</td>				
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${staffMoney.STAFF_COST}" type="number"/>원</td>							
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${staffMoney.COST_DATE}" pattern="YY.MM.dd" /></td>								

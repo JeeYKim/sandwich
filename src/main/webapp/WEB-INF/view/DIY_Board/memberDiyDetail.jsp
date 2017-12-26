@@ -147,12 +147,33 @@ function fn_openDiyBoardDelete(){
       <td>${diy.DIY_REGDATE}</td>
    </tr>
    
-   
+   <tr>
+   		<th style="background:#f5f5f5; text-align:center;" >빵</th>
+      <td colspan="3">${diy.DIY_BREAD}</td>
+   </tr>
+   <tr>
+ 	  <th style="background:#f5f5f5; text-align:center;">야채</th>
+      <td colspan="3">${diy.DIY_VEGETABLE}</td>
+   </tr>
+   <tr>
+ 	  <th style="background:#f5f5f5; text-align:center;">소세지</th>
+      <td colspan="3">${diy.DIY_SAUSAGE}</td>
+   </tr>	  
+   <tr>
+  		 <th style="background:#f5f5f5; text-align:center;">치즈</th>
+      <td colspan="3">${diy.DIY_CHEESE}</td>
+   </tr>
+   <tr>
+ 	  <th style="background:#f5f5f5; text-align:center;">소스</th>
+      <td colspan="3">${diy.DIY_SAUCE}</td>
+   </tr>
    
    <tr>
       
       <th colspan="4">
+      <c:if test="${!empty diy.DIY_IMAGE}">
       <img src="resources/file/${diy.DIY_IMAGE}" class="img-rounded" style="width:500px; margin-left:300px; height:350px; both:clear; float:left;">
+      </c:if>
       <span style="clear:both; float:left;margin-left:40px;">${diy.DIY_CONTENT }</span>
       
       </th>
@@ -162,13 +183,13 @@ function fn_openDiyBoardDelete(){
 </table>
 </div>
  <div>
-   <input type="button" value="목록으로" class="btn btn-primary" id="list" style="float:right;">
+   <input type="button" value="목록으로" class="btn btn-primary" id="list" style="float:right; background:#2d2d2b; width:80px; margin-right:10px;">
 </div>
 
 <c:if test="${sessionScope.MEMBER_ID == diy.DIY_MEMBER_ID}">
 <div style="margin-bottom:50px;">
-   <input type="button" value="삭제" class="btn btn-primary" id="delete" style="float:right;margin-bottom:20px;">
-   <input type="button" value="수정" class="btn btn-primary" id="modify" style="float:right;margin-bottom:20px;">
+   <input type="button" value="삭제" class="btn btn-primary" id="delete" style="float:right;margin-bottom:20px; margin-left:10px;background:#2d2d2b; width:80px; margin-right:10px;">
+   <input type="button" value="수정" class="btn btn-primary" id="modify" style="float:right;margin-bottom:20px; background:#2d2d2b; width:80px;">
    <form    name="frm" id="frm">
    <input type="hidden" name="DIY_NO" value="${diy.DIY_NO}">
    <input type="hidden" name="DIY_IMAGE" value="${diy.DIY_IMAGE}">
@@ -204,7 +225,7 @@ function fn_openDiyBoardDelete(){
       <textarea id="commentContents" class="form-control" rows="2"></textarea>
    </div>
    <div style="width:20%; float:left;">
-      <button type="button" id="resister" class="btn btn-warning btn-lg btn-block" style="padding-top:10px;margin-left:10px; padding-bottom:10px;">댓글작성</button>   
+      <button type="button" id="resister" class="btn btn-warning btn-lg btn-block" style="padding-top:10px;margin-left:10px; padding-bottom:10px; background:#2d2d2b; height:55px;">댓글작성</button>   
    </div>   
 </div>
 </c:if>

@@ -79,6 +79,15 @@ function fn_modifyDIY(){
 </div>
 
 <div>
+<div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;">재료&nbsp;&nbsp;&nbsp;ex)플랫브레드/1개</div>
+<span>빵</span><input type="text" class="form-control" value="${diy.DIY_BREAD}" name="DIY_BREAD" placeholder="빵종류와 수량을 입력해주세요" style="width:500px;">
+<span>야채</span><input type="text" class="form-control" value="${diy.DIY_VEGETABLE}" name="DIY_VEGETABLE" placeholder="야채 종류와 수량을 입력해주세요" style="width:500px;">
+<span>소세지</span><input type="text" class="form-control" value="${diy.DIY_SAUSAGE}" name="DIY_SAUSAGE" placeholder="소세지 종류와 수량을 입력해주세요" style="width:500px;">
+<span>치즈</span><input type="text" class="form-control" value="${diy.DIY_CHEESE}" name="DIY_CHEESE" placeholder="치즈 종류와 수량을 입력해주세요" style="width:500px;">
+<span>소스</span><input type="text" class="form-control" value="${diy.DIY_SAUCE}" name="DIY_SAUCE" placeholder="소스 종류와 수량을 입력해주세요" style="width:500px;">
+</div>
+
+<div>
 <div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;">내용</div>
 <textarea class="form-control" name="DIY_CONTENT" rows="10" cols="50">${diy.DIY_CONTENT}</textarea>
 </div>
@@ -104,11 +113,18 @@ function fn_modifyDIY(){
 <input type="hidden" value="${sessionScope.MEMBER_ID}" name="DIY_MEMBER_ID">
 </div>
 
-<div>
+<div>  
 <div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;">제목</div>
 <input type="text" class="form-control" name="DIY_TITLE" placeholder="제목을 입력해주세요" style="width:500px;">
+</div>   
+<div>
+<div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;">재료&nbsp;&nbsp;&nbsp;ex)플랫브레드/1개</div>
+<span>빵</span><input type="text" class="form-control" name="DIY_BREAD" placeholder="빵종류와 수량을 입력해주세요" style="width:500px;">
+<span>야채</span><input type="text" class="form-control" name="DIY_VEGETABLE" placeholder="야채 종류와 수량을 입력해주세요" style="width:500px;">
+<span>소세지</span><input type="text" class="form-control" name="DIY_SAUSAGE" placeholder="소세지 종류와 수량을 입력해주세요" style="width:500px;">
+<span>치즈</span><input type="text" class="form-control" name="DIY_CHEESE" placeholder="치즈 종류와 수량을 입력해주세요" style="width:500px;">
+<span>소스</span><input type="text" class="form-control" name="DIY_SAUCE" placeholder="소스 종류와 수량을 입력해주세요" style="width:500px;">
 </div>
-
 <div>
 <div style="font-family:PureunJeonnam; font-weight:bold; margin-bottom:10px; margin-top:10px;">내용</div>
 <textarea class="form-control" name="DIY_CONTENT" rows="10" cols="50" placeholder="내용을 입력해주세요" ></textarea>

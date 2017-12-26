@@ -58,5 +58,8 @@
 		<put-attribute name="admin_body" expression="/WEB-INF/view/admin/memberModifyForm.jsp" />
 	</definition>
 	
+	<definition name="garbage" extends="admin_layout">
+      <put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/garbageList.jsp" />
+   </definition>
  	
 </tiles-definitions>
