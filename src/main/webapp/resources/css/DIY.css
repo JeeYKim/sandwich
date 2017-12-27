@@ -401,9 +401,9 @@
 
 .field1>ul {
    height: 375px;
-   border: 1px solid #a73f40;
+   border: 1px solid #2d2d2b;
    background: #fff;
-   float: left;
+   float: left;  
    overflow-x: hidden;
    overflow-y: visible
 }
@@ -420,7 +420,7 @@
 }
 
 .big_sort li a {
-   color: #cc4244;
+   color: #2d2d2b;
    display: block;
    line-height: 44px;
    padding-left: 18px;
@@ -509,7 +509,7 @@
          display: block;
  }
  ul.big_sort li.current{
-         background-color: #000000;
+         background-color: #920f0f;
          color: #222;
       }
 

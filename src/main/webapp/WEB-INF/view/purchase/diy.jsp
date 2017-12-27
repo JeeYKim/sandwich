@@ -139,14 +139,14 @@
                   </ul>
                </div>
                
-               <div class="field2">
+               <div class="field2" style="margin-left:10px;">
                   <dl>
                      <dt>
                         <input type="text" id="totalPrice" name="totalPrice" value="0"
-                           style="height: 30px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           style="width:200px; height:40px"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      </dt>
                      <dd>
-
+    
                         <jsp:include page="diy2.jsp"></jsp:include>
 
                      </dd>

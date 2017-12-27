@@ -86,9 +86,9 @@
 								<tbody>
 								<c:forEach var="garbageList"  items="${garbageList}" varStatus="stat">
 																	
-									<tr class="gradeA even" role="row">
+									<tr class="gradeA even" role="row">  
 										<td style="text-align:center;vertical-align:middle;">${garbageList.GARBAGE_NO}</td>								
-										<td style="text-align:center;vertical-align:middle;"><img src="upload/ingredient/${garbageList.GARBAGE_THUMNAIL}" width="60" height="60" /></td>
+										<td style="text-align:center;vertical-align:middle;"><img src="resources/images/sandwich/${garbageList.GARBAGE_THUMNAIL}" width="60" height="60" /></td>
 										<td style="text-align:center;vertical-align:middle;">${garbageList.GARBAGE_BIGTYPE}</td>
 										<td style="text-align:center;vertical-align:middle;">${garbageList.GARBAGE_SMALLTYPE}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatNumber value="${garbageList.GARBAGE_PRICE}" type="number"/>원<div style='display:none;'>${garbageList.GARBAGE_NO}</div></td>							
