@@ -18,4 +18,6 @@ public interface BoardDao {
 
 	HashMap getBoard(int boardNo);
 
+	void boardDelete(int boardNo);
+
 }

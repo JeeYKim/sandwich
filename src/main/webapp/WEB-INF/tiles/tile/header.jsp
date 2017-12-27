@@ -109,7 +109,6 @@
 			<li class='last'><a href='diy.jy'><span>주문</span></a></li>
 			<li class='last'><a href="<c:url value = "/memberNoticeList.jy"/>"><span>공지사항</span></a></li>
 			<li class='last'><a href='memberDiyBoardList.jy'><span>DIY추천</span></a></li>
-
 		</ul>
 	</div>
 

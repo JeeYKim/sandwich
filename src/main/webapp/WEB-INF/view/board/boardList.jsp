@@ -4,9 +4,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <!-- 별모양 폰트 -->
@@ -14,9 +11,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript"
 	src="resources/file/js/jquery-2.0.0.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>불타는 샌드위치</title>
-</head>
+
 <style>
 @import
 	url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css')
@@ -88,11 +83,9 @@ a {
 </style>
 
 
-<body>
-	<div id="diy_wrap">
+<div id="diy_wrap">
 		<table class="table">
 			<colgroup>
-
 				<col width="10%" />
 				<col width="60%" />
 				<col width="10%" />
@@ -100,8 +93,8 @@ a {
 			</colgroup>
 			<div>
 				<h3 style="padding-left: 20px; text-align: left;">
-					<span style="color: black; font-size: 30px; font-weight: bold;"><a
-						href="memberDiyBoardList.jy">Q & A 게시판</a></span> 
+					<span style="color: black; font-size: 30px; font-weight: bold;">
+					<a href="memberDiyBoardList.jy">1:1게시판</a></span> 
 						<span style="font-size: 15px; color: #777; font-weight: bold;">
 						궁금한 사항 남겨주세요!</span>
 				</h3>
@@ -167,27 +160,8 @@ a {
 
 
 		<div class="admin_search">
-
-			<div
-				style="text-align: center; width: 500px; margin-left: auto; margin-right: auto; margin-top: 20px; padding-bottom: 70px;">
-				<div id="dataTables-example_filter" class="dataTables_filter">
-					<form action="/sandwich/boardList.jy">
-						<select class="form-control" name="searchNum" id="searchNum"
-							style="width: 100px; float: left; margin-right: 8px;">
-							<option value="0">작성자</option>
-							<option value="1">제목</option>
-						</select> <input class="form-control" type="text" name="isSearch"
-							id="isSearch" style="width: 300px; float: left;"
-							placeholder="키워드를 입력해 주세요 " /> <span>
-							<button type="submit" class="btn btn-primary"
-								style="float: left; color:#ffffff; background-color: #000; font-family:맑은고딕;">검색</button>
-						</span>
-					</form>
-				</div>
-			</div>
-
 		</div>
-	</div>
+</div>
 <script>
 function goWrite() {
 	location.href = '<c:url value="/boardWriteForm.jy"/>';

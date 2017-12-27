@@ -14,14 +14,15 @@
 	</resultMap>
 	
 	<select id="getBoardList" resultMap="boardMap" parameterType="java.util.HashMap">
-		<![CDATA[
 		select no, parent_no, rownum,level, writer, regdate,
-		lpad(' ', 2* (level-1), '>>>') || title as "title"
+		lpad(' ', 2* (level-1), '>') || title as "title"
 		from board2
 		start with parent_no is null
+		<if test="boardWriter != 'staff'">
+		and writer = #{boardWriter}
+		</if>
 		connect by prior NO = parent_no
-		order siblings by REGDATE
-		]]>
+		order siblings by REGDATE desc
 	</select>	
 	
 	<insert id="insertBoard" parameterType="java.util.HashMap">
@@ -35,5 +36,19 @@
 		 from board2 
 		 where no = #{boardNo}
 	</select>
+	
+	<update id="boardModify" parameterType="java.util.HashMap">
+		update board2
+		set title = #{boardTitle},
+		content = #{boardContent}
+		where no = #{boardNo}	
+	</update>
+	
+	<delete id="boardDelete" parameterType="int">
+		delete from board2
+		where no = #{boardNo}
+	</delete>
+	
+	
 	
 </mapper>
