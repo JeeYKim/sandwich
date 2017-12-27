@@ -53,7 +53,7 @@ function find_Pw()
 					<div id="password_label">비밀번호</div>
 
 					<div id="password_input">
-  
+     
 						<div id="password_inputleft"></div>     
 
 						<div id="password_inputmiddle">
@@ -72,7 +72,7 @@ function find_Pw()
 						<%--로그인 버튼이 이미지이기 때문에 따로 submit 설정 --%>
 						 <input type="image" src="resources/images/login/sing_in_2.PNG"
 							id="submit2" value="Sign In"
-							onchange="javascript:document.getElementById('frm').value=this.value"> 
+							onchange="javascript:document.getElementById('frm').value=this.value" style="width:100%"> 
 							
 						<%--onchange : 버튼 -> 태그 ID가 frm인 것의 값을 찾아서 바꿔줌 --%>
 					</div>

@@ -55,13 +55,7 @@ function member_info()
 							<b>장바구니</b>장바구니에 추가한 내역을 볼 수 있습니다.
 						</p>
 					</a>
-					<a href="javascript:location.href='mypurchas.jy'">
-						<img src="resources/images/mypage/my_recipe.png">
-						<p>
-							<b>내가&nbsp;쓴&nbsp;DIY추천</b>내가 작성한 DIY추천 내역을 볼 수 있습니다.
-						</p>
-					</a>
-					
+										
 					<a href="javascript:location.href='boardList.jy'">
 						<img src="resources/images/mypage/faq.png">
 						<p>

@@ -29,8 +29,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				request.getRequestURI().equals("/sandwich/orderApproval.jy")||request.getRequestURI().equals("/sandwich/orderNoapproval.jy")||request.getRequestURI().equals("/sandwich/staffMoney.jy")||
 				request.getRequestURI().equals("/sandwich/staffMoneyInsert.jy")||request.getRequestURI().equals("/sandwich/staffMoneyDelete.jy")||request.getRequestURI().equals("/sandwich/cost.jy")||
 				request.getRequestURI().equals("/sandwich/costInsert.jy")||request.getRequestURI().equals("/sandwich/costDelete.jy")||request.getRequestURI().equals("/sandwich/adminMember.jy")||
-				request.getRequestURI().equals("/sandwich/adminMemberDelete.jy")||request.getRequestURI().equals("/sandwich/adminMemberModifyForm.jy")||request.getRequestURI().equals("/sandwich/adminUpdateMember.jy")) {
-			
+				request.getRequestURI().equals("/sandwich/adminMemberDelete.jy")||request.getRequestURI().equals("/sandwich/adminMemberModifyForm.jy")||request.getRequestURI().equals("/sandwich/adminUpdateMember.jy")||
+				request.getRequestURI().equals("/sandwich/garbage.jy")) {
+				
 			if(member_id == null ) {		
 				
 				response.sendRedirect(request.getContextPath()+"/loginForm.jy");
@@ -65,7 +66,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				
 				
 				
-				return true;
+				return true;   
 			}else {
 				response.sendRedirect(request.getContextPath()+"/loginForm.jy");
 				
@@ -75,12 +76,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		}
 		
 		if(request.getRequestURI().equals("/sandwich/mypage.jy")||request.getRequestURI().equals("/sandwich/memberInfo.jy")||request.getRequestURI().equals("/sandwich/meberUpdateForm.jy")||
-				request.getRequestURI().equals("/sandwich/memberUpdateAction.jy")||request.getRequestURI().equals("/sandwich/memberDeleteAction.jy")) {
+				request.getRequestURI().equals("/sandwich/memberUpdateAction.jy")||request.getRequestURI().equals("/sandwich/memberDeleteAction.jy")||request.getRequestURI().equals("/sandwich/gopurchase.jy")||
+				request.getRequestURI().equals("/sandwich/basketlist.jy")||request.getRequestURI().equals("/sandwich/boardWriteForm.jy")||request.getRequestURI().equals("/sandwich/boardSave.jy")||
+				request.getRequestURI().equals("/sandwich/boardModifyForm.jy")||request.getRequestURI().equals("/sandwich/boardDelete.jy")||request.getRequestURI().equals("/sandwich/memberDiyBoardForm.jy")||
+				request.getRequestURI().equals("/sandwich/memberDiyBoardInsert.jy")||request.getRequestURI().equals("/sandwich/memberDiyBoardDelete.jy")||request.getRequestURI().equals("/sandwich/memberDiyBoardModifyForm.jy")||
+				request.getRequestURI().equals("/sandwich/memberDiyBoardModify.jy")) {
 			
 			if(member_id == null) {
 				response.sendRedirect(request.getContextPath()+"/loginForm.jy");
 				
-				return true;
+				return false;
 			}else {
 				
 				return true;
