@@ -14,4 +14,6 @@ public interface BoardService {
 
 	HashMap getBoard(int boardNo);
 
+	void boardDelete(int boardNo);
+
 }
