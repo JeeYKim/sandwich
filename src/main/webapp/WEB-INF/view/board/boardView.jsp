@@ -96,16 +96,30 @@
 
 </table>
 <input type="button" class="btn btn-primary" onclick="goList()" id="list" value="목록으로" style="float:right; color: #fff; background-color: #000; font-family:맑은고딕;">
+<input type="button" class="btn btn-primary" onclick="goModifyForm(${board.boardNo})" id="list" value="수정하기" style="float:right; color: #fff; background-color: #000; font-family:맑은고딕;">
+<input type="button" class="btn btn-primary" onclick="goDelete(${board.boardNo})" id="list" value="삭제하기" style="float:right; color: #fff; background-color: #000; font-family:맑은고딕;">
+
 
 <script>
 function goList() {
 	location.href = '<c:url value="/boardList.jy"/>';
 }
+
+function goModifyForm(boardNo) {
+	location.href = '<c:url value="/boardModifyForm.jy?boardNo="/>'+boardNo;
+	
+}
+
+function goDelete(boardNo) {
+	if (confirm("정말 삭제하시겠습니까??") == true){ 
+		location.href = '<c:url value="/boardDelete.jy?boardNo="/>'+boardNo;
+	}
+}
 </script>
 
 <!-- 관리자 댓글 달기  -->
 
-<c:if test = "${sessionScope.MEMBER_ID eq 'admin'}">
+<c:if test = "${sessionScope.MEMBER_ID eq 'staff'}">
 	
 	<form action="<c:url value="/boardSave.jy"/>" method="post" onsubmit="return validateForm();">
 	

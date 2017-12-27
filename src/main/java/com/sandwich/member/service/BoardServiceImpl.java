@@ -36,4 +36,9 @@ public class BoardServiceImpl implements BoardService {
 		HashMap board = boardDao.getBoard(boardNo);
 		return board;
 	}
+
+	@Override
+	public void boardDelete(int boardNo) {
+		boardDao.boardDelete(boardNo);
+	}
 }

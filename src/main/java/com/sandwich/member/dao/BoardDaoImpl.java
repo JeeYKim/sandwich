@@ -24,10 +24,9 @@ public class BoardDaoImpl extends AbstractDAO implements BoardDao  {
 		insert(NAME_SPACE + "insertBoard", board.getMap());
 	}
 
-	@Override
-	public void updateBoard(CommandMap board) {
-		// TODO Auto-generated method stub
-		
+	public HashMap boardModify(int boardNo) {
+		HashMap board = (HashMap) update(NAME_SPACE + "boardModify", boardNo);
+		return board;
 	}
 
 	@Override
@@ -35,5 +34,16 @@ public class BoardDaoImpl extends AbstractDAO implements BoardDao  {
 		HashMap board = (HashMap) selectOne(NAME_SPACE + "getBoard", boardNo);
 		return board;
 	}
+
+	@Override
+	public void updateBoard(CommandMap board) {
+		update(NAME_SPACE + "boardModify", board.getMap());
+	}
+
+	@Override
+	public void boardDelete(int boardNo) {
+		delete(NAME_SPACE + "boardDelete", boardNo);		
+	}
+
 
 }

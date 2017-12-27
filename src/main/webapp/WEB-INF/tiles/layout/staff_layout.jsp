@@ -119,6 +119,8 @@
 									<ul class="nav child_menu" style="display: none">
 
 										<li><a href="<c:url value="noticeList.jy"/>">공지사항 리스트</a></li>
+										<li><a href="boardList.jy">1:1게시판 리스트</a></li>
+										<li><a href="">추천게시판 리스트</a></li>
 									</ul></li>
 							</ul>
 						</div>

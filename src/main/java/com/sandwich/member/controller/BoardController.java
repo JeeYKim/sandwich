@@ -36,8 +36,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boardList")
-	public String boardList(Model model, CommandMap param) {
-		
+	public String boardList(Model model, CommandMap param, HttpSession session) {
+		String memberId = session.getAttribute("MEMBER_ID").toString();
+		param.put("boardWriter", memberId);
 		List boardList = boardService.getBoardList(param.getMap());
 		
 		model.addAttribute("boardList", boardList);
@@ -67,6 +68,25 @@ public class BoardController {
 		
 		return "boardView";
 	}
+	
+	@SuppressWarnings("rawtypes")
+	@RequestMapping(value = "/boardModifyForm")
+	public String boardModifyForm(int boardNo, Model model)  {
+		HashMap board = boardService.getBoard(boardNo);
+		model.addAttribute("board", board); 
+		
+		return "boardModifyForm";
+	}
+	
+	@RequestMapping(value = "/boardDelete")
+	public String boardDelete(int boardNo){
+		
+		boardService.boardDelete(boardNo);
+		
+		return "redirect:boardList.jy";	
+	}
+	
+	
 	
 	
 }
