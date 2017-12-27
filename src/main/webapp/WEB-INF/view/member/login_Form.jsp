@@ -91,7 +91,7 @@ function find_Pw()
 
 					<!-- 회원가입 페이지로 -->
 					<div id="links_right">
-						<a href="join.jy" style="margin: 0 50px 0 0;">회원가입</a>
+						<a href="joinEmail.jy" style="margin: 0 50px 0 0;">회원가입</a>
 						
 					</div> 
 					

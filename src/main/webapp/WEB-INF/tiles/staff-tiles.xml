@@ -57,6 +57,13 @@
  		<put-attribute name="staff_body" expression="/WEB-INF/view/ingredient/ingredientModifyForm.jsp"/>
  	</definition>
  	
+ 	 	   <definition name="purchaseList" extends="staff_layout">
+      <put-attribute name="staff_body" expression="/WEB-INF/view/purchase/allPurchaseList.jsp" />
+   </definition>
+   
+   <definition name="purchaseView1" extends="staff_layout">
+      <put-attribute name="staff_body" expression="/WEB-INF/view/purchase/AllpurchaseView.jsp" />
+   </definition>
  	
  	
 </tiles-definitions>

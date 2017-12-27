@@ -95,7 +95,7 @@
                   <li>
                      <a href="admin.jy"><i class="fa fa-clock-o"></i>알림</a>
                   </li>
-                  
+
                   <li>
                      <a><i class="fa fa-archive"></i>재고 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">

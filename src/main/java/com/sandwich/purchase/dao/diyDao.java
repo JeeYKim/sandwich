@@ -42,6 +42,10 @@ public class diyDao extends AbstractDAO {
    public void plusPurchasNo(Map map) {
     update("diy.plusPurchasNo", map);
  }
+   @SuppressWarnings("unchecked")
+public List<Map<String, Object>> purchaseList(){
+	   return (List<Map<String, Object>>) selectList("diy.purchaseList");
+   }
    
    
    

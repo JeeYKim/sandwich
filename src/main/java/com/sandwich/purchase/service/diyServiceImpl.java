@@ -64,6 +64,12 @@ public void plusPurchasNo(Map map) {
 	dao.plusPurchasNo(map);
 }
 
+@Override
+public List<Map<String, Object>> purchaseList() {
+	
+	return dao.purchaseList();
+}
+
 
    
    

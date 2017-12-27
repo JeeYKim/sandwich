@@ -126,7 +126,7 @@
 						<div class="col-lg-21 col-md-20">
 							<input type="text" name="MEMBER_ID" id="MEMBER_ID" value=""
 								maxlength="20" class="xx-control" label="아이디"
-								required="required">
+								required="required" style="float:left;">
 							<p class="alert alert-positive"></p>
 							<input type="button" class="button_" style="width:50; margin:0 0 50 0; float:right;"value="중복확인" onclick="javascript:checkId()" />
 							${message}
@@ -141,7 +141,7 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<input type="password" id="input-password" class="xx-control"
-								value="" name="MEMBER_PW" required="required" label="비밀번호">
+								value="" name="MEMBER_PW" required="required" label="비밀번호" style="float:left;">
 						</div>
 					</li>
 
@@ -154,7 +154,7 @@
 						<div class="col-lg-21 col-md-20">
 							<input type="password" id="input-password-check"
 								class="xx-control" value="" name="password_confirm" label="비밀번호"
-								onkeyup="checkPwd()" required="">
+								onkeyup="checkPwd()" required="" style="float:left;">
 						</div>
 					</li>
 
@@ -165,7 +165,7 @@
 						</div>
 						<div class="col-lg-21 col-md-20">
 							<input type="text" id="input-name" class="xx-control"
-								name="MEMBER_NAME" value="" required="required" label="이름">
+								name="MEMBER_NAME" value="" required="required" label="이름" style="float:left;">
 						</div>
 					</li>
 

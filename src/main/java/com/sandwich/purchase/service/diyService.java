@@ -20,5 +20,7 @@ public interface diyService {
    void goPurchase(Map<String, Object> map);
 
    void plusPurchasNo(Map map);
+   
+   List<Map<String, Object>> purchaseList();
 
 }
