@@ -108,12 +108,12 @@
 										<li><a href="<c:url value="orderList.jy"/>">발주목록</a></li>
 										<li><a href="<c:url value="orderWriteForm.jy"/>">발주등록</a></li>
 									</ul></li>
-								<li><a><i class="fa fa-trash"></i>폐기관리<span
+								<!-- <li><a><i class="fa fa-trash"></i>폐기관리<span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu" style="display: none">
 
 										<li><a href="/trash">폐기내역</a></li>
-									</ul></li>
+									</ul></li> -->
 								<li><a><i class="fa fa-book"></i>게시판관리<span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu" style="display: none">
