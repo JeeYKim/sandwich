@@ -159,34 +159,34 @@ function submit(index){
 <li>
    
 
-      <table>
+      <table style="margin-left:15px;">
          <tr >
             <td rowspan="3">
                   <img class="img-circle" style="width: 80px; height: 80px;" alt=""
                      src="resources/images/sandwich/${ingreList.SANDWICH_THUMNAIL}" />
             </td>
-            <td >&nbsp;&nbsp;${ingreList.SANDWICH_SMALLTYPE}&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td ><img src="resources/images/up.png" onclick="add(this);"></td>
+            <td style="width:80px; text-align:center;"><span >${ingreList.SANDWICH_SMALLTYPE}</span></td>
+            <td><img src="resources/images/up.png" onclick="add(this);" style="margin-top:5px;"></td>
          </tr>
          <tr>
             
-            <td>
+            <td style="width:80px; text-align:center;">
                <input type="hidden" value="${ingreList.SANDWICH_PRICE}">
-               &nbsp;${ingreList.SANDWICH_PRICE}원 &nbsp;&nbsp;
+               <span>${ingreList.SANDWICH_PRICE}원</span>
                <input type="hidden" value="${ingreList.SANDWICH_PRICE}">
                <input type="hidden" value="${sessionScope.MEMBER_ID}">
                <input type="hidden" name="SANDWICH_NO" value="${ingreList.SANDWICH_NO}">
             </td>
             <td>
-               <img src="resources/images/delete_.png"   id="${stat.index}" onclick="delIngre(this);" >
+               <img src="resources/images/delete_.png"  style="margin-top:5px;" id="${stat.index}" onclick="delIngre(this);" >
             </td>      
          </tr>
          <tr>   
             <td>   
-               <input id="amount${stat.index}" type="text" size="1" name="amountEA" value="0" readonly>
+             <input id="amount${stat.index}" type="text" style="width:35px; height:25px;margin-left:20px; text-align:center" name="amountEA" value="0" readonly>
             </td>
             <td>      
-                  <img src="resources/images/down.png" onclick="del(this);">
+                  <img src="resources/images/down.png" style="margin-top:5px;" onclick="del(this);">
             </td>      
                   
          </tr>

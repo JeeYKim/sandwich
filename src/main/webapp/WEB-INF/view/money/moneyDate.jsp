@@ -76,7 +76,14 @@
 										<tr role="row" style="vertical-align: middle;">
 											<td style="text-align: center; vertical-align: middle;">+</td>
 											<td style="text-align: center; vertical-align: middle;">매출(주문)</td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber value="${moneyList[0].AA}" pattern="#,###"/></td>
+											<td style="text-align: center; vertical-align: middle;">
+											<c:if test="${empty moneyList[0].AA}">
+												<fmt:formatNumber value="0"/>
+											</c:if>
+											<c:if test="${!empty moneyList[0].AA}">
+												<fmt:formatNumber value="${moneyList[0].AA}" pattern="#,###"/>
+											</c:if>
+											</td>
 										</tr>
 										
 										<tr role="row" style="vertical-align: middle;">
@@ -86,23 +93,51 @@
 										<tr role="row" style="vertical-align: middle;">
 											<td rowspan="4" style="text-align: center; vertical-align: middle;">-</td>
 											<td style="text-align: center; vertical-align: middle;">매입(발주)</td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber value="${moneyList[1].AA}" pattern="#,###"/></td>
+											<td style="text-align: center; vertical-align: middle;">
+											<c:if test="${empty moneyList[1].AA}">
+												<fmt:formatNumber value="0"/>
+											</c:if>
+											<c:if test="${!empty moneyList[1].AA}">
+												<fmt:formatNumber value="${moneyList[1].AA}" pattern="#,###"/>
+											</c:if>	
+											</td>
 										</tr>
 										
 										<tr role="row" style="vertical-align: middle;">
 											
 											<td style="text-align: center; vertical-align: middle;">직원 급여</td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber value="${moneyList[2].AA}" pattern="#,###"/></td>
+											<td style="text-align: center; vertical-align: middle;">
+											<c:if test="${empty moneyList[2].AA}">
+												<fmt:formatNumber value="0"/>
+											</c:if>
+											<c:if test="${!empty moneyList[2].AA}">
+												<fmt:formatNumber value="${moneyList[2].AA}" pattern="#,###"/>
+											</c:if>
+											</td>
 										</tr>
 										<tr role="row" style="vertical-align: middle;">
 											
 											<td style="text-align: center; vertical-align: middle;">기타 비용</td>   
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber value="${moneyList[3].AA}" pattern="#,###"/></td>
+											<td style="text-align: center; vertical-align: middle;">
+											<c:if test="${empty moneyList[3].AA}">
+												<fmt:formatNumber value="0"/>
+											</c:if>
+											<c:if test="${!empty moneyList[3].AA}">
+												<fmt:formatNumber value="${moneyList[3].AA}" pattern="#,###"/>
+											</c:if>
+											</td>
 										</tr>
 										<tr role="row" style="vertical-align: middle;">
 											
 											<td style="text-align: center; vertical-align: middle;">폐기 비용</td>
-											<td style="text-align: center; vertical-align: middle;"><fmt:formatNumber value="${moneyList[4].AA}" pattern="#,###"/></td>
+											<td style="text-align: center; vertical-align: middle;">
+											<c:if test="${empty moneyList[4].AA}">
+												<fmt:formatNumber value="0"/>
+											</c:if>
+											<c:if test="${!empty moneyList[4].AA}">
+												<fmt:formatNumber value="${moneyList[4].AA}" pattern="#,###"/>
+											</c:if>
+											</td>
 										</tr>
 										
 										<tr role="row" style="vertical-align: middle;">

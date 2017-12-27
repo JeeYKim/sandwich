@@ -118,7 +118,7 @@
                      <a><i class="fa fa-trash"></i>폐기 관리<span class="fa fa-chevron-down"></span></a>   
                         <ul class="nav child_menu" style="display: none">
                      
-                        <li><a href="/trash">폐기 내역</a></li>
+                        <li><a href="garbage.jy">폐기 내역</a></li>
                      </ul>               
                   </li>
                   <li>
@@ -128,15 +128,7 @@
                         <li><a href="adminMember.jy">회원 리스트</a></li>   
                      </ul>
                   </li>
-                  <li>
-                     <a><i class="fa fa-book"></i>게시판 관리<span class="fa fa-chevron-down"></span></a>
-                     <ul class="nav child_menu" style="display: none">
-                     
-                        <li><a href="noticeList.jy">공지사항 리스트</a></li>
-                        <li><a href="recommendation_list">추천게시판 리스트</a></li>
-                        <li><a href="boardList.jy">1:1게시판 리스트</a></li>
-                     </ul>
-                  </li>
+                  
                   <li>
                      <a><i class="fa fa-won"></i>매출 관리<span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu" style="display: none">

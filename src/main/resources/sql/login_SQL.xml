@@ -9,29 +9,25 @@
 		SELECT * FROM MEMBER2 WHERE MEMBER_ID = #{MEMBER_ID}
 	]]>
 </select>
-
 <!-- 아이디 찾기 -->
-<select id="idFind" parameterType="hashmap" resultType="hashmap">
+<select id="findId" parameterType="hashmap" resultType="string">
   <![CDATA[
-      select * from member2 where member_name = #{member_name} and member_email = #{member_email}
+      select MEMBER_ID from member2 where member_name = #{MEMBER_NAME} and member_email = #{MEMBER_EMAIL}
   ]]>
 </select>
 	
 <!-- 비밀번호 찾기 -->
-<select id="pwFind" parameterType="hashmap" resultType="hashmap">
+<select id="findPw" parameterType="hashmap" resultType="string">
   <![CDATA[
-	select * from member2 WHERE upper(member_id) LIKE '%'||upper(#{member_id})||'%' 
-	and member_email = #{member_email}
+	select MEMBER_PW 
+	from member2 
+	WHERE MEMBER_ID = #{MEMBER_ID}
+	AND MEMBER_NAME = #{MEMBER_NAME}
+	AND MEMBER_EMAIL = #{MEMBER_EMAIL}
   ]]>
-		
-</select>
+  
+ </select>
 
-<!-- 이메일로 조지기 -->
-<select id="Search" parameterType="hashmap" resultType="string">
-  <![CDATA[
-	select * from member2 WHERE member_email = #{Member_email}
-	
-  ]]>
-</select>
+
 
 </mapper>
