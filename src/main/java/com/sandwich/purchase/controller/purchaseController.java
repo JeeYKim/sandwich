@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.HttpRequestHandlerServlet;
 import org.springframework.web.servlet.ModelAndView;
@@ -263,7 +264,7 @@ public class purchaseController {
       List<Map<String, Object>> list = purchaseService.selectBasketList(commandMap.getMap()); 
       
       totalCount = list.size();
-      page = new Paging(currentPage, totalCount, blockCount, blockPage, "mypurchas.jy");
+      page = new Paging(currentPage, totalCount, blockCount, blockPage, "basketlist");
       pagingHtml = page.getPagingHtml().toString();
 
       int lastCount = totalCount;
@@ -330,7 +331,7 @@ public class purchaseController {
       List<Map<String, Object>> list = purchaseService.myselectPurchaseList(commandMap.getMap()); 
       
       totalCount = list.size();
-      page = new Paging(currentPage, totalCount, blockCount, blockPage, "mypurchas.jy");
+      page = new Paging(currentPage, totalCount, blockCount, blockPage, "mypurchas");
       pagingHtml = page.getPagingHtml().toString();
 
       int lastCount = totalCount;
@@ -530,5 +531,65 @@ public class purchaseController {
          return acfal;
       }
    }
+   
+   @RequestMapping("purchaseList.jy")
+   public String purchaseList(Model model, HttpServletRequest request) {
+	   List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+	   list = diy.purchaseList();
+	   
+	  
+	   
+	   if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+	            || request.getParameter("currentPage").equals("0")) { //currentPage가 null일때.
+	         currentPage = 1;
+	      } else { //currentPage가 null이 아니고 존재할때.
+	         currentPage = Integer.parseInt(request.getParameter("currentPage")); 
+	      }
+	      
+	      
+	      totalCount = list.size();
+	      page = new Paging(currentPage, totalCount, blockCount, blockPage, "purchaseList");
+	      pagingHtml = page.getPagingHtml().toString();
+
+	      int lastCount = totalCount;
+
+
+	      
+	      if (page.getEndCount() < totalCount)
+	         lastCount = page.getEndCount() + 1;
+
+	      list = list.subList(page.getStartCount(), lastCount);
+	      
+	      
+	      
+	    model.addAttribute("totalCount", totalCount);
+	    model.addAttribute("pagingHtml", pagingHtml);
+	    model.addAttribute("currentPage", currentPage);
+	    model.addAttribute("list", list); 
+	         
+	   
+
+	    
+	   
+	   
+	   return "purchaseList";
+   }
+   
+   @RequestMapping("purchaseView.jy")
+   public String purchaseView(Model model, CommandMap commandMap, HttpServletRequest request,
+		   @RequestParam("query") String memberId,
+		   @RequestParam("no") int pno
+		   ) throws Exception {
+	   System.out.println("상세보기");
+	   commandMap.put("PURCHASE_NO", pno);
+	   commandMap.put("PURCHASE_ID", memberId);
+
+	      List<Map<String,Object>> list = purchaseService.myselectPurchaseOne(commandMap.getMap());
+	      
+	      model.addAttribute("list", list);
+	   
+	   return "purchaseView1";
+   }
+   
 
 }

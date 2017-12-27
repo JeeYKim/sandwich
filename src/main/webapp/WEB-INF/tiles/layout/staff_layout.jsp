@@ -94,6 +94,16 @@
 								<li><a href="staff.jy"><i class="fa fa-clock-o"></i>알림</a>
 								</li>
 
+								<li><a><i class="fa fa-file-text-o"></i>주문내역 관리<span
+										class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu" style="display: none">
+
+
+										<li><a href="<c:url value = "/purchaseList.jy"/>">주문내역</a></li>
+
+									</ul>
+								
+								</li>
 								<li><a><i class="fa fa-archive"></i>재고관리<span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu" style="display: none">
@@ -120,7 +130,7 @@
 
 										<li><a href="<c:url value="noticeList.jy"/>">공지사항 리스트</a></li>
 										<li><a href="boardList.jy">1:1게시판 리스트</a></li>
-										<li><a href="">추천게시판 리스트</a></li>
+										<li><a href="admindiyboardlist.jy">추천게시판 리스트</a></li>
 									</ul></li>
 							</ul>
 						</div>

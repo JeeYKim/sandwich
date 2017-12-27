@@ -89,9 +89,11 @@
 							<li><a class="loginLink" href="mypage.jy">마이페이지</a></li>
 						</c:if>
 						<c:if test="${(sessionScope.MEMBER_LEVEL) == 1 }">
+							<li><a class="loginLink" href="mypage.jy">마이페이지</a></li>
 							<li><a class="loginLink" href="staff.jy">직원페이지</a></li>
 						</c:if>
 						<c:if test="${(sessionScope.MEMBER_LEVEL) == 2 }">
+							<li><a class="loginLink" href="mypage.jy">마이페이지</a></li>
 							<li><a class="loginLink" href="admin.jy">관리자페이지</a></li>
 						</c:if>
 					</ul>

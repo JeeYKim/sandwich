@@ -80,6 +80,10 @@ select * from sandwich where SANDWICH_NO = #{SANDWICH_NO}
      SELECT PURCHASE_SEQ_NO.NEXTVAL FROM DUAL
      ]]>
      </update>
+     
+     <select id="purchaseList" resultType="hashmap">
+     select * from purchase where PURCHASE_BASKET = 1
+     </select>
    
    
 </mapper>

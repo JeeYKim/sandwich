@@ -61,5 +61,19 @@
 	<definition name="garbage" extends="admin_layout">
       <put-attribute name="admin_body" expression="/WEB-INF/view/ingredient/garbageList.jsp" />
    </definition>
+   
+    	<definition name="admindiyboardlist" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/DIY_Board/adminList.jsp"/>
+ 	</definition>
+ 	
+ 	<definition name="adminDiyBoardDetail" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/DIY_Board/adminDiyDetail.jsp"/>
+ 	</definition>
+ 	
+ 	 	<definition name="adminDiyBoardModifyForm" extends="admin_layout">
+ 		<put-attribute name="admin_body" expression="/WEB-INF/view/DIY_Board/adminModifyForm.jsp"/>
+ 	</definition>
+ 	
+
  	
 </tiles-definitions>
