@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <style type="text/css">
 @import url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css');
@@ -91,7 +91,10 @@
 
 <tr>
 	<td>내용</td>
-    <td colspan=3 style="background:white;">${board.boardContent}</td>
+	<% pageContext.setAttribute("LF", "\n"); %>
+    <td colspan=3 style="background:white;">
+    		${fn:replace(board.boardContent, LF, "<br>")}
+    	</td>
 </tr>
 
 </table>

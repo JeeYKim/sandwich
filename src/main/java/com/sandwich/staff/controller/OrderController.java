@@ -99,9 +99,16 @@ public class OrderController {
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/orderModifyForm")
-	public String orderModifyForm(int orderNo, Model model)  {
+	public String orderModifyForm(int orderNo, Model model) throws JsonGenerationException, JsonMappingException, IOException  {
 		HashMap order = orderService.getOrder(orderNo);
 		model.addAttribute("order", order); 
+		
+		List sandwichs = orderService.getSandwich();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(sandwichs);
+		
+		model.addAttribute("sandwichList", json);
 		
 		return "orderModifyForm";
 	}

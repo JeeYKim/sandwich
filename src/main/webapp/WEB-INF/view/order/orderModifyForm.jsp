@@ -22,21 +22,15 @@
 
 			<tbody>
 				<tr>
-					<th scope="row">카테고리</th>
+					<th scope="row">큰카테고리</th>
 					<td>
 						<select id="orderBigtype" name="orderBigtype">
-							<OPTION value='' selected="selected">---재료 종류을 선택하세요---</OPTION>
-							<OPTION value='빵'>빵</OPTION>
-							<OPTION value='야채'>야채</OPTION>
-							<OPTION value='소세지'>소세지</OPTION>
-							<OPTION value='치즈'>치즈</OPTION>
-							<OPTION value='소스'>소스</OPTION>
 						</select>
 					</td>
 				</tr>
 
 				<tr>
-					<th scope="row">카테고리</th>
+					<th scope="row">작은카테고리</th>
 					<td><select id="orderSmalltype" name="orderSmalltype" size=1></select></td>
 				</tr>
 
@@ -66,6 +60,9 @@
 	</form>
 </div>
 
+<script>
+	var sandwichJsonStr = '${sandwichList}';
+</script>
 <script src="<c:url value="/resources/js/staff/order.js"/>"></script>
 <script>
 	selectOrderBigtype('${order.orderBigtype}', '${order.orderSmalltype}');

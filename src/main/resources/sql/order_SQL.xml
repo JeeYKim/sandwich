@@ -82,11 +82,12 @@
 	</insert>
 	
 	<select id="getSandwich" resultType="hashmap">
-		select SANDWICH_NO "sandwichNo", 
-		sandwich_bigtype "bigType", 
-		sandwich_smalltype "smallType", 
-		SANDWICH_PRICE "price"
+	    select min(SANDWICH_NO) "sandwichNo", 
+	      sandwich_bigtype "bigType", 
+	      sandwich_smalltype "smallType", 
+	      min(SANDWICH_PRICE) "price"
 		from SANDWICH
-		order by sandwich_bigtype, SANDWICH_NO	
+	   		group by sandwich_bigtype, sandwich_smalltype
+		order by sandwich_bigtype, min(SANDWICH_NO), sandwich_smalltype
 	</select>
 </mapper>

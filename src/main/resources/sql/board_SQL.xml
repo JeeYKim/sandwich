@@ -15,7 +15,7 @@
 	
 	<select id="getBoardList" resultMap="boardMap" parameterType="java.util.HashMap">
 		select no, parent_no, rownum,level, writer, regdate,
-		lpad(' ', 2* (level-1), '>') || title as "title"
+		lpad(' ', 4* (level-1), '>') || title as "title"
 		from board2
 		start with parent_no is null
 		<if test="boardWriter != 'staff'">

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,9 +41,9 @@ public class NoticeController {
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/noticeSave")
-	public String noticeSave(Model model, CommandMap notice, HttpServletRequest request) {
+	public String noticeSave(Model model, CommandMap notice, HttpServletRequest request, HttpSession session) {
 		// session 정보에서 갖고 올것 
-		int memberId = 1;
+		String memberId = session.getAttribute("MEMBER_ID").toString();		
 		
 		// 첨부파일 처리 
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
@@ -60,6 +61,8 @@ public class NoticeController {
 			}
 			notice.put("noticeFile", fileName);
 		}
+		
+		
 		
 		notice.put("memberId", memberId);
 		
