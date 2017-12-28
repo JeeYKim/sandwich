@@ -168,6 +168,8 @@ public class purchaseController {
    @RequestMapping(value="/basketlist.jy") 
    public ModelAndView basketList(CommandMap commandMap, HttpSession session, HttpServletRequest request) throws Exception{
       
+	   	 try {
+	   		 
 	   	 String[] amountEach_temp = request.getParameterValues("amountEA");
 	     String[] sandwich_no_temp = request.getParameterValues("SANDWICH_NO");
 	     
@@ -243,7 +245,9 @@ public class purchaseController {
 	     
 	     
 	     
-	     
+	   	 }catch(Exception e) {
+	   		 
+	   	 }
 	     
 	     //-------------------------------------------
 	   
@@ -251,7 +255,7 @@ public class purchaseController {
       
       
       
-      commandMap.put("PURCHASE_ID", userId);
+      commandMap.put("PURCHASE_ID", session.getAttribute("MEMBER_ID"));
       
       
       if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
