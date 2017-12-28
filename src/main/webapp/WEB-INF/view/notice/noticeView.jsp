@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <style type="text/css">
 @import url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css');
@@ -91,8 +91,13 @@
 </tr>
 
 <tr>
-	<td colspan=4 style="background:white;">${notice.noticeContents}</td>
+	<td>내용</td>
+	<% pageContext.setAttribute("LF", "\n"); %>
+	<td colspan=4 style="background:white;">
+	${fn:replace (notice.noticeContents, LF, "<br>")}</td>
 </tr> 
+
+
 </table>
 <input type="button" class="btn btn-primary" onclick="goList()" id="list" value="목록으로" style="float:right;">
 
