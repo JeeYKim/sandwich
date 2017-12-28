@@ -36,7 +36,7 @@
 	
 	<!-- 메인화면에서 공지리스트 띄우기 -->
 	<select id="noticeList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-		select * from notice2
+		select * from notice2 order by notice_no desc
 	</select>
 	
 	<select id="getNotice" resultMap="noticeMap">

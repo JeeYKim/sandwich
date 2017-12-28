@@ -17,38 +17,38 @@
 <style>
 @import url('//cdn.rawgit.com/young-ha/webfont-archive/master/css/PureunJeonnam.css');
 #diy_wrap{
-   width:1170px;
-   margin-left:auto;
-   margin-right:auto;
-   font-family:PureunJeonnam;
+	width:1170px;
+	margin-left:auto;
+	margin-right:auto;
+	font-family:PureunJeonnam;
 }
 #diy_wrap th{
-   font-size:15px;
-   font-family:PureunJeonnam;
-   text-align:center;
-   background: #f5f5f5;
-   
-   
+	font-size:15px;
+	font-family:PureunJeonnam;
+	text-align:center;
+	background: #f5f5f5;
+	
+	
 }
 #diy_wrap table{
-   font-size:15px;
-   font-family:PureunJeonnam;
-   text-align:center;
-   font-weight:bold;
+	font-size:15px;
+	font-family:PureunJeonnam;
+	text-align:center;
+	font-weight:bold;
 }
 a{
-   text-decoration:none;
-   color:black;
+	text-decoration:none;
+	color:black;
 }
 .paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
 .paging a,
 .paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
 -webkit-border-radius:3px;
    -moz-border-radius:3px;
-      border-radius:3px;
+		border-radius:3px;
 -webkit-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-   -moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
-        box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+	-moz-box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
+		  box-shadow:1px 1px 1px 0px rgba(235,235,235,1);
 }
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
@@ -61,64 +61,74 @@ a{
 <table class="table">
 <colgroup>
 
-   <col width="5%"/>
-   <col width="10%"/>
-   <col width="13%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="16%"/>
+	<col width="5%"/>
+	<col width="10%"/>
+	<col width="13%"/>
+	<col width="10%"/>
+	<col width="10%"/>
+	<col width="10%"/>
+	<col width="16%"/>
 </colgroup>
 <div>
-   <h3 style="padding-left:20px; text-align:left;">
-      <span style="color:black; font-size:30px; font-weight:bold;">내가 장바구니에 담은 상세내역</span>
-   </h3>
+	<h3 style="padding-left:20px; text-align:left;">
+		<span style="color:black; font-size:30px; font-weight:bold;">내가 장바구니에 담은 상세내역</span>
+	</h3>
 </div>
 
 <div>
-   <hr color="#777" width="100%" size="1">
+	<hr color="#777" width="100%" size="1">
 </div>
 
 <tr>
-         <td>인덱스</td>
-         <td>주문번호</td> 
-         <td>대분류</td>
-         <td>소분류</td>
-         <td>개수</td>
-         <td>개당 가격</td>
-         <td>날자</td>
+			<td>인덱스</td>
+			<td>주문번호</td> 
+			<td>대분류</td>
+			<td>소분류</td>
+			<td>개수</td>
+			<td>개당 가격</td>
+			<td>날자</td>
 </tr>
 
 <c:forEach var="my" items="${list}" varStatus="stat">
 
 
-   <tr>
-         <td style="vertical-align:middle;">${my.PURCHASE_INDEX } </td>
-         <td style="vertical-align:middle;">${my.PURCHASE_NO}</td>
-         <td style="vertical-align:middle;">${my.PURCHASE_BIGTYPE }</td>
-         <td style="vertical-align:middle;">${my.PURCHASE_SMALLTYPE }</td>
-         <td style="vertical-align:middle;">${my.PURCHASE_AMOUNT }</td>
-         <td style="vertical-align:middle;">${my.PURCHASE_PRICE}</td>
-         <td style="vertical-align:middle; text-align:center;">${my.PURCHASE_ORDERDATE }</td>
-         
+	<tr>
+			<td style="vertical-align:middle;">${my.PURCHASE_INDEX } </td>
+			<td style="vertical-align:middle;">${my.PURCHASE_NO}</td>
+			<td style="vertical-align:middle;">${my.PURCHASE_BIGTYPE }</td>
+			<td style="vertical-align:middle;">${my.PURCHASE_SMALLTYPE }</td>
+			<td style="vertical-align:middle;">${my.PURCHASE_AMOUNT }</td>
+			<td style="vertical-align:middle;">${my.PURCHASE_PRICE}</td>
+			<td style="vertical-align:middle; text-align:center;">${my.PURCHASE_ORDERDATE }</td>
+			
 
-   </tr>
-      <c:url var="viewURL" value="/basketasorder.jy">   
-            <c:param name="PURCHASE_NO" value="${my.PURCHASE_NO}">
-            </c:param>
-      
-      </c:url>
-      
-      <input type="hidden" id="PURCHASE_NO" value="${my.PURCHASE_NO }">      
-   
+	</tr>
+		<c:url var="viewURL" value="/basketasorder.jy">	
+				<c:param name="PURCHASE_NO" value="${my.PURCHASE_NO}">
+				</c:param>
+		
+		</c:url>
+				<c:url var="deleteURL" value="/basketdelete.jy">	
+				<c:param name="PURCHASE_NO" value="${my.PURCHASE_NO}">
+				</c:param>
+		
+		</c:url>
+		
+		<input type="hidden" id="PURCHASE_NO" value="${my.PURCHASE_NO }">		
+	
 </c:forEach>
 
 </table>
 
 
 <div  style="clear:both; text-align:right;"> 
-<h4><a href="${ viewURL}" name="PURCHASE_NO">장바구니에 있는 항목 바로 주문</a></h4>
+<h4>
+<a href="${ deleteURL}" name="PURCHASE_NO">삭제하기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="${ viewURL}" name="PURCHASE_NO">장바구니에 있는 항목 바로 주문</a></h4>
 </div>
+
+
+
 
 </div>
 </body>
